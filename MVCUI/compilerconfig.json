@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Content/My_style/_MainCss.css",
+    "inputFile": "Content/My_style/_MainCss.less"
+  },
+  {
+    "outputFile": "Content/My_style/Reset_Css_Persian.css",
+    "inputFile": "Content/My_style/Reset_Css_Persian.less"
+  }
+]

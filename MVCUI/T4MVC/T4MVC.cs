@@ -27,7 +27,10 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    public static MVCUI.Controllers._SharedItemController _SharedItem = new MVCUI.Controllers.T4MVC__SharedItemController();
+    public static MVCUI.Controllers.CreateMetaTagController CreateMetaTag = new MVCUI.Controllers.T4MVC_CreateMetaTagController();
     public static MVCUI.Controllers.HomeController Home = new MVCUI.Controllers.T4MVC_HomeController();
+    public static MVCUI.Controllers.UserController User = new MVCUI.Controllers.T4MVC_UserController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -45,6 +48,19 @@ namespace T4MVC
     }
 }
 
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_PartialViewResult : System.Web.Mvc.PartialViewResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_PartialViewResult(string area, string controller, string action, string protocol = null): base()
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.ActionResult, IT4MVCActionResult
 {
@@ -1077,9 +1093,6 @@ namespace Links
         public static readonly string cloud_zoom_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/cloud-zoom.min.js") ? Url("cloud-zoom.min.js") : Url("cloud-zoom.js");
         public static readonly string fileinput_min_js = Url("fileinput.min.js");
         public static readonly string jquery_1_10_2_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.10.2.intellisense.min.js") ? Url("jquery-1.10.2.intellisense.min.js") : Url("jquery-1.10.2.intellisense.js");
-        public static readonly string jquery_1_10_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.10.2.min.js") ? Url("jquery-1.10.2.min.js") : Url("jquery-1.10.2.js");
-        public static readonly string jquery_1_10_2_min_js = Url("jquery-1.10.2.min.js");
-        public static readonly string jquery_1_10_2_min_map = Url("jquery-1.10.2.min.map");
         public static readonly string jquery_2_2_4_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.2.4.intellisense.min.js") ? Url("jquery-2.2.4.intellisense.min.js") : Url("jquery-2.2.4.intellisense.js");
         public static readonly string jquery_2_2_4_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.2.4.min.js") ? Url("jquery-2.2.4.min.js") : Url("jquery-2.2.4.js");
         public static readonly string jquery_2_2_4_min_js = Url("jquery-2.2.4.min.js");
@@ -1110,6 +1123,13 @@ namespace Links
             private const string URLPATH = "~/Scripts/MyScripts";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string addToCart_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCart-plugin.min.js") ? Url("addToCart-plugin.min.js") : Url("addToCart-plugin.js");
+            public static readonly string addToCompareList_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCompareList-plugin.min.js") ? Url("addToCompareList-plugin.min.js") : Url("addToCompareList-plugin.js");
+            public static readonly string addToWishList_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToWishList-plugin.min.js") ? Url("addToWishList-plugin.min.js") : Url("addToWishList-plugin.js");
+            public static readonly string admin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/admin.min.js") ? Url("admin.min.js") : Url("admin.js");
+            public static readonly string customer_actions_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/customer-actions.min.js") ? Url("customer-actions.min.js") : Url("customer-actions.js");
+            public static readonly string sb_admin_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sb-admin-2.min.js") ? Url("sb-admin-2.min.js") : Url("sb-admin-2.js");
+            public static readonly string site_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.js") ? Url("site.min.js") : Url("site.js");
         }
     
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -1236,6 +1256,7 @@ namespace Links
             public static readonly string default_jpg = Url("default.jpg");
         }
     
+        public static readonly string bootstrap_rtl_min_css = Url("bootstrap-rtl.min.css");
         public static readonly string bootstrap_select_min_css = Url("bootstrap-select.min.css");
         public static readonly string bootstrap_theme_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-theme.min.css") ? Url("bootstrap-theme.min.css") : Url("bootstrap-theme.css");
         public static readonly string bootstrap_theme_css_map = Url("bootstrap-theme.css.map");
@@ -1246,12 +1267,53 @@ namespace Links
         public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
         public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
         public static readonly string cloud_zoom_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/cloud-zoom.min.css") ? Url("cloud-zoom.min.css") : Url("cloud-zoom.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class favicon {
+            private const string URLPATH = "~/Content/favicon";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string favicon_ico = Url("favicon.ico");
+        }
+    
         public static readonly string fileinput_min_css = Url("fileinput.min.css");
         public static readonly string font_awesome_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/font-awesome.min.css") ? Url("font-awesome.min.css") : Url("font-awesome.css");
         public static readonly string font_awesome_min_css = Url("font-awesome.min.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class Image {
+            private const string URLPATH = "~/Content/Image";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string _1_jpg = Url("1.jpg");
+            public static readonly string _11_png = Url("11.png");
+            public static readonly string _12_png = Url("12.png");
+            public static readonly string _13_png = Url("13.png");
+            public static readonly string adc10615ba4f693ae3ac87186a0cd87f_jpg = Url("adc10615ba4f693ae3ac87186a0cd87f.jpg");
+            public static readonly string banks_logo_png = Url("banks-logo.png");
+            public static readonly string banner5_jpg = Url("banner5.jpg");
+            public static readonly string banner55_jpg = Url("banner55.jpg");
+            public static readonly string bg_direction_nav_png = Url("bg_direction_nav.png");
+            public static readonly string greyshaded_png = Url("greyshaded.png");
+            public static readonly string greyshaded1_png = Url("greyshaded1.png");
+            public static readonly string iran_flag_32_png = Url("iran_flag_32.png");
+            public static readonly string logo_1401273770_86180_1411562528__88042_png = Url("logo_1401273770_86180_1411562528__88042.png");
+            public static readonly string scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg = Url("scaleBlue Challenge by Adidas Aftershave 100ml.jpg");
+        }
+    
         public static readonly string jquery_autocomplete_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.autocomplete.min.css") ? Url("jquery.autocomplete.min.css") : Url("jquery.autocomplete.css");
         public static readonly string master_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/master.min.css") ? Url("master.min.css") : Url("master.css");
-        public static readonly string mycss_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mycss.min.css") ? Url("mycss.min.css") : Url("mycss.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class My_style {
+            private const string URLPATH = "~/Content/My_style";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string _MainCss_less = Url("_MainCss.less");
+            public static readonly string _MainCss_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_MainCss.min.css") ? Url("_MainCss.min.css") : Url("_MainCss.css");
+            public static readonly string _MainCss_min_css = Url("_MainCss.min.css");
+            public static readonly string Reset_Css_Persian_less = Url("Reset_Css_Persian.less");
+            public static readonly string Reset_Css_Persian_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Reset_Css_Persian.min.css") ? Url("Reset_Css_Persian.min.css") : Url("Reset_Css_Persian.css");
+            public static readonly string Reset_Css_Persian_min_css = Url("Reset_Css_Persian.min.css");
+        }
+    
         public static readonly string PagedList_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/PagedList.min.css") ? Url("PagedList.min.css") : Url("PagedList.css");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class plugins {
@@ -1294,6 +1356,13 @@ namespace Links
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class _SharedItem {
+            private const string URLPATH = "~/Views/_SharedItem";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class Home {
             private const string URLPATH = "~/Views/Home";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
@@ -1319,6 +1388,13 @@ namespace Links
                 public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             }
         
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class User {
+            private const string URLPATH = "~/Views/User";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
         }
     
         public static readonly string web_config = Url("web.config");
@@ -2153,6 +2229,13 @@ namespace Links
             {
                 public static class Assets
                 {
+                    public const string addToCart_plugin_js = "~/Scripts/MyScripts/addToCart-plugin.js"; 
+                    public const string addToCompareList_plugin_js = "~/Scripts/MyScripts/addToCompareList-plugin.js"; 
+                    public const string addToWishList_plugin_js = "~/Scripts/MyScripts/addToWishList-plugin.js"; 
+                    public const string admin_js = "~/Scripts/MyScripts/admin.js"; 
+                    public const string customer_actions_js = "~/Scripts/MyScripts/customer-actions.js"; 
+                    public const string sb_admin_2_js = "~/Scripts/MyScripts/sb-admin-2.js"; 
+                    public const string site_js = "~/Scripts/MyScripts/site.js"; 
                 }
             }
             public static partial class noty 
@@ -2252,8 +2335,6 @@ namespace Links
                 public const string cloud_zoom_js = "~/Scripts/cloud-zoom.js"; 
                 public const string fileinput_min_js = "~/Scripts/fileinput.min.js"; 
                 public const string jquery_1_10_2_intellisense_js = "~/Scripts/jquery-1.10.2.intellisense.js"; 
-                public const string jquery_1_10_2_js = "~/Scripts/jquery-1.10.2.js"; 
-                public const string jquery_1_10_2_min_js = "~/Scripts/jquery-1.10.2.min.js"; 
                 public const string jquery_2_2_4_intellisense_js = "~/Scripts/jquery-2.2.4.intellisense.js"; 
                 public const string jquery_2_2_4_js = "~/Scripts/jquery-2.2.4.js"; 
                 public const string jquery_2_2_4_min_js = "~/Scripts/jquery-2.2.4.min.js"; 
@@ -2297,6 +2378,24 @@ namespace Links
                 {
                 }
             }
+            public static partial class favicon 
+            {
+                public static class Assets
+                {
+                }
+            }
+            public static partial class Image 
+            {
+                public static class Assets
+                {
+                }
+            }
+            public static partial class My_style 
+            {
+                public static class Assets
+                {
+                }
+            }
             public static partial class plugins 
             {
                 public static partial class metisMenu 
@@ -2319,6 +2418,7 @@ namespace Links
             {
                 public const string animate_css = "~/Content/animate.css";
                 public const string animate_min_css = "~/Content/animate.min.css";
+                public const string bootstrap_rtl_min_css = "~/Content/bootstrap-rtl.min.css";
                 public const string bootstrap_select_min_css = "~/Content/bootstrap-select.min.css";
                 public const string bootstrap_theme_css = "~/Content/bootstrap-theme.css";
                 public const string bootstrap_theme_min_css = "~/Content/bootstrap-theme.min.css";
@@ -2330,7 +2430,6 @@ namespace Links
                 public const string font_awesome_min_css = "~/Content/font-awesome.min.css";
                 public const string jquery_autocomplete_css = "~/Content/jquery.autocomplete.css";
                 public const string master_css = "~/Content/master.css";
-                public const string mycss_css = "~/Content/mycss.css";
                 public const string PagedList_css = "~/Content/PagedList.css";
                 public const string product_style_common_css = "~/Content/product-style-common.css";
                 public const string product_style_css = "~/Content/product-style.css";
@@ -2349,6 +2448,12 @@ namespace Links
         }
         public static partial class Views 
         {
+            public static partial class _SharedItem 
+            {
+                public static class Assets
+                {
+                }
+            }
             public static partial class Home 
             {
                 public static class Assets
@@ -2369,6 +2474,12 @@ namespace Links
                     {
                     }
                 }
+                public static class Assets
+                {
+                }
+            }
+            public static partial class User 
+            {
                 public static class Assets
                 {
                 }

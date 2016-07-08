@@ -154,6 +154,5 @@ namespace MVCUI.Helpers
         }
 
         #endregion
-
     }
 }

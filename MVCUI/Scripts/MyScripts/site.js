@@ -164,6 +164,8 @@ RegisterForm.onError = function () {
         }
     });
 };
+
+/*###################      HOME RATING STAR     #################*/
 var Home = new Object();
 Home.RatingAndSlider = function () {
     if ($.cookie('totalInCart') != null)

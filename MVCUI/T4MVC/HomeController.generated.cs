@@ -28,9 +28,6 @@ namespace MVCUI.Controllers
     public partial class HomeController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public HomeController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected HomeController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -95,8 +92,12 @@ namespace MVCUI.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _feature = "_feature";
+                public readonly string _Slider = "_Slider";
                 public readonly string Index = "Index";
             }
+            public readonly string _feature = "~/Views/Home/_feature.cshtml";
+            public readonly string _Slider = "~/Views/Home/_Slider.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
         }
     }

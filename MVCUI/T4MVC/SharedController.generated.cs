@@ -38,9 +38,17 @@ namespace T4MVC
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _Footer_Partial = "_Footer_Partial";
                 public readonly string _Layout = "_Layout";
+                public readonly string _scroll_up = "_scroll_up";
+                public readonly string _subscribe = "_subscribe";
+                public readonly string MetaTag = "MetaTag";
             }
+            public readonly string _Footer_Partial = "~/Views/Shared/_Footer_Partial.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
+            public readonly string _scroll_up = "~/Views/Shared/_scroll_up.cshtml";
+            public readonly string _subscribe = "~/Views/Shared/_subscribe.cshtml";
+            public readonly string MetaTag = "~/Views/Shared/MetaTag.cshtml";
             static readonly _DisplayTemplatesClass s_DisplayTemplates = new _DisplayTemplatesClass();
             public _DisplayTemplatesClass DisplayTemplates { get { return s_DisplayTemplates; } }
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -60,7 +68,7 @@ namespace T4MVC
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
             public partial class _EditorTemplatesClass
             {
-                public readonly string Html = "Html";
+                public readonly string TextArea = "TextArea";
             }
         }
     }

@@ -1,0 +1,11 @@
+﻿
+<title>@ViewBag.Title</title>
+@if (!string.IsNullOrEmpty(ViewBag.KeyWords))
+{
+    <meta name="keywords" content="@ViewBag.KeyWords" />
+}
+@if (!string.IsNullOrEmpty(ViewBag.Description))
+{
+    <meta name="description" content="@ViewBag.Description" />
+}
+

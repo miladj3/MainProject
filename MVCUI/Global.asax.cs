@@ -5,6 +5,7 @@ using MVCUI.App_Start;
 using MVCUI.Searching;
 using ServiceLayer.Interfaces;
 using StackExchange.Profiling;
+using StackExchange.Profiling.EntityFramework6;
 using StructureMap.Web.Pipeline;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Principal;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -23,22 +25,33 @@ namespace MVCUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        #region Begin_start
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsLocal)
+                MiniProfiler.Start();
+        }
+        #endregion
+
         #region Application_Start
         protected void Application_Start()
         {
             try
             {
+                //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
                 FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
                 AreaRegistration.RegisterAllAreas();
+                GlobalConfiguration.Configure(WebApiConfig.Register);
                 RouteConfig.RegisterRoutes(RouteTable.Routes);
                 BundleConfig.RegisterBundles(BundleTable.Bundles);
-
                 MvcHandler.DisableMvcResponseHeader = true;
                 ViewEngines.Engines.Clear();
                 ViewEngines.Engines.Add(new RazorViewEngine());
                 CaptchaUtils.CaptchaManager.StorageProvider = new CookieStorageProvider();
                 ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
-              //  SetDbInitializer();
+                //  SetDbInitializer();
+                MiniProfilerEF6.Initialize();
                 //LuceneProducts.CreateIndexes(SampleObjectFactory.Container.GetInstance<IProductService>().GetAllForAddLucene());
             }
             catch 
@@ -103,6 +116,7 @@ namespace MVCUI
             {
                 if (controllerType == null)
                 {
+                    //TODO: CHECK
                     //var url = requestContext.HttpContext.Request.RawUrl;
                     ////string.Format("Page not found: {0}", url).LogException();
 

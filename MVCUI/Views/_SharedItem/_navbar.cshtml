@@ -1,0 +1,103 @@
+﻿<div id="m-container-header-first-child">
+    <ul>
+        <!-- #region Shopping Cart -->
+        <li id="m-cart-item" title="سبد خرید">
+            @if (Request.IsAuthenticated)
+            {
+                <em>(سبد خرید<bdi class="number_persian" id="shoppingCart">0</bdi>)</em>
+                <i class="fa fa-shopping-cart"></i>
+            }
+            else
+            {
+                <em>(سبد خرید<bdi class="number_persian">0</bdi>)</em>
+                <i class="fa fa-shopping-cart"></i>
+            }
+            <div id="m-cart-info">
+                <p>محصولات انتخاب شده</p>
+                <ul>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- #endregion -->
+        <!-- #region Whish List -->
+        <li id="m-whishlist">
+            <em>محصولات پسندیده</em>
+            <i class="fa fa-heart"></i>
+        </li>
+        <!-- #endregion -->
+        <!-- #region Compare -->
+        <li id="m-compare">
+            <em>مقایسه کالا</em>
+            <i class="fa fa-compress"></i>
+            <div id="m-container-popup-menu">
+                <p>لیست مقایسه کالاها</p>
+                <ul>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                    <li>
+                        <i class="fa fa-times"></i>
+                        <strong>کرم بعد اصلاح ادیداس</strong>
+                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <!-- #endregion -->
+        <!-- #region USER -->
+        @if (Request.IsAuthenticated)
+        {
+            <li id="m-account">
+                <em>حساب کاربری</em>
+                <i class="fa fa-user"></i>
+            </li>
+        }
+        else
+        {
+            <li id="m-login">
+                <em>
+                    @Html.ActionLink("ورود کاربری", MVC.User.Login(ViewBag.returnUrl as String), MVC.User.Name)
+                </em>
+                <i class="fa fa-key"></i>
+            </li>
+            <li id="m-register">
+                <em>ثبت نام</em>
+                <i class="fa fa-user"></i>
+            </li>
+        }
+        <!-- #endregion -->
+    </ul>
+    <ul>
+        <li id="m-unit-money">
+            <i class="fa fa-caret-down"></i>
+            <em>ریال</em>
+            <img src="@Links.Content.Image.iran_flag_32_png" alt="ریال" />
+        </li>
+        <li id="m-phone-number">
+            <em class="number_persian">098-91234567</em>
+            <i class="fa fa-phone"></i>
+        </li>
+    </ul>
+</div>

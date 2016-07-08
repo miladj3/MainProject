@@ -13,15 +13,9 @@ namespace MVCUI.App_Start
         {
             bundles.IgnoreList.Clear();
             BundleTable.Bundles.UseCdn = true;
-            BundleTable.EnableOptimizations = false;
+            //TODO: after enable this , remove tag  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+            BundleTable.EnableOptimizations = false;  
             bundles.UseCdn = true;
-
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-               "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery.unobtrusive-ajax.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/admin/js").Include(
                 "~/Scripts/MyScripts/admin.js",
@@ -40,9 +34,6 @@ namespace MVCUI.App_Start
                 "~/Scripts/noty/jquery.noty.js",
                 "~/Scripts/respond.js"
                 ));
-
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/masterjs").Include(
                 "~/Scripts/MyScripts/site.js",
@@ -76,7 +67,6 @@ namespace MVCUI.App_Start
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/master.css",
                 "~/Content/slideshow.css",
-                "~/Content/mycss.css",
                 "~/Content/cloud-zoom.css",
                 "~/Content/slider-pro.min.css",
                 "~/Content/star-rating.min.css",
@@ -92,15 +82,13 @@ namespace MVCUI.App_Start
 
             bundles.Add(new StyleBundle("~/adminContent/css").Include(
                "~/Content/bootstrap.min.css",
-               "~/Content/mycss.css",
                "~/Content/bootstrap-select.min.css",
                 "~/Content/sweet-alert.css",
                 "~/Content/animate.min.css",
                 "~/Content/plugins/metisMenu/metisMenu.min.css",
                 "~/Content/plugins/timeline.css",
                 "~/Content/sb-admin-2.css",
-                "~/Content/plugins/morris.css",
-                "~/Content/font-awesome.min.css"
+                "~/Content/plugins/morris.css"
                 ));
 
 
@@ -110,15 +98,30 @@ namespace MVCUI.App_Start
             bundles.Add(new ScriptBundle("~/editor/js").Include(
                "~/Scripts/ckeditor/ckeditor.js"));
 
+            //############# Main Js 
 
-            //var jqueryBundle = new ScriptBundle("~/scripts/jquery",
-            //    "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js")
-            //{
-            //    CdnFallbackExpression = "window.jquery"
-            //}.Include("~/Scripts/jquery-{version}.js");
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.Modernizer).Include(
+              "~/Scripts/modernizr-*"));
+            
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.JqueryVal)
+                .Include("~/Scripts/jquery.validate*")
+                .Include("~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
-            //var fontAwsome = new StyleBundle("~/fonts", "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css").Include("~/Content/font-awesome.min.css");
-            //bundles.Add(fontAwsome);
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.Jquery,
+                "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js")
+            {
+                CdnFallbackExpression = "window.jquery"
+            }.Include("~/Scripts/jquery-{version}.js"));
+
+            //############# Main Style
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.MainCss_Css)
+                .Include("~/Content/My_style/Reset_Css_Persian.min.css")
+                .Include("~/Content/My_style/_MainCss.min.css"));
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.fonts,
+               "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+               .Include("~/Content/font-awesome.min.css"));
         }
     }
 }

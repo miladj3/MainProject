@@ -1,0 +1,23 @@
+﻿<div id="m-header-search">
+    <div id="m-btn-toggle-search-box"><i class="fa fa-search"></i></div>
+    <div id="m-container-search">
+        @using (Ajax.BeginForm(new AjaxOptions { }))
+            {
+            @Html.AntiForgeryToken()
+            <label style="display:none">جستجو</label>
+                        @Html.TextBox("name", null, htmlAttributes: new
+                   {
+                       id = "m-text-box-search",
+                       placeholder = "جستجو",
+                       @reqiured = "required",
+                       type = "search"
+                   })
+                        <button type="submit" id="m-submit-search"><i class="fa fa-search"></i></button>
+        }
+    </div>
+    <div id="m-container-img-brand">
+        <img src="@Links.Content.Image.logo_1401273770_86180_1411562528__88042_png" />
+    </div>
+    <div id="m-toggle-menu"><i class="fa fa-bars"></i></div>
+</div>
+

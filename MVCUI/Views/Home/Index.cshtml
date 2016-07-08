@@ -1,7 +1,8 @@
 ﻿
 @{
+    Layout = MVC.Shared.Views._Layout;
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+@{ Html.RenderPartial(MVC.Home.Views._Slider); }
+@{ Html.RenderPartial(MVC.Home.Views._feature); }

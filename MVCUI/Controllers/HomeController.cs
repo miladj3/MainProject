@@ -21,19 +21,16 @@ namespace MVCUI.Controllers
         private readonly IPageService _page;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ISettingService _setting;
-        private readonly ICategoryService _category;
         #endregion
 
         #region Constructor
         public HomeController(IUnitOfWork unitOfWork,
-                                            ICategoryService categoryService,
                                             IPageService pageService, 
                                             ISlideShowService slideShowService, 
                                             ISettingService settingService,
                                              IProductService productService)
         {
             _unitOfWork = unitOfWork;
-            _category = categoryService;
             _page = pageService;
             _slideShow = slideShowService;
             _product = productService;
