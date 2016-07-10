@@ -15,11 +15,11 @@
     <!--<Area></Area>-->
   </PortableAreas>
   <!--Name of folder in your project root that follows the FeatureFolder convention (controllers and views are placed within the same folder)-->
-  <FeatureFolderRootArea>Features</FeatureFolderRootArea>
+  <!--<FeatureFolderRootArea></FeatureFolderRootArea>-->
   <!--Names of areas which follow the FeatureFolder convention (controllers and views are placed within the same folder).
 Use <Area>*</Area> if you only use Areas with FeatureFolders-->
   <FeatureFolderAreas>
-    <Area>FeatureFolderArea</Area>
+    <!--<Area></Area>-->
   </FeatureFolderAreas>
   <!--Choose whether you want to include an 'Areas' token when referring to areas.
 e.g. Assume the Area is called Blog and the Controller is Post:
@@ -57,10 +57,9 @@ See http://mvccontrib.codeplex.com/workitem/7163 for potential issues with this 
   <StaticFilesFolders>
     <FileFolder>Scripts</FileFolder>
     <FileFolder>Content</FileFolder>
-    <FileFolder>ContentStatic\TextFiles</FileFolder>
   </StaticFilesFolders>
   <!--If true, static file helpers are generated for all view folders. See https://t4mvc.codeplex.com/discussions/445358-->
-  <AddAllViewsFoldersToStaticFilesFolders>True</AddAllViewsFoldersToStaticFilesFolders>
+  <AddAllViewsFoldersToStaticFilesFolders>False</AddAllViewsFoldersToStaticFilesFolders>
   <!--Static files to exclude from the generated links-->
   <ExcludedStaticFileExtensions>
     <Extension>.cs</Extension>

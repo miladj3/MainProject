@@ -20,8 +20,7 @@ namespace MVCUI
 
             routes.LowercaseUrls = true;
             routes.MapMvcAttributeRoutes();
-
-            AreaRegistration.RegisterAllAreas();
+            
 
             routes.MapRoute(
                 name: "Default",

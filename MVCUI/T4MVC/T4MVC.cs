@@ -27,6 +27,8 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    static readonly AdminClass s_Admin = new AdminClass();
+    public static AdminClass Admin { get { return s_Admin; } }
     public static MVCUI.Controllers._SharedItemController _SharedItem = new MVCUI.Controllers.T4MVC__SharedItemController();
     public static MVCUI.Controllers.CreateMetaTagController CreateMetaTag = new MVCUI.Controllers.T4MVC_CreateMetaTagController();
     public static MVCUI.Controllers.HomeController Home = new MVCUI.Controllers.T4MVC_HomeController();
@@ -36,6 +38,13 @@ public static partial class MVC
 
 namespace T4MVC
 {
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class AdminClass
+    {
+        public readonly string Name = "Admin";
+        public MVCUI.Areas.Admin.Controllers.HomeController Home = new MVCUI.Areas.Admin.Controllers.T4MVC_HomeController();
+        public T4MVC.Admin.SharedController Shared = new T4MVC.Admin.SharedController();
+    }
 }
 
 namespace T4MVC
@@ -1350,56 +1359,6 @@ namespace Links
         public static readonly string user_panel_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/user-panel.min.css") ? Url("user-panel.min.css") : Url("user-panel.css");
     }
 
-    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public static class Views {
-        private const string URLPATH = "~/Views";
-        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class _SharedItem {
-            private const string URLPATH = "~/Views/_SharedItem";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        }
-    
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class Home {
-            private const string URLPATH = "~/Views/Home";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        }
-    
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class Shared {
-            private const string URLPATH = "~/Views/Shared";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class DisplayTemplates {
-                private const string URLPATH = "~/Views/Shared/DisplayTemplates";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class EditorTemplates {
-                private const string URLPATH = "~/Views/Shared/EditorTemplates";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            }
-        
-        }
-    
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class User {
-            private const string URLPATH = "~/Views/User";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        }
-    
-        public static readonly string web_config = Url("web.config");
-    }
-
     
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
     public static partial class Bundles
@@ -2444,48 +2403,6 @@ namespace Links
                 public const string style_css = "~/Content/style.css";
                 public const string sweet_alert_css = "~/Content/sweet-alert.css";
                 public const string user_panel_css = "~/Content/user-panel.css";
-            }
-        }
-        public static partial class Views 
-        {
-            public static partial class _SharedItem 
-            {
-                public static class Assets
-                {
-                }
-            }
-            public static partial class Home 
-            {
-                public static class Assets
-                {
-                }
-            }
-            public static partial class Shared 
-            {
-                public static partial class DisplayTemplates 
-                {
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class EditorTemplates 
-                {
-                    public static class Assets
-                    {
-                    }
-                }
-                public static class Assets
-                {
-                }
-            }
-            public static partial class User 
-            {
-                public static class Assets
-                {
-                }
-            }
-            public static class Assets
-            {
             }
         }
     }

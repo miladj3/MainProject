@@ -12,12 +12,14 @@ namespace Links
         {
             public static readonly String MainCss_Css= "~/MainCss/Css";
             public static readonly String fonts = "~/fonts";
+            public static readonly String StyleOfAdminLayout = "~/adminContent/css";
         }
         public static class Scripts
         {
             public static readonly String Modernizer = "~/bundles/modernizr";
             public static readonly String Jquery = "~/scripts/jquery";
             public static readonly String JqueryVal = "~/bundles/jqueryval";
+            public static readonly String JsForAdminLayout = "~/admin/js";
 
         }
         public static class RenderSection

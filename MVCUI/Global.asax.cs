@@ -39,9 +39,9 @@ namespace MVCUI
         {
             try
             {
-                //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
-                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+                //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize(); 
                 AreaRegistration.RegisterAllAreas();
+                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
                 GlobalConfiguration.Configure(WebApiConfig.Register);
                 RouteConfig.RegisterRoutes(RouteTable.Routes);
                 BundleConfig.RegisterBundles(BundleTable.Bundles);

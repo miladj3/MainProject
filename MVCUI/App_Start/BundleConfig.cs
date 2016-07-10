@@ -17,23 +17,7 @@ namespace MVCUI.App_Start
             BundleTable.EnableOptimizations = false;  
             bundles.UseCdn = true;
 
-            bundles.Add(new ScriptBundle("~/admin/js").Include(
-                "~/Scripts/MyScripts/admin.js",
-                "~/Scripts/MyScripts/site.js",
-                "~/Scripts/lazysizes.min.js",
-                "~/Scripts/jquery-MVC-RemoveRow.js",
-                 "~/Scripts/sweet-alert.min.js",
-                "~/Scripts/json2.js",
-                "~/Scripts/plugins/metisMenu/metisMenu.min.js",
-               "~/Scripts/MyScripts/sb-admin-2.js",
-                "~/Scripts/bootstrap.min.js",
-                "~/Scripts/star-rating.min.js",
-                "~/Scripts/jquery.sliderPro.min.js",
-                "~/Scripts/bootstrap-select.min.js",
-                "~/Scripts/noty/packaged/jquery.noty.packaged.min.js",
-                "~/Scripts/noty/jquery.noty.js",
-                "~/Scripts/respond.js"
-                ));
+          
 
             bundles.Add(new ScriptBundle("~/bundles/masterjs").Include(
                 "~/Scripts/MyScripts/site.js",
@@ -79,18 +63,7 @@ namespace MVCUI.App_Start
 
             bundles.Add(new StyleBundle("~/Search/css").Include(
                 "~/Content/search.css"));
-
-            bundles.Add(new StyleBundle("~/adminContent/css").Include(
-               "~/Content/bootstrap.min.css",
-               "~/Content/bootstrap-select.min.css",
-                "~/Content/sweet-alert.css",
-                "~/Content/animate.min.css",
-                "~/Content/plugins/metisMenu/metisMenu.min.css",
-                "~/Content/plugins/timeline.css",
-                "~/Content/sb-admin-2.css",
-                "~/Content/plugins/morris.css"
-                ));
-
+            
 
             bundles.Add(new StyleBundle("~/editor/css").Include(
              "~/Scripts/ckeditor/contents.css"
@@ -122,6 +95,37 @@ namespace MVCUI.App_Start
             bundles.Add(new StyleBundle(Links.BundleExtension.Style.fonts,
                "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
                .Include("~/Content/font-awesome.min.css"));
+
+            //############## Style & Js Admin Layout
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.StyleOfAdminLayout).Include(
+               "~/Content/bootstrap.min.css",
+               "~/Content/bootstrap-select.min.css",
+                "~/Content/sweet-alert.css",
+                "~/Content/animate.min.css",
+                "~/Content/plugins/metisMenu/metisMenu.min.css",
+                "~/Content/plugins/timeline.css",
+                "~/Content/sb-admin-2.css",
+                "~/Content/plugins/morris.css"
+                ));
+
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.JsForAdminLayout).Include(
+              "~/Scripts/MyScripts/admin.js",
+              "~/Scripts/MyScripts/site.js",
+              "~/Scripts/lazysizes.min.js",
+              "~/Scripts/jquery-MVC-RemoveRow.js",
+               "~/Scripts/sweet-alert.min.js",
+              "~/Scripts/json2.js",
+              "~/Scripts/plugins/metisMenu/metisMenu.min.js",
+             "~/Scripts/MyScripts/sb-admin-2.js",
+              "~/Scripts/bootstrap.min.js",
+              "~/Scripts/star-rating.min.js",
+              "~/Scripts/jquery.sliderPro.min.js",
+              "~/Scripts/bootstrap-select.min.js",
+              "~/Scripts/noty/packaged/jquery.noty.packaged.min.js",
+              "~/Scripts/noty/jquery.noty.js",
+              "~/Scripts/respond.js"
+              ));
         }
     }
 }

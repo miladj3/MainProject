@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using StackExchange.Profiling;
+<!DOCTYPE html>
 <html lang="fa">
 <head>
     <!-- #region Meta Tag -->
@@ -63,5 +64,6 @@
 
     @RenderSection(Links.BundleExtension.RenderSection.ScriptsSection, false)
     <!-- #endregion -->
+    @MiniProfiler.RenderIncludes()
 </body>
 </html>

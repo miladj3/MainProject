@@ -20,7 +20,7 @@ namespace MVCUI.Helpers
         #endregion
 
         #region MetaTang
-        private const String faviconPath = "~/cdn/ui/favicon.ico";
+        private const String faviconPath = "~/favicon.ico";
 
         public static String GenerateMetaTag(String title,
             String description,

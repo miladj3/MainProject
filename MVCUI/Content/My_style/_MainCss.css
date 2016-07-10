@@ -17,6 +17,9 @@
   font-weight: normal;
   font-style: normal;
 }
+button {
+  outline: none !important;
+}
 ::selection {
   -moz-user-select: none;
   -ms-user-select: none;
@@ -635,6 +638,7 @@ body {
   margin: 5px;
   min-width: 201px;
   padding: 0 !important;
+  padding-right: 9px !important;
 }
 #m-subscribe div button[type="submit"] {
   border: none;
@@ -853,6 +857,227 @@ body {
   color: #F7527D;
   padding: 5px;
   font-size: 1.7em;
+}
+#login_section,
+#register_section {
+  padding: 10px 80px;
+  min-height: 427px;
+}
+#login_section #breadcrump,
+#register_section #breadcrump {
+  font-family: 'IRAN-sans';
+  color: #565555;
+  opacity: .6;
+  cursor: pointer;
+  margin: 2px 0 15px 0;
+  font-size: .9rem;
+}
+#login_section #_login00 > div,
+#register_section #_login00 > div {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+  padding: 16px 5px;
+  box-sizing: border-box;
+}
+#login_section #_login00 b,
+#register_section #_login00 b {
+  font-family: 'IRAN-sans';
+  font-size: 1.2rem;
+  color: #F7527D;
+  font-weight: bold;
+  display: block;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #EEEEEE;
+}
+#login_section #_login00 strong,
+#register_section #_login00 strong {
+  font-size: 1.1rem;
+  color: #565555;
+  padding: 0px 0px 22px 0;
+  display: inline-block;
+  font-family: 'IRAN-sans';
+}
+#login_section #_login00 #section_register p,
+#register_section #_login00 #section_register p {
+  font-family: 'IRAN-sans';
+  font-size: .8rem;
+}
+#login_section #_login00 #section_register ol,
+#register_section #_login00 #section_register ol {
+  list-style: initial;
+  margin-right: 28px;
+  margin-top: 20px;
+  margin-bottom: 36px;
+}
+#login_section #_login00 #section_register ol li,
+#register_section #_login00 #section_register ol li {
+  font-family: 'IRAN-sans';
+  font-size: .8rem;
+  color: #BBB1B1;
+  padding-top: 6px;
+}
+#login_section #_login00 #section_register a,
+#register_section #_login00 #section_register a,
+#login_section #_login00 #section_register a:link,
+#register_section #_login00 #section_register a:link,
+#login_section #_login00 #section_register a:active,
+#register_section #_login00 #section_register a:active,
+#login_section #_login00 #section_register a:visited,
+#register_section #_login00 #section_register a:visited {
+  background-color: #F7527D;
+  font-size: .8em;
+  font-family: 'IRAN-sans';
+  text-decoration: none;
+  color: #fff;
+  padding: 7px 17px;
+  -moz-transition: 0.3s ease-out background-color;
+  -o-transition: 0.3s ease-out background-color;
+  -webkit-transition: 0.3s ease-out background-color;
+  transition: 0.3s ease-out background-color;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+#login_section #_login00 #section_register a:focus,
+#register_section #_login00 #section_register a:focus,
+#login_section #_login00 #section_register a:link:focus,
+#register_section #_login00 #section_register a:link:focus,
+#login_section #_login00 #section_register a:active:focus,
+#register_section #_login00 #section_register a:active:focus,
+#login_section #_login00 #section_register a:visited:focus,
+#register_section #_login00 #section_register a:visited:focus {
+  outline: none;
+}
+#login_section #_login00 #section_register a::after,
+#register_section #_login00 #section_register a::after,
+#login_section #_login00 #section_register a:link::after,
+#register_section #_login00 #section_register a:link::after,
+#login_section #_login00 #section_register a:active::after,
+#register_section #_login00 #section_register a:active::after,
+#login_section #_login00 #section_register a:visited::after,
+#register_section #_login00 #section_register a:visited::after {
+  display: none;
+}
+#login_section #_login00 #section_register a:hover,
+#register_section #_login00 #section_register a:hover,
+#login_section #_login00 #section_register a:link:hover,
+#register_section #_login00 #section_register a:link:hover,
+#login_section #_login00 #section_register a:active:hover,
+#register_section #_login00 #section_register a:active:hover,
+#login_section #_login00 #section_register a:visited:hover,
+#register_section #_login00 #section_register a:visited:hover {
+  background-color: #c5204b;
+}
+#login_section #_login00 #section_login strong,
+#register_section #_login00 #section_login strong {
+  padding-bottom: 5px;
+}
+#login_section #_login00 #section_login fieldset em,
+#register_section #_login00 #section_login fieldset em {
+  font-family: 'IRAN-sans';
+  color: red;
+  font-size: .76rem;
+}
+#login_section #_login00 #section_login fieldset div label,
+#register_section #_login00 #section_login fieldset div label {
+  font-family: 'IRAN-sans';
+  font-size: .8rem;
+  display: block;
+  margin: 8px 0;
+  color: #565555;
+}
+#login_section #_login00 #section_login fieldset div label:after,
+#register_section #_login00 #section_login fieldset div label:after {
+  content: ':';
+}
+#login_section #_login00 #section_login fieldset div a,
+#register_section #_login00 #section_login fieldset div a,
+#login_section #_login00 #section_login fieldset div a:link,
+#register_section #_login00 #section_login fieldset div a:link,
+#login_section #_login00 #section_login fieldset div a:active,
+#register_section #_login00 #section_login fieldset div a:active,
+#login_section #_login00 #section_login fieldset div a:visited,
+#register_section #_login00 #section_login fieldset div a:visited {
+  text-decoration: none;
+  font-family: 'IRAN-sans';
+  font-size: .7rem;
+  color: #BBB1B1;
+}
+#login_section #_login00 #section_login fieldset div a:before,
+#register_section #_login00 #section_login fieldset div a:before,
+#login_section #_login00 #section_login fieldset div a:link:before,
+#register_section #_login00 #section_login fieldset div a:link:before,
+#login_section #_login00 #section_login fieldset div a:active:before,
+#register_section #_login00 #section_login fieldset div a:active:before,
+#login_section #_login00 #section_login fieldset div a:visited:before,
+#register_section #_login00 #section_login fieldset div a:visited:before {
+  content: '';
+  display: block;
+}
+#login_section #_login00 #section_login fieldset div input[type=text],
+#register_section #_login00 #section_login fieldset div input[type=text],
+#login_section #_login00 #section_login fieldset div input[type=password],
+#register_section #_login00 #section_login fieldset div input[type=password],
+#login_section #_login00 #section_login fieldset div input[type=tel],
+#register_section #_login00 #section_login fieldset div input[type=tel],
+#login_section #_login00 #section_login fieldset div input[type=number],
+#register_section #_login00 #section_login fieldset div input[type=number] {
+  border: 1px solid #efefef;
+  padding: 10px 7px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Vazir';
+  color: #565555;
+}
+#login_section #_login00 #section_login fieldset div input[type=text]:focus,
+#register_section #_login00 #section_login fieldset div input[type=text]:focus,
+#login_section #_login00 #section_login fieldset div input[type=password]:focus,
+#register_section #_login00 #section_login fieldset div input[type=password]:focus,
+#login_section #_login00 #section_login fieldset div input[type=tel]:focus,
+#register_section #_login00 #section_login fieldset div input[type=tel]:focus,
+#login_section #_login00 #section_login fieldset div input[type=number]:focus,
+#register_section #_login00 #section_login fieldset div input[type=number]:focus {
+  outline: 1px solid #BBB1B1;
+}
+#login_section #_login00 #section_login fieldset div input[type=submit],
+#register_section #_login00 #section_login fieldset div input[type=submit] {
+  background-color: #F7527D;
+  font-size: .8em;
+  font-family: 'IRAN-sans';
+  text-decoration: none;
+  color: #fff;
+  padding: 7px 17px;
+  -moz-transition: 0.3s ease-out background-color;
+  -o-transition: 0.3s ease-out background-color;
+  -webkit-transition: 0.3s ease-out background-color;
+  transition: 0.3s ease-out background-color;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+#login_section #_login00 #section_login fieldset div input[type=submit]:focus,
+#register_section #_login00 #section_login fieldset div input[type=submit]:focus {
+  outline: none;
+}
+#login_section #_login00 #section_login fieldset div input[type=submit]::after,
+#register_section #_login00 #section_login fieldset div input[type=submit]::after {
+  display: none;
+}
+#login_section #_login00 #section_login fieldset div input[type=submit]:hover,
+#register_section #_login00 #section_login fieldset div input[type=submit]:hover {
+  background-color: #c5204b;
+}
+#login_section #_login00 #section_login fieldset div > div,
+#register_section #_login00 #section_login fieldset div > div {
+  margin: 10px 0;
+}
+#login_section #_login00 #section_login fieldset div > div span,
+#register_section #_login00 #section_login fieldset div > div span {
+  font-family: 'IRAN-sans';
+  color: red;
+  font-size: .76rem;
 }
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {

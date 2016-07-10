@@ -1,0 +1,52 @@
+﻿@model ViewModel.ViewModel.Admin.User.RegisterViewModel
+@{
+    Layout = MVC.Shared.Views._Layout;
+    ViewBag.Title = "Register";
+}
+<section id="register_section">
+    <p id="breadcrump">
+        خانه   >  .....  صفحه قبلی   >   صفحه ثبت نام
+    </p>
+    <div id="_login00">
+        <br />
+        <b>ایجاد حساب کاربری  یا ورود</b>
+        <div id="section_register">
+            <strong>ایجاد حساب کاربری</strong>
+            <p>با ایجاد حساب کاربری شما قادر خواهید بود که:</p>
+            <ol>
+                <li>دسترسی سریعتر به محصولات خود</li>
+                <li>ذخیره کردن آدرس های ارسال مختلف</li>
+                <li>دسترسی به تاریخچه خریدهای خود</li>
+                <li>پیگیری محصول ارسال شده</li>
+                <li>ذخیره کردن کالاهای محبوب</li>
+            </ol>
+            @Html.ActionLink("کلیک کنید و حساب کاربری خود را ایجاد نمائید.", MVC.User.ActionNames.Register, MVC.User.Name, htmlAttributes: new { id = "__link_reg" })
+        </div>
+        <div id="section_login">
+            <strong>ورود به حساب کاربری</strong>
+            @using (Html.BeginForm(MVC.User.ActionNames.Register, MVC.User.Name, FormMethod.Post, htmlAttributes: null))
+            {
+                <fieldset>
+                    <div>
+                        @Html.LabelFor(x => x.PhoneNumber, new { @class = "label_i" })
+                        @Html.TextBoxFor(x => x.PhoneNumber, new { @type = "number" })
+                        <div>
+                            @Html.ValidationMessageFor(x => x.PhoneNumber, String.Empty, new { @class = "error_i" })
+                        </div>
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.UserName, new { @class = "label_i" })
+                        @Html.TextBoxFor(x => x.UserName, new { @type = "password" })
+                        <div>
+                            @Html.ValidationMessageFor(x => x.UserName, String.Empty, new { @class = "error_i" })
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" value="ثبت نام" />
+                        @Html.ActionLink("رمز عبور خود را فراموش کردید؟", MVC.User.ActionNames.Register)
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</section>

@@ -79,12 +79,14 @@ namespace MVCUI.Controllers
         public class ActionNamesClass
         {
             public readonly string Login = "Login";
+            public readonly string Register = "Register";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Login = "Login";
+            public const string Register = "Register";
         }
 
 
@@ -107,8 +109,10 @@ namespace MVCUI.Controllers
             public class _ViewNamesClass
             {
                 public readonly string Login = "Login";
+                public readonly string Register = "Register";
             }
             public readonly string Login = "~/Views/User/Login.cshtml";
+            public readonly string Register = "~/Views/User/Register.cshtml";
         }
     }
 
@@ -127,6 +131,17 @@ namespace MVCUI.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "returnUrl", returnUrl);
             LoginOverride(callInfo, returnUrl);
             return callInfo;
+        }
+
+        [NonAction]
+        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Register()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
+            RegisterOverride(callInfo);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.ActionResult);
         }
 
     }

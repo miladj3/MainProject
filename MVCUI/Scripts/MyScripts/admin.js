@@ -19,7 +19,6 @@ Admin.OneImageUpload = function (inputId) {
         msgFilesTooMany: "شما قادر به ارسال 10 عدد فایل میباشید",
         msgSizeTooLarge: "شما قادر به ارسال 10 مگا بایت فایل میباشید",
         uploadIcon: '<i class="glyphicon glyphicon-upload"></i>'
-
     });
 };
 Admin.CkeditorToolbar = [
@@ -40,7 +39,6 @@ Admin.CkeditorToolbar = [
 ];
 
 Admin.HighLightMenu = function () {
-    
     $(document).ready(function () {
         $("#side-menu li > a").each(function () {
             var $a = $(this);

@@ -390,6 +390,10 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\My_style\_MainCss.less" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -838,7 +842,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
-    <Content Include="T4MVC\T4MVC.tt.settings.xml" />
+    <None Include="T4MVC\T4MVC.tt.settings.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -848,6 +852,8 @@
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\CreateMetaTagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -884,7 +890,12 @@
     <Compile Include="RSS\RtlHelper.cs" />
     <Compile Include="Searching\CorrectPersianForLucene.cs" />
     <Compile Include="Searching\LuceneProducts.cs" />
-    <Compile Include="T4MVC\BundleExtension.cs" />
+    <Compile Include="T4MVC\Admin.HomeController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.SharedController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\CreateMetaTagController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -899,6 +910,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="T4MVC\BundleExtension.cs" />
     <Compile Include="T4MVC\UserController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -918,7 +930,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <None Include="T4MVC\T4MVC.tt.hooks.t4" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -932,6 +943,8 @@
     <Content Include="Views\_SharedItem\_menu.cshtml" />
     <Content Include="Views\_SharedItem\_search.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <None Include="T4MVC\T4MVC.tt.hooks.t4" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -940,6 +953,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
