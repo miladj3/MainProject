@@ -1,0 +1,39 @@
+﻿@using ViewModel.ViewModel.Admin.ContactUs
+@model ContactUsViewModel
+
+@{
+    ViewBag.Title = "پیغام ها";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+<style>
+    span{
+        color:red;
+    }
+</style>
+<div id="show_message">
+    <p>
+        <span>@Html.DisplayNameFor(x => x.Type)</span>
+        @Html.DisplayTextFor(x => x.Type)
+    </p>
+    <p>
+        <span>@Html.DisplayNameFor(x=>x.Name)</span>
+        @Html.DisplayTextFor(x=>x.Name)
+    </p>
+    <p>
+        <span>@Html.DisplayNameFor(x => x.EmailOrPhone)</span>
+        @Html.DisplayTextFor(x => x.EmailOrPhone)
+    </p>
+    <p>
+        <span>@Html.DisplayNameFor(x => x.Date)</span>
+        @Model.Date.ToString(System.Globalization.CultureInfo.CreateSpecificCulture("fa-ir"))
+    </p>
+    <p>
+        <span>@Html.DisplayNameFor(x => x.Title)</span>
+        @Html.DisplayTextFor(x => x.Title)
+    </p>
+    <p>
+        <span>@Html.DisplayNameFor(x => x.Content)</span>
+        @Html.DisplayTextFor(x => x.Content)
+    </p>
+
+</div>

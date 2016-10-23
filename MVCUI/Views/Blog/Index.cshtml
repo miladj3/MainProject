@@ -1,0 +1,109 @@
+﻿@using ViewModel.ViewModel.Admin.Page
+@using MVCUI.Helpers
+@using PagedList
+@using PagedList.Mvc
+@using System.Text.RegularExpressions
+@model IEnumerable<PageViewModel>
+@{
+    Regex regex = new Regex("\\<[^\\>]*\\>");
+    ViewBag.Title = ViewBag.Title;
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = MVC.Shared.Views._Layout;
+    }
+}
+@section CSS{
+    @Styles.Render(Links.BundleExtension.Style.PagedStyleCss)
+}
+@section metatags{
+    <meta name="robots" content="index" />
+    <meta name="robots" content="follow" />
+}
+<div 
+     id="__blog_load_container">
+    <div id="__blog_page_container">
+        @foreach (PageViewModel item in Model)
+        {
+            <article class="__card_blog">
+                <section class="__text_blog_container">
+                    <h1>
+                        @Html.ActionLink(linkText: item.Title,
+                      actionName: MVC.Blog.ActionNames.blog,
+                      controllerName: MVC.Blog.Name,
+                      routeValues: new
+                      {
+                          id = item.Id,
+                          title = item.Title.GenerateSlug()
+                      },
+                      htmlAttributes: null)
+                    </h1>
+
+                    <div>
+                    <p>@Html.Raw(regex.Replace(item.Content.Substring(0, (item.Content.Count() > 500 ? 500 : item.Content.Count())), String.Empty)).......</p>
+                    </div>
+                </section>
+
+                <section class="__image_blog_container">
+                    <img src="@Url.Content(item.LinkImage)" alt="@item.Title" />
+                </section>
+
+                <span>
+                    <small>
+                        @Html.ActionLink(linkText: "ادامه مطلب",
+                      actionName: MVC.Blog.ActionNames.blog,
+                      controllerName: MVC.Blog.Name,
+                      routeValues: new
+                      {
+                          id = item.Id,
+                          title = item.Title.GenerateSlug()
+                      },
+                      htmlAttributes: null)
+                    </small>
+                    <small>
+                        تاریخ انتشار:&nbsp;
+                        <time>
+                            @item.DateCreated.ToString("D", new System.Globalization.CultureInfo("fa-IR"))
+                        </time>
+                    </small>
+                </span>
+            </article>
+        }
+     <div id="__blog_pagedList_container">
+         @Html.PagedListPager(new StaticPagedList<PageViewModel>(Model,
+       (Int32)ViewBag.page,
+       (Int32)ViewBag.pageSize,
+       (Int32)ViewBag.count),
+       pageNumber => Url.Action(MVC.Blog.ActionNames.Index, MVC.Blog.Name, new
+       {
+           page = pageNumber
+       }),
+       PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast,
+new AjaxOptions
+{
+    AllowCache = false,
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "__blog_load_container",
+    OnSuccess="onSuccessPagedListBlog",
+    OnBegin= "onBeginPagedListBlog"
+}))
+     </div>
+    </div>
+</div>
+@section scipts{
+    <script async defer type="text/javascript">
+        function onSuccessPagedListBlog() {
+            $("html, body").animate({ scrollTop: "200px" }, "slow", "linear", function () {
+                $('#__blog_load_container').css('opacity', '1');
+            });
+        }
+
+        function onBeginPagedListBlog() {
+            $('#__blog_load_container').css('opacity', '.3');
+        }
+    </script>
+    }

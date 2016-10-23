@@ -1,0 +1,112 @@
+﻿@using ViewModel.ViewModel.Admin.User
+@model UserWithAddressViewModel
+
+<strong>ویرایش مشخصات و آدرس گیرنده  </strong>
+@using (Ajax.BeginForm(MVC.User.ActionNames.EditUserOrder,
+                MVC.User.Name,
+                null,
+                new AjaxOptions()
+                {
+                    AllowCache = false,
+                    HttpMethod = FormMethod.Post.ToString(),
+                    UpdateTargetId = "_load_complete_order",
+                    OnBegin = "edit_user_order_OnBegin",
+                    OnSuccess = "edit_user_order_OnSuccess"
+                }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, String.Empty, new { @class = "text-danger" })
+    @Html.HiddenFor(x=>x.Register.OldPhoneNumber)
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Register.FirstName)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Register.FirstName)
+            @Html.ValidationMessageFor(x=>x.Register.FirstName, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Register.LastName)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Register.LastName)
+            @Html.ValidationMessageFor(x => x.Register.LastName, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Register.PhoneNumber)
+        </span>
+        <b class="number_persian">
+            @Html.EditorFor(x => x.Register.PhoneNumber, new { htmlAttributes = new { @type = "number" } })
+            @Html.ValidationMessageFor(x => x.Register.PhoneNumber, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Address.CompanyName)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Address.CompanyName)
+            @Html.ValidationMessageFor(x => x.Address.CompanyName, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Address.State)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Address.State)
+            @Html.ValidationMessageFor(x => x.Address.State, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Address.City)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Address.City)
+            @Html.ValidationMessageFor(x => x.Address.City, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Address.AddressLine1)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Address.AddressLine1, new { htmlAttributes = new { @style = "vertical-align: -50px;" } })
+            @Html.ValidationMessageFor(x => x.Address.AddressLine1, "", new { @class = "text-danger" }, "b")
+        </b>
+    </p>
+    <p>
+        <span>
+            @Html.DisplayNameFor(x => x.Address.AddressLine2)
+        </span>
+        <b>
+            @Html.EditorFor(x => x.Address.AddressLine2, new { htmlAttributes = new { @style = "vertical-align: -50px;" } })
+            @Html.ValidationMessageFor(x => x.Address.AddressLine2, "", new { @class = "text-danger" },"b")
+        </b>
+    </p>
+    <div>
+        <button type="submit">ذخیره</button>
+        @Ajax.ActionLink("انصراف",
+       MVC.ShoppingCart.ActionNames.PersonDetail,
+       MVC.ShoppingCart.Name,
+       null,
+        new AjaxOptions
+        {
+            AllowCache = false,
+            HttpMethod = FormMethod.Get.ToString(),
+            OnBegin = "person_detail_order_OnBegin",
+            OnSuccess = "person_detail_order_OnSuccess"
+        },
+       new
+       {
+           @rel = "nofollow, noindex",
+           @role = "button"
+       })
+    </div>
+}
+

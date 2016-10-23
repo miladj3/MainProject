@@ -30,8 +30,12 @@ public static partial class MVC
     static readonly AdminClass s_Admin = new AdminClass();
     public static AdminClass Admin { get { return s_Admin; } }
     public static MVCUI.Controllers._SharedItemController _SharedItem = new MVCUI.Controllers.T4MVC__SharedItemController();
-    public static MVCUI.Controllers.CreateMetaTagController CreateMetaTag = new MVCUI.Controllers.T4MVC_CreateMetaTagController();
+    public static MVCUI.Controllers.BlogController Blog = new MVCUI.Controllers.T4MVC_BlogController();
     public static MVCUI.Controllers.HomeController Home = new MVCUI.Controllers.T4MVC_HomeController();
+    public static MVCUI.Controllers.ProductController Product = new MVCUI.Controllers.T4MVC_ProductController();
+    public static MVCUI.Controllers.SearchController Search = new MVCUI.Controllers.T4MVC_SearchController();
+    public static MVCUI.Controllers.ShoppingCartController ShoppingCart = new MVCUI.Controllers.T4MVC_ShoppingCartController();
+    public static MVCUI.Controllers.SiteMapController SiteMap = new MVCUI.Controllers.T4MVC_SiteMapController();
     public static MVCUI.Controllers.UserController User = new MVCUI.Controllers.T4MVC_UserController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -42,7 +46,16 @@ namespace T4MVC
     public class AdminClass
     {
         public readonly string Name = "Admin";
+        public MVCUI.Areas.Admin.Controllers.CategoryController Category = new MVCUI.Areas.Admin.Controllers.T4MVC_CategoryController();
+        public MVCUI.Areas.Admin.Controllers.ContactController Contact = new MVCUI.Areas.Admin.Controllers.T4MVC_ContactController();
+        public MVCUI.Areas.Admin.Controllers.FolderController Folder = new MVCUI.Areas.Admin.Controllers.T4MVC_FolderController();
         public MVCUI.Areas.Admin.Controllers.HomeController Home = new MVCUI.Areas.Admin.Controllers.T4MVC_HomeController();
+        public MVCUI.Areas.Admin.Controllers.OrderController Order = new MVCUI.Areas.Admin.Controllers.T4MVC_OrderController();
+        public MVCUI.Areas.Admin.Controllers.PageController Page = new MVCUI.Areas.Admin.Controllers.T4MVC_PageController();
+        public MVCUI.Areas.Admin.Controllers.ProductController Product = new MVCUI.Areas.Admin.Controllers.T4MVC_ProductController();
+        public MVCUI.Areas.Admin.Controllers.SettingController Setting = new MVCUI.Areas.Admin.Controllers.T4MVC_SettingController();
+        public MVCUI.Areas.Admin.Controllers.SlideShowController SlideShow = new MVCUI.Areas.Admin.Controllers.T4MVC_SlideShowController();
+        public MVCUI.Areas.Admin.Controllers.UserController User = new MVCUI.Areas.Admin.Controllers.T4MVC_UserController();
         public T4MVC.Admin.SharedController Shared = new T4MVC.Admin.SharedController();
     }
 }
@@ -79,6 +92,45 @@ internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.Action
     }
      
     public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_JsonResult : System.Web.Mvc.JsonResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_JsonResult(string area, string controller, string action, string protocol = null): base()
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_ContentResult : System.Web.Mvc.ContentResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_ContentResult(string area, string controller, string action, string protocol = null): base()
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_RedirectToRouteResult : System.Web.Mvc.RedirectToRouteResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_RedirectToRouteResult(string area, string controller, string action, string protocol = null): base(default(System.Web.Routing.RouteValueDictionary))
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
     
     public string Controller { get; set; }
     public string Action { get; set; }
@@ -1132,11 +1184,12 @@ namespace Links
             private const string URLPATH = "~/Scripts/MyScripts";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string addToCart_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCart-plugin.min.js") ? Url("addToCart-plugin.min.js") : Url("addToCart-plugin.js");
-            public static readonly string addToCompareList_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCompareList-plugin.min.js") ? Url("addToCompareList-plugin.min.js") : Url("addToCompareList-plugin.js");
-            public static readonly string addToWishList_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToWishList-plugin.min.js") ? Url("addToWishList-plugin.min.js") : Url("addToWishList-plugin.js");
+            public static readonly string addToCart_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCart.min.js") ? Url("addToCart.min.js") : Url("addToCart.js");
+            public static readonly string addToCompareList_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/addToCompareList.min.js") ? Url("addToCompareList.min.js") : Url("addToCompareList.js");
+            public static readonly string AddToMyPopulate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AddToMyPopulate.min.js") ? Url("AddToMyPopulate.min.js") : Url("AddToMyPopulate.js");
             public static readonly string admin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/admin.min.js") ? Url("admin.min.js") : Url("admin.js");
             public static readonly string customer_actions_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/customer-actions.min.js") ? Url("customer-actions.min.js") : Url("customer-actions.js");
+            public static readonly string helperStarRateJs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/helperStarRateJs.min.js") ? Url("helperStarRateJs.min.js") : Url("helperStarRateJs.js");
             public static readonly string sb_admin_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sb-admin-2.min.js") ? Url("sb-admin-2.min.js") : Url("sb-admin-2.js");
             public static readonly string site_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/site.min.js") ? Url("site.min.js") : Url("site.js");
         }
@@ -1296,6 +1349,9 @@ namespace Links
             public static readonly string _11_png = Url("11.png");
             public static readonly string _12_png = Url("12.png");
             public static readonly string _13_png = Url("13.png");
+            public static readonly string _2_jpg = Url("2.jpg");
+            public static readonly string _3_jpg = Url("3.jpg");
+            public static readonly string _4_jpg = Url("4.jpg");
             public static readonly string adc10615ba4f693ae3ac87186a0cd87f_jpg = Url("adc10615ba4f693ae3ac87186a0cd87f.jpg");
             public static readonly string banks_logo_png = Url("banks-logo.png");
             public static readonly string banner5_jpg = Url("banner5.jpg");
@@ -1306,6 +1362,7 @@ namespace Links
             public static readonly string iran_flag_32_png = Url("iran_flag_32.png");
             public static readonly string logo_1401273770_86180_1411562528__88042_png = Url("logo_1401273770_86180_1411562528__88042.png");
             public static readonly string scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg = Url("scaleBlue Challenge by Adidas Aftershave 100ml.jpg");
+            public static readonly string Telegram_logo_svg_png = Url("Telegram_logo.svg.png");
         }
     
         public static readonly string jquery_autocomplete_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.autocomplete.min.css") ? Url("jquery.autocomplete.min.css") : Url("jquery.autocomplete.css");
@@ -2188,11 +2245,12 @@ namespace Links
             {
                 public static class Assets
                 {
-                    public const string addToCart_plugin_js = "~/Scripts/MyScripts/addToCart-plugin.js"; 
-                    public const string addToCompareList_plugin_js = "~/Scripts/MyScripts/addToCompareList-plugin.js"; 
-                    public const string addToWishList_plugin_js = "~/Scripts/MyScripts/addToWishList-plugin.js"; 
+                    public const string addToCart_js = "~/Scripts/MyScripts/addToCart.js"; 
+                    public const string addToCompareList_js = "~/Scripts/MyScripts/addToCompareList.js"; 
+                    public const string AddToMyPopulate_js = "~/Scripts/MyScripts/AddToMyPopulate.js"; 
                     public const string admin_js = "~/Scripts/MyScripts/admin.js"; 
                     public const string customer_actions_js = "~/Scripts/MyScripts/customer-actions.js"; 
+                    public const string helperStarRateJs_js = "~/Scripts/MyScripts/helperStarRateJs.js"; 
                     public const string sb_admin_2_js = "~/Scripts/MyScripts/sb-admin-2.js"; 
                     public const string site_js = "~/Scripts/MyScripts/site.js"; 
                 }

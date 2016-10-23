@@ -98,9 +98,11 @@
     <Compile Include="ViewModel\Admin\Category\EditCategoryViewModel.cs" />
     <Compile Include="ViewModel\Admin\Category\FooterViewModel.cs" />
     <Compile Include="ViewModel\Admin\Category\ShowCatetoryViewModel.cs" />
+    <Compile Include="ViewModel\Admin\ContactUs\ContactUsViewModel.cs" />
     <Compile Include="ViewModel\Admin\Feed\FeedItemViewModel.cs" />
     <Compile Include="ViewModel\Admin\Folder\AddFolderViewModel.cs" />
     <Compile Include="ViewModel\Admin\Folder\EditFolderViewModel.cs" />
+    <Compile Include="ViewModel\Admin\Order\OrderDetailShowViewModel.cs" />
     <Compile Include="ViewModel\Admin\Order\OrderShowViewModel.cs" />
     <Compile Include="ViewModel\Admin\Page\AddPageViewModel.cs" />
     <Compile Include="ViewModel\Admin\Page\EditPageViewModel.cs" />
@@ -110,6 +112,8 @@
     <Compile Include="ViewModel\Admin\Product\AddProductViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\AppendAttributeViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\AttributeValueViewModel.cs" />
+    <Compile Include="ViewModel\Admin\Product\ProductCompareInHeaderViewModel.cs" />
+    <Compile Include="ViewModel\Admin\Product\ProductForSiteMapViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\ProductViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\EditProductPicturesViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\EditProductViewModel.cs" />
@@ -121,10 +125,15 @@
     <Compile Include="ViewModel\Admin\Product\ProductSearchResultViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\ProductSectionViewModel.cs" />
     <Compile Include="ViewModel\Admin\Product\SearchViewModel.cs" />
-    <Compile Include="ViewModel\Admin\Setting\AddSlideShowViewModel.cs" />
+    <Compile Include="ViewModel\Admin\ShoppingCard\ShoppingCardViewModel.cs" />
+    <Compile Include="ViewModel\Admin\ShoppingCard\shoppingCartInHeaderViewModel.cs" />
+    <Compile Include="ViewModel\Admin\SiteMap\SiteMapShowViewModel.cs" />
+    <Compile Include="ViewModel\Admin\SlideShow\AddSlideShowViewModel.cs" />
     <Compile Include="ViewModel\Admin\Setting\EditSettingViewModel.cs" />
-    <Compile Include="ViewModel\Admin\Setting\EditSlideShowViewModel.cs" />
+    <Compile Include="ViewModel\Admin\SlideShow\EditSlideShowViewModel.cs" />
     <Compile Include="ViewModel\Admin\Setting\SettingViewModel.cs" />
+    <Compile Include="ViewModel\Admin\Subscribe\SubscribeViewModel.cs" />
+    <Compile Include="ViewModel\Admin\User\AddressUserViewModel.cs" />
     <Compile Include="ViewModel\Admin\User\AddUserViewModel.cs" />
     <Compile Include="ViewModel\Admin\User\DetailsUserViewModel.cs" />
     <Compile Include="ViewModel\Admin\User\EditUserViewModel.cs" />
@@ -134,6 +143,7 @@
     <Compile Include="ViewModel\Admin\User\RegisterViewModel.cs" />
     <Compile Include="ViewModel\Admin\User\UsersListViewModel.cs" />
     <Compile Include="ViewModel\Admin\User\UserViewModel.cs" />
+    <Compile Include="ViewModel\Admin\User\UserWithAddressViewModel.cs" />
     <Compile Include="ViewModel\UserPanel\EditUserInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,11 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\OrderDetail\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

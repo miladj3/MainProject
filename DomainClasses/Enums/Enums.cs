@@ -214,9 +214,12 @@ namespace DomainClasses.Enums
     }
     public enum ProductType
     {
-        All,
+        [Display(Name ="تعدادی")]
         Packing,
-        NoPacking
+       [Display(Name ="کیلویی")]
+        NoPacking,
+        [Display(Name = "همه")]
+        All = 5
     }
     public enum UserRegisterType
     {
@@ -240,8 +243,11 @@ namespace DomainClasses.Enums
         [Display(Name = "پیشنهاد")]
         Offer,
         [Display(Name = "انتقاد")]
-        Criticism
+        Criticism,
+        [Display(Name = "تماس با ما")]
+        All
     }
+    
     #endregion
 
     #region Page
@@ -281,5 +287,27 @@ namespace DomainClasses.Enums
         CategoryNameExist
     }
     #endregion
-    
+
+    #region Currency
+    public enum Currency
+    {
+        [Display(Name ="ریال")]
+        Rial,
+        [Display(Name ="تومان")]
+        Toman
+    }
+    #endregion
+
+    #region SiteMap
+    public enum ChangeFreq
+    {
+        Always,
+        Hourly,
+        Daily,
+        Weekly,
+        Monthly,
+        Yearly,
+        Never
+    }
+    #endregion
 }

@@ -76,12 +76,14 @@ namespace MVCUI.Areas.Admin.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string _sideBar = "_sideBar";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string _sideBar = "_sideBar";
         }
 
 
@@ -95,8 +97,12 @@ namespace MVCUI.Areas.Admin.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _navigation = "_navigation";
+                public readonly string _SideBarPartial = "_SideBarPartial";
                 public readonly string Index = "Index";
             }
+            public readonly string _navigation = "~/Areas/Admin/Views/Home/_navigation.cshtml";
+            public readonly string _SideBarPartial = "~/Areas/Admin/Views/Home/_SideBarPartial.cshtml";
             public readonly string Index = "~/Areas/Admin/Views/Home/Index.cshtml";
         }
     }
@@ -114,6 +120,17 @@ namespace MVCUI.Areas.Admin.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void _sideBarOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult _sideBar()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames._sideBar);
+            _sideBarOverride(callInfo);
             return callInfo;
         }
 

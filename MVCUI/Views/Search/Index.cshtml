@@ -1,0 +1,98 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@using PagedList
+@using PagedList.Mvc
+@model SearchViewModel
+
+@{
+    Layout = MVC.Shared.Views._Layout;  
+}
+@section CSS{
+    <style>
+        ul#m-container-list-product {
+            min-height: initial !important;
+        }
+    </style>
+    @Styles.Render(Links.BundleExtension.Style.PagedStyleCss)
+}
+@section metatags{
+    <meta name="robots" content="index" />
+    <meta name="robots" content="follow" />
+}
+<div id="__search_product">
+    <div>
+        @Html.TextBox(name: "keyword", value: null, htmlAttributes: new
+   {
+       placeholder = "جستجوی کالای مورد نیاز",
+       @reqiured = "required",
+       @type = "search",
+       @class = ""
+   })
+        <i class="fa fa-search" id="_search_q1" aria-hidden="true"></i>
+    </div>
+    @Html.DropDownList("filter", ViewBag.Filters as IEnumerable<SelectListItem>, htmlAttributes: null)
+
+    @Html.DropDownList("count", ViewBag.Counts as IEnumerable<SelectListItem>, "تعداد نمایش کالا", htmlAttributes: null)
+
+    @Html.PagedListPager(new StaticPagedList<ProductSectionViewModel>(Model.Products, Model.Page, Model.Count, Model.Total), pageNumber => Url.Action(MVC.Search.ActionNames.Index, MVC.Search.Name, new
+{
+    page = pageNumber,
+    count = Model.Count,
+    filter = Model.Filter,
+    keyword = Model.Term,
+    categoryId = Model.CategoryId
+
+}), new PagedListRenderOptions
+{
+    DisplayLinkToFirstPage = PagedListDisplayMode.Always,
+    DisplayLinkToLastPage = PagedListDisplayMode.Always,
+    DisplayLinkToPreviousPage = PagedListDisplayMode.Always,
+    DisplayLinkToNextPage = PagedListDisplayMode.Always,
+    MaximumPageNumbersToDisplay = 6
+})
+
+</div>
+
+<div id="m-feature">
+    <ul id="m-container-list-product">
+        <li class="m-list-product" id="m-list-Beloved-feature">
+            <ul>
+                @foreach (ProductSectionViewModel item in Model.Products)
+                {
+                    { Html.RenderPartial(MVC._SharedItem.Views._ShowProduct, item); }
+                }
+            </ul>
+        </li>
+    </ul>
+</div>
+
+@section scipts{
+    <script async defer type="text/javascript">
+        $(document).on('click', '#_search_q1', function () {
+            _keywordf();
+        })
+        $(document).on('keyup', '#keyword', function (e) {
+            if (e.which == 13) {
+                _keywordf();
+            }
+            else {
+                return false;
+            }
+        })
+
+        function _keywordf() {
+            var _keyword = $('#keyword').val();
+            var _url = '@Url.Action(MVC.Search.Index().AddRouteValue("keyword", "***"))';
+            window.location.replace(_url.replace('***', _keyword));
+        }
+
+        $(document).on('change', '#filter', function () {
+            var _url = '@Url.Action(MVC.Search.Index().AddRouteValue("filter", "***"))';
+            window.location.replace(_url.replace('***', $(this).val()));
+        })
+
+        $(document).on('change', '#count', function () {
+            var _url = '@Url.Action(MVC.Search.Index().AddRouteValue("count", "***"))';
+            window.location.replace(_url.replace('***', $(this).val()));
+        })
+    </script>
+}

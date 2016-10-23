@@ -13,10 +13,9 @@ namespace MVCUI.Helpers
     {
         public static MvcHtmlString ReturnUrl(this HtmlHelper htmlHelper, HttpContextBase contextBase, UrlHelper urlHelper)
         {
-            //TODO: after First Compile unComment This
             String currentUrl = contextBase.Request.RawUrl;
-           // if (currentUrl.Equals("/"))
-            //    currentUrl = urlHelper.Action(MVC.Home.ActionNames.Index, MVC.Home.Name);
+           if (currentUrl.Equals("/"))
+               currentUrl = urlHelper.Action(MVC.Home.ActionNames.Index, MVC.Home.Name);
 
             return MvcHtmlString.Create(currentUrl);
         }

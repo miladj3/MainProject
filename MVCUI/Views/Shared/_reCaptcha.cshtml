@@ -1,0 +1,61 @@
+﻿@model CaptchaMvc.Models.MathBuildInfoModel
+
+<img id="@Model.ImageElementId" src="@Model.ImageUrl" />
+
+@Html.Hidden(Model.TokenElementId, Model.TokenValue)
+<br />
+@{
+    String id = Guid.NewGuid().ToString("N");
+    String functionName = $"______milooBahar_______{ Guid.NewGuid().ToString("N") }___________";
+    <script type="text/javascript" async defer>
+        window.onload=function(){
+            document.getElementById("@id").style.visibility="visible";
+        }
+        @*$(function () {
+            $("#@id").show();
+        });*@
+        function @functionName (){
+            document.getElementById("@id").style.visibility="hidden";
+            //   $("#@id").hide();
+            var xhttp;
+            var data=document.getElementById("@Model.TokenElementId").value;
+            if(window.XMLHttpRequest){
+                xhttp=new XMLHttpRequest();
+            }else{
+                xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.onreadystatechange=function(){
+                if(xhttp.readyState==4 && xhttp.status==200){
+                    document.getElementById("@id").style.visibility="visible";
+                }
+            }
+
+            xhttp.open("POST",  "../..@Model.RefreshUrl", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("@Model.TokenParameterName="+data+"");
+            console.log(xhttp.status);
+            console.log(xhttp.readyState);
+            console.log(data);
+            @*$.post("@Model.RefreshUrl", { @Model.TokenParameterName: $('#@Model.TokenElementId').val(), @Model.MathParamterName: "0" }, function () {
+                $('#@id').show();
+            });*@
+        };
+    </script>
+
+    <a href="#@id" id="@id" onclick="@functionName (); return false;"><i class="fa fa-refresh" style="font-size: 2rem; vertical-align: middle;" aria-hidden="true"></i></a>
+
+}
+@Html.TextBox(Model.InputElementId, null,
+    new Dictionary<string, object>() {
+        { "data-val", "true" },
+        { "data-val-required", "لطفا پاسخ تصویر را وارد کنید" },
+        { "class", "form-control" },
+        { "style","width: initial;" },
+        { "autocomplete","off" }
+    })
+
+<div>
+    @Html.ValidationMessage(Model.InputElementId, new { @class = "error_i" })
+</div>
+
+

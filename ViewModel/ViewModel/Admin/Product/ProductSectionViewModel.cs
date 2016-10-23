@@ -11,6 +11,8 @@ namespace ViewModel.ViewModel.Admin.Product
     {
         public Int64 Id { get; set; }
 
+        public Int64 categoryId { get; set; }
+
         public String Name { get; set; }
 
         public String PrincipleImagePath { get; set; }
@@ -27,6 +29,9 @@ namespace ViewModel.ViewModel.Admin.Product
         [DisplayFormat(DataFormatString = "{0:###,###.####}", ApplyFormatInEditMode = true)]
         public Int64 Price { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:###,###.####}", ApplyFormatInEditMode = true)]
+        public Int64 PriceAfterDiscount { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
         public Decimal Ratio { get; set; }
 
@@ -36,5 +41,7 @@ namespace ViewModel.ViewModel.Admin.Product
 
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
         public Decimal TotalDiscount { get; set; }
+        
+        public Boolean ComingSoon { get; set; }
     }
 }

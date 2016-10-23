@@ -18,5 +18,6 @@ namespace DomainClasses.Entities
         public virtual Int32 DisplayOrder { get; set; }
         public virtual Byte[] RowVersion { get; set; }
         public virtual PageShowPlace PageShowPlace { get; set; }
+        public virtual DateTime DateCreated { get; set; }
     }
 }

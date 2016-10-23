@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModel.ViewModel.Admin.Order;
 
 namespace ServiceLayer.Interfaces
 {
     public interface IOrderService
     {
-        void Add(Order order);
+        Task Add(OrderShowViewModel viewModel, IEnumerable<ShoppingCart> shoppingCard);
         void Delete(Int64 id);
         void Update(Order order);
         IEnumerable<Order> GetListByUserId(Int64 UserId);

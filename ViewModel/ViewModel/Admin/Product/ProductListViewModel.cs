@@ -18,6 +18,8 @@ namespace ViewModel.ViewModel.Admin.Product
         public Boolean FreeSend { get; set; }
 
         public Boolean Deleted { get; set; }
+        
+        public Boolean ComingSoon { get; set; }
 
         public String Term { get; set; }
 

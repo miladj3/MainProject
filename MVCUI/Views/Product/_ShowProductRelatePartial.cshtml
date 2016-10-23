@@ -1,0 +1,26 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@using MVCUI.Helpers
+@model ProductSearchResultViewModel
+
+<div class="__show_product_in_relatedProduct" id="@Url.Action(MVC.Product.ActionNames.Index, MVC.Product.Name,new {
+                                 productid = Model.Id,
+                                 name = SeoExtentions.ResolveTitleForUrl(Model.Name)
+                             })" itemprop="isRelatedTo" itemscope itemtype="http://schema.org/Product" data-id="@Model.Id">
+    <meta  itemprop = "name" content="@Model.Name"/>
+    <div>
+        <img itemprop="image" src="@Model.ImagePath" alt="@Model.Name" />
+    </div>
+    @Html.ActionLink(linkText: Model.Name,
+    actionName: MVC.Product.ActionNames.Index,
+    controllerName: MVC.Product.Name,
+    routeValues: new
+    {
+        productId = Model.Id,
+        name = Model.Name.GenerateSlug(),
+
+    },
+    htmlAttributes:new
+    {
+       
+    })
+</div>

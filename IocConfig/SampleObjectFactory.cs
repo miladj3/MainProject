@@ -13,11 +13,16 @@ namespace IocConfig
         private static readonly Lazy<Container> ContainerBuilder =
              new Lazy<Container>(DefaultContainer, LazyThreadSafetyMode.ExecutionAndPublication);
 
-        public static IContainer Container { get { return ContainerBuilder.Value; } }
-
-        private static Container DefaultContainer()
+        public static IContainer Container
         {
-            return new Container(x =>
+            get
+            {
+                return ContainerBuilder.Value;
+            }
+        }
+
+        private static Container DefaultContainer() =>
+            new Container(x =>
             {
                 x.For<IUnitOfWork>().HybridHttpOrThreadLocalScoped().Use(() => new ShopDbContext());
                 x.Scan(scan =>
@@ -27,6 +32,5 @@ namespace IocConfig
                     scan.WithDefaultConventions();
                 });
             });
-        }
     }
 }

@@ -56,6 +56,25 @@ namespace MVCUI.Controllers
             return RedirectToActionPermanent(taskResult.Result);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult ContactUs()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ContactUs);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult _MetaTags()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._MetaTags);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> subscribe()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.subscribe);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public _SharedItemController Actions { get { return MVC._SharedItem; } }
@@ -75,6 +94,15 @@ namespace MVCUI.Controllers
             public readonly string NavBar = "NavBar";
             public readonly string Menu = "Menu";
             public readonly string Search = "Search";
+            public readonly string BelovedProducts = "BelovedProducts";
+            public readonly string NewestProduct = "NewestProduct";
+            public readonly string MoreSellProduct = "MoreSellProduct";
+            public readonly string MoreVisitedProduct = "MoreVisitedProduct";
+            public readonly string ProductSelected = "ProductSelected";
+            public readonly string AboutUs = "AboutUs";
+            public readonly string ContactUs = "ContactUs";
+            public readonly string _MetaTags = "_MetaTags";
+            public readonly string subscribe = "subscribe";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -83,9 +111,45 @@ namespace MVCUI.Controllers
             public const string NavBar = "NavBar";
             public const string Menu = "Menu";
             public const string Search = "Search";
+            public const string BelovedProducts = "BelovedProducts";
+            public const string NewestProduct = "NewestProduct";
+            public const string MoreSellProduct = "MoreSellProduct";
+            public const string MoreVisitedProduct = "MoreVisitedProduct";
+            public const string ProductSelected = "ProductSelected";
+            public const string AboutUs = "AboutUs";
+            public const string ContactUs = "ContactUs";
+            public const string _MetaTags = "_MetaTags";
+            public const string subscribe = "subscribe";
         }
 
 
+        static readonly ActionParamsClass_ContactUs s_params_ContactUs = new ActionParamsClass_ContactUs();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ContactUs ContactUsParams { get { return s_params_ContactUs; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ContactUs
+        {
+            public readonly string type = "type";
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass__MetaTags s_params__MetaTags = new ActionParamsClass__MetaTags();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass__MetaTags _MetaTagsParams { get { return s_params__MetaTags; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass__MetaTags
+        {
+            public readonly string title = "title";
+            public readonly string keywords = "keywords";
+            public readonly string description = "description";
+        }
+        static readonly ActionParamsClass_subscribe s_params_subscribe = new ActionParamsClass_subscribe();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_subscribe subscribeParams { get { return s_params_subscribe; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_subscribe
+        {
+            public readonly string model = "model";
+        }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ViewsClass Views { get { return s_views; } }
@@ -96,13 +160,33 @@ namespace MVCUI.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _BelovedProducts = "_BelovedProducts";
+                public readonly string _feature = "_feature";
                 public readonly string _menu = "_menu";
+                public readonly string _MetaTags = "_MetaTags";
+                public readonly string _MoreSellProduct = "_MoreSellProduct";
+                public readonly string _MoreVisit = "_MoreVisit";
                 public readonly string _navbar = "_navbar";
+                public readonly string _NewestProduct = "_NewestProduct";
                 public readonly string _search = "_search";
+                public readonly string _shoppingCard = "_shoppingCard";
+                public readonly string _ShowProduct = "_ShowProduct";
+                public readonly string ContactUs = "ContactUs";
+                public readonly string ProductSelected = "ProductSelected";
             }
+            public readonly string _BelovedProducts = "~/Views/_SharedItem/_BelovedProducts.cshtml";
+            public readonly string _feature = "~/Views/_SharedItem/_feature.cshtml";
             public readonly string _menu = "~/Views/_SharedItem/_menu.cshtml";
+            public readonly string _MetaTags = "~/Views/_SharedItem/_MetaTags.cshtml";
+            public readonly string _MoreSellProduct = "~/Views/_SharedItem/_MoreSellProduct.cshtml";
+            public readonly string _MoreVisit = "~/Views/_SharedItem/_MoreVisit.cshtml";
             public readonly string _navbar = "~/Views/_SharedItem/_navbar.cshtml";
+            public readonly string _NewestProduct = "~/Views/_SharedItem/_NewestProduct.cshtml";
             public readonly string _search = "~/Views/_SharedItem/_search.cshtml";
+            public readonly string _shoppingCard = "~/Views/_SharedItem/_shoppingCard.cshtml";
+            public readonly string _ShowProduct = "~/Views/_SharedItem/_ShowProduct.cshtml";
+            public readonly string ContactUs = "~/Views/_SharedItem/ContactUs.cshtml";
+            public readonly string ProductSelected = "~/Views/_SharedItem/ProductSelected.cshtml";
         }
     }
 
@@ -126,11 +210,11 @@ namespace MVCUI.Controllers
         partial void MenuOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.PartialViewResult Menu()
+        public override System.Threading.Tasks.Task<System.Web.Mvc.PartialViewResult> Menu()
         {
             var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.Menu);
             MenuOverride(callInfo);
-            return callInfo;
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.PartialViewResult);
         }
 
         [NonAction]
@@ -142,6 +226,122 @@ namespace MVCUI.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.Search);
             SearchOverride(callInfo);
             return callInfo;
+        }
+
+        [NonAction]
+        partial void BelovedProductsOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult BelovedProducts()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.BelovedProducts);
+            BelovedProductsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void NewestProductOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult NewestProduct()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.NewestProduct);
+            NewestProductOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void MoreSellProductOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult MoreSellProduct()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.MoreSellProduct);
+            MoreSellProductOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void MoreVisitedProductOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult MoreVisitedProduct()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.MoreVisitedProduct);
+            MoreVisitedProductOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ProductSelectedOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult ProductSelected()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.ProductSelected);
+            ProductSelectedOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AboutUsOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult AboutUs()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.AboutUs);
+            AboutUsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ContactUsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, DomainClasses.Enums.ContactType type);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ContactUs(DomainClasses.Enums.ContactType type)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ContactUs);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "type", type);
+            ContactUsOverride(callInfo, type);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ContactUsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ViewModel.ViewModel.Admin.ContactUs.ContactUsViewModel model);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ContactUs(ViewModel.ViewModel.Admin.ContactUs.ContactUsViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ContactUs);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            ContactUsOverride(callInfo, model);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.ActionResult);
+        }
+
+        [NonAction]
+        partial void _MetaTagsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string title, string keywords, string description);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult _MetaTags(string title, string keywords, string description)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._MetaTags);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "title", title);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "keywords", keywords);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "description", description);
+            _MetaTagsOverride(callInfo, title, keywords, description);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void subscribeOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, ViewModel.ViewModel.Admin.Subscribe.SubscribeViewModel model);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> subscribe(ViewModel.ViewModel.Admin.Subscribe.SubscribeViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.subscribe);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            subscribeOverride(callInfo, model);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
         }
 
     }

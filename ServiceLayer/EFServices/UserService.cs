@@ -25,6 +25,7 @@ namespace ServiceLayer.EFServices
         #endregion
 
         #region Constracture
+        public UserService() { }
         public UserService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -53,24 +54,22 @@ namespace ServiceLayer.EFServices
 
         #region CRUD
 
-
-
-        public AddUserStatus Add(User user)
+        public async Task<AddUserStatus> AddAsync(User user)
         {
-            if (ExistsByPhoneNumber(user.PhoneNumber, user.id))
+            if (await ExistsByPhoneNumberAsync(user.PhoneNumber, user.id))
                 return AddUserStatus.PhoneNumberExist;
-            if (ExistsByUserName(user.UserName))
+            if (await ExistsByUserNameAsync(user.UserName))
                 return AddUserStatus.UserNameExist;
             _user.Add(user);
             return AddUserStatus.AddingUserSuccessfully;
         }
-        public EditedUserStatus EditUser(User user)
+        public async Task<EditedUserStatus> EditUserAsync(User user)
         {
-            if (ExistsByPhoneNumber(user.PhoneNumber, user.id))
+            if (await ExistsByPhoneNumberAsync(user.PhoneNumber, user.id))
                 return EditedUserStatus.PhoneNumberExist;
-            if (ExistsByUserName(user.UserName))
+            if (await ExistsByUserNameAsync(user.UserName, user.id))
                 return EditedUserStatus.UserNameExist;
-            User selectedUser = GetUserById(user.id);
+            User selectedUser = await GetUserByIdAsync(user.id);
             if (user.Password != null)
                 selectedUser.Password = user.Password;
             selectedUser.UserName = user.UserName;
@@ -144,6 +143,7 @@ namespace ServiceLayer.EFServices
                 }
             }
             var totalQuery = selectedUsers.FutureCount();
+
             var selectQuery = selectedUsers.Skip((page - 1) * count).Take(count)
                 .Select(x => new UserViewModel
                 {
@@ -158,12 +158,11 @@ namespace ServiceLayer.EFServices
                     RoleDescritpion = x.Role.Description
                 }).Future();
             total = totalQuery.Value;
-            var users = selectQuery.ToList();
-            return users;
+            return selectQuery.ToList();
         }
-        
-        public DetailsUserViewModel GetUserDetail(Int64 id) =>
-            _user.AsNoTracking().Where(x => x.id.Equals(id))
+
+        public async Task<DetailsUserViewModel> GetUserDetailAsync(Int64 id) =>
+           await _user.AsNoTracking().Where(x => x.id.Equals(id))
             .Include(x => x.Role)
             .Select(x => new DetailsUserViewModel()
             {
@@ -179,21 +178,46 @@ namespace ServiceLayer.EFServices
                                         : "وارد سایت نشده است",
                 RoleName = x.Role.Description,
                 UserName = x.UserName
-            }).FirstOrDefault();
+            }).FirstOrDefaultAsync();
+
+        public async Task<UserWithAddressViewModel> GetInfoUserForOrder(String username)
+        {
+            User myUser = await GetUserByUserNameIncludeAddress(username);
+            UserWithAddressViewModel _m = new UserWithAddressViewModel
+            {
+                Register = new RegisterViewModel
+                {
+                    FirstName = myUser.FirstName,
+                    LastName = myUser.LastName,
+                    PhoneNumber = myUser.PhoneNumber,
+                    UserName = myUser.UserName,
+                    OldPhoneNumber = myUser.PhoneNumber
+                },
+                Address = new AddressUserViewModel
+                {
+                    AddressLine1 = myUser.Address.AddressLine1,
+                    AddressLine2 = myUser.Address.AddressLine2,
+                    City = myUser.Address.City,
+                    CompanyName = myUser.Address.CompanyName,
+                    State = myUser.Address.State
+                }
+            };
+            return _m;
+        }
         #endregion
 
         #region Authentication
-        public Boolean ExistsByPhoneNumber(String phoneNumber) =>
-            _user.Any(x => x.PhoneNumber.Equals(phoneNumber));
+        public async Task<Boolean> ExistsByPhoneNumberAsync(String phoneNumber) =>
+           await _user.AnyAsync(x => x.PhoneNumber == phoneNumber);
 
-        public Boolean ExistsByPhoneNumber(String phoneNumber, Int64 id) =>
-            _user.Any(x => x.PhoneNumber.Equals(phoneNumber) && x.id != id);
+        public async Task<Boolean> ExistsByPhoneNumberAsync(String phoneNumber, Int64 id) =>
+            await _user.AnyAsync(x => x.PhoneNumber == phoneNumber && x.id != id);
 
-        public Boolean ExistsByUserName(String userName) =>
-            _user.Any(x => x.UserName.Equals(userName));
+        public async Task<Boolean> ExistsByUserNameAsync(String userName) =>
+            await _user.AnyAsync(x => x.UserName == userName);
 
-        public Boolean ExistsByUserName(String userName, Int64 id) =>
-            _user.Any(x => x.UserName.Equals(userName) && x.id != id);
+        public async Task<Boolean> ExistsByUserNameAsync(String userName, Int64 id) =>
+            await _user.AnyAsync(x => x.UserName == userName && x.id != id);
 
         public String GeneratePassword()
         {
@@ -256,14 +280,14 @@ namespace ServiceLayer.EFServices
             throw new NotImplementedException();
         }
 
-        public User GetUserById(Int64 id) =>
-            _user.Find(id);
+        public async Task<User> GetUserByIdAsync(Int64 id) =>
+           await _user.SingleOrDefaultAsync(x => x.id.Equals(id));
 
-        public User GetUserByUserName(String userName) =>
-            _user.SingleOrDefault(x => x.UserName.Equals(userName));
+        public async Task<User> GetUserByUserName(String userName) =>
+            await _user.SingleOrDefaultAsync(x => x.UserName == userName);
 
-        public User GetUserByPhoneNumber(String phoneNumber) =>
-            _user.SingleOrDefault(x => x.PhoneNumber.Equals(phoneNumber));
+        public async Task<User> GetUserByPhoneNumber(String phoneNumber) =>
+            await _user.SingleOrDefaultAsync(x => x.PhoneNumber.Equals(phoneNumber));
 
         public IList<User> GetAllUsers() =>
             _user.AsNoTracking().ToList();
@@ -294,8 +318,8 @@ namespace ServiceLayer.EFServices
         {
             throw new NotImplementedException();
         }
-        public EditUserViewModel GetUserDataForEdit(Int64 userId) =>
-            _user.Include(x => x.Role)
+        public async Task<EditUserViewModel> GetUserDataForEditAsync(Int64 userId) =>
+            await _user.Include(x => x.Role)
             .Where(x => x.id.Equals(userId))
             .Select(x => new EditUserViewModel()
             {
@@ -306,7 +330,7 @@ namespace ServiceLayer.EFServices
                 Id = x.id,
                 RoleId = x.Role.Id,
                 IsBaned = x.IsBaned
-            }).SingleOrDefault();
+            }).SingleOrDefaultAsync();
 
         public User Find(String userName) =>
             _user.SingleOrDefault(x => x.UserName.Equals(userName));
@@ -322,6 +346,12 @@ namespace ServiceLayer.EFServices
 
         public String GetUserNameByPhoneNumber(String phoneNumber) =>
             _user.SingleOrDefault(x => x.PhoneNumber.Equals(phoneNumber)).UserName;
+
+        public async Task<User> GetUserByUserNameIncludeAddress(String username, Boolean AsNoTracking = true) =>
+            AsNoTracking ?
+            await _user.AsNoTracking().Include(x => x.Address).SingleOrDefaultAsync(x => x.UserName == username) :
+            await _user.Include(x => x.Address).SingleOrDefaultAsync(x => x.UserName == username);
+
 
         public IList<String> SearchByUserName(String userName)
         {
@@ -357,6 +387,20 @@ namespace ServiceLayer.EFServices
         {
             throw new NotImplementedException();
         }
+        public async Task<EditedUserStatus> UpdateInfoOrder(UserWithAddressViewModel viewModel, String userName)
+        {
+            User myUser = await GetUserByUserNameIncludeAddress(userName, false);
+            myUser.FirstName = viewModel.Register.FirstName;
+            myUser.LastName = viewModel.Register.LastName;
+            myUser.PhoneNumber = viewModel.Register.PhoneNumber;
+            myUser.Address.State = viewModel.Address.State;
+            myUser.Address.City = viewModel.Address.City;
+            myUser.Address.AddressLine1 = viewModel.Address.AddressLine1;
+            myUser.Address.AddressLine2 = viewModel.Address.AddressLine2;
+            myUser.Address.CompanyName = viewModel.Address.CompanyName;
+
+            return EditedUserStatus.UpdatingUserSuccessfully;
+        }
 
         public Boolean Authenticate(String phoneNumber, String password)
         {
@@ -383,12 +427,15 @@ namespace ServiceLayer.EFServices
         {
             throw new NotImplementedException();
         }
-        public void Remove(Int64 id)
+        public async Task RemoveAsync(Int64 id)
         {
-            _user.Include(x => x.Role).Where(x => x.id.Equals(id) && x.Role.Name != "admin").Delete();
+            await _user.Include(x => x.Role).Where(x => x.id.Equals(id) && x.Role.Name != "admin").DeleteAsync();
         }
-        public Boolean LimitAddToWishList(String userName) =>
-            GetUserByUserName(userName).ProductsFavorite.Count > 50;
+        public async Task<Boolean> LimitAddToWishList(String userName)
+        {
+            User model = await GetUserByUserName(userName);
+            return model.ProductsFavorite.Count > 50;
+        }
         public IEnumerable<ProductSectionViewModel> GetUserWishList(out Int32 total,
                                                                                                                     Int32 page,
                                                                                                                     Int32 count,
@@ -415,11 +462,14 @@ namespace ServiceLayer.EFServices
                     PrincipleImagePath = x.PrincipleImagePath,
                     SellCount = x.SellCount,
                     TotalDiscount = x.DiscountPercent + x.Category.DiscountPercent,
-                    ViewCount = x.ViewCount
+                    ViewCount = x.ViewCount,
+                    PriceAfterDiscount = x.PriceAfterDiscount,
+                    ComingSoon = x.ComingSoon
                 });
             return prod.ToList();
         }
 
+        //TODO: RemoveUserComments Complete
         public void RemoveUserComments(Int64 userId)
         {
             throw new NotImplementedException();

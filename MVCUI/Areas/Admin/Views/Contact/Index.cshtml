@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "لیست صفحات";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+
+
+<div class="row">
+
+    <div class="table-responsive col-lg-12" id="ContactList">
+        @{Html.RenderAction(MVC.Admin.Contact.ActionNames._list, MVC.Admin.Contact.Name);}
+    </div>
+</div>
+@section scipts{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script>
+        $(function () {
+            $(document).on('click', 'span[id^="row-"]', function () {
+                var $that = $(this);
+                var id = $that.data('id');
+                var name = $that.data('name');
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var _confirm = confirm('آیا برای حذف ' + name + ' مطمئن هستید؟');
+                if (_confirm) {
+                    $.ajax({
+                        url:'@Url.Action(MVC.Admin.Contact.ActionNames.Delete, MVC.Admin.Contact.Name)',
+                        type:'POST',
+                        cache:false,
+                        async:true,
+                        data: {
+                            id: id,
+                            __RequestVerificationToken: token
+                        }
+                    }).done(function (res) {
+                        if (res) {
+                            alert('عملیات حذف با موفقیت انجام گردید');
+                            $that.parents('tr').remove();
+                        }
+                        else {
+                            alert('عملیات حذف با مشکل مواجه گردید')
+                        }
+                    }).fail(function (res) {
+                        alert('عملیات حذف با مشکل مواجه گردید')
+                    })
+                }
+                else {
+                    alert('عملیات حذف لغو گردید');
+                }
+            })
+        })
+    </script>
+}

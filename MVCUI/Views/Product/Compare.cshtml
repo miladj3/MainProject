@@ -1,0 +1,78 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@using MVCUI.Extentions
+@model IList<ProductCompareViewModel>
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
+}
+<div id="__compare">
+    <table>
+        <caption>
+            مقایسه کالاهای انتخاب شده
+        </caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(x => x.First().ProductName)</th>
+                <th>@Html.DisplayNameFor(x => x.First().Description)</th>
+                <th>@Html.DisplayNameFor(x => x.First().TotalRaters)</th>
+                <th>@Html.DisplayNameFor(x => x.First().AvrageRate)</th>
+                <th>@Html.DisplayNameFor(x => x.First().Price)</th>
+                <th>@Html.DisplayNameFor(x => x.First().Discount)</th>
+                <th>@Html.DisplayNameFor(x => x.First().PriceAfterDiscount)</th>
+                <th>@Html.DisplayNameFor(x => x.First().FreeSend)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (ProductCompareViewModel item in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@Html.DisplayFor(x => item.ProductName)</td>
+                        <td class="____descriptonInCompare" data-description="@item.Description">
+                            @item.Description.Substring(0, ((item.Description.Length > 15) ? 15 : item.Description.Length))
+                        </td>
+                        <td class="number_persian">@Html.DisplayTextFor(x => item.TotalRaters)</td>
+                        <td class="number_persian _ratingStarCompare">
+                            @_StarRating.StarRate(item.AvrageRate, Url.Action(MVC.Product.ActionNames.SaveRating, MVC.Product.Name), item.ProductId)
+                        </td>
+                        <td class="number_persian">@Html.DisplayTextFor(x => item.Price) &nbsp;<bdi> ريال</bdi></td>
+                        <td class="number_persian">@Html.DisplayTextFor(x => item.Discount) &nbsp;<bdi>%</bdi></td>
+                        <td class="number_persian">@Html.DisplayTextFor(x => item.PriceAfterDiscount) &nbsp;<bdi> ريال</bdi>  </td>
+                        <td style="text-align:center">
+                            @{
+                                    if (item.FreeSend)
+                                    {
+                                        @:&#10003;
+                                     }
+                                    else
+                                    {
+                                        @: &#10007;
+                                    }
+                                }
+                        </td>
+                    </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                    </tr>
+                                }
+        </tbody>
+    </table>
+</div>

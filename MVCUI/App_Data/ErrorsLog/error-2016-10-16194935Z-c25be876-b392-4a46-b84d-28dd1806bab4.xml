@@ -1,0 +1,173 @@
+﻿<error errorId="c25be876-b392-4a46-b84d-28dd1806bab4" application="/LM/W3SVC/2/ROOT" host="DESKTOP-SC0FIS6" type="System.InvalidOperationException" message="Page not found: /__browserLink/requestData/93e9fef87525411b93cb436f5b74b774?version=2" source="MVCUI" detail="System.InvalidOperationException: Page not found: /__browserLink/requestData/93e9fef87525411b93cb436f5b74b774?version=2&#xD;&#xA;   at MVCUI.MvcApplication.StructureMapControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) in C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\Global.asax.cs:line 142&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at MvcSiteMapProvider.DI.ControllerFactoryDecorator.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="miladj3" time="2016-10-16T19:49:35.1136081Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:application/json, text/javascript, */*; q=0.01&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.5&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=7m-qFwLposvuTng8c5rbao-mXGezG871lMF86e_T4eOF3bT058gq1JZ06xCkNsK-ESkPvDycuctMyzOQyn4BihffgdO3Il1WO9ZJwFLhQVg1; CookieForUser=37998FFDA3AE8DC41BE20609C085ED4A4D1F6D9BD46DC3EAB43187578225019219579FC75033BDE6B951CDB5F27A03D6038B47EAA49A6338F6D91D2ECD026FCEF3BF7CC3F1309674BD1719C78D651320A406F3A163B1011AC863B266E159497E85D76504ADE7C7557176DEEF9B1370D7&#xD;&#xA;HTTP_HOST:localhost:13458&#xD;&#xA;HTTP_REFERER:http://localhost:13458/order/checkout&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: application/json, text/javascript, */*; q=0.01&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.5&#xD;&#xA;Cookie: __RequestVerificationToken=7m-qFwLposvuTng8c5rbao-mXGezG871lMF86e_T4eOF3bT058gq1JZ06xCkNsK-ESkPvDycuctMyzOQyn4BihffgdO3Il1WO9ZJwFLhQVg1; CookieForUser=37998FFDA3AE8DC41BE20609C085ED4A4D1F6D9BD46DC3EAB43187578225019219579FC75033BDE6B951CDB5F27A03D6038B47EAA49A6338F6D91D2ECD026FCEF3BF7CC3F1309674BD1719C78D651320A406F3A163B1011AC863B266E159497E85D76504ADE7C7557176DEEF9B1370D7&#xD;&#xA;Host: localhost:13458&#xD;&#xA;Referer: http://localhost:13458/order/checkout&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="miladj3" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="miladj3" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="miladj3" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/__browserLink/requestData/93e9fef87525411b93cb436f5b74b774" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\__browserLink\requestData\93e9fef87525411b93cb436f5b74b774" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="version=2" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="47861" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/__browserLink/requestData/93e9fef87525411b93cb436f5b74b774" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="13458" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/__browserLink/requestData/93e9fef87525411b93cb436f5b74b774" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="application/json, text/javascript, */*; q=0.01" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.5" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=7m-qFwLposvuTng8c5rbao-mXGezG871lMF86e_T4eOF3bT058gq1JZ06xCkNsK-ESkPvDycuctMyzOQyn4BihffgdO3Il1WO9ZJwFLhQVg1; CookieForUser=37998FFDA3AE8DC41BE20609C085ED4A4D1F6D9BD46DC3EAB43187578225019219579FC75033BDE6B951CDB5F27A03D6038B47EAA49A6338F6D91D2ECD026FCEF3BF7CC3F1309674BD1719C78D651320A406F3A163B1011AC863B266E159497E85D76504ADE7C7557176DEEF9B1370D7" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:13458" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:13458/order/checkout" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <queryString>
+    <item name="version">
+      <value string="2" />
+    </item>
+  </queryString>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="7m-qFwLposvuTng8c5rbao-mXGezG871lMF86e_T4eOF3bT058gq1JZ06xCkNsK-ESkPvDycuctMyzOQyn4BihffgdO3Il1WO9ZJwFLhQVg1" />
+    </item>
+    <item name="CookieForUser">
+      <value string="37998FFDA3AE8DC41BE20609C085ED4A4D1F6D9BD46DC3EAB43187578225019219579FC75033BDE6B951CDB5F27A03D6038B47EAA49A6338F6D91D2ECD026FCEF3BF7CC3F1309674BD1719C78D651320A406F3A163B1011AC863B266E159497E85D76504ADE7C7557176DEEF9B1370D7" />
+    </item>
+  </cookies>
+</error>

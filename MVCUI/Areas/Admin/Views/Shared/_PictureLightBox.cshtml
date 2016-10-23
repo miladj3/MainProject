@@ -1,0 +1,42 @@
+﻿@model  IEnumerable<DomainClasses.Entities.Picture>
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header alert alert-info text-center">
+            <h4>تصویر خود را انتخاب کنید</h4>
+
+            @Ajax.ActionLink(linkText: "فولدرها",
+           actionName: MVC.Admin.Folder.ActionNames.Index,
+           controllerName: MVC.Admin.Folder.Name,
+           ajaxOptions: new AjaxOptions
+           {
+               HttpMethod = FormMethod.Get.ToString(),
+               AllowCache = false,
+               InsertionMode = InsertionMode.Replace,
+               OnSuccess = "LightBox.onSuccess",
+               UpdateTargetId = "lightBox"
+           },
+           routeValues: new
+           {
+               elementId = ViewBag.ElementId
+           },
+           htmlAttributes: new
+           {
+               rel = "nofollow",
+               role = "button",
+               @class = "btn btn-info"
+           })
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col-md-12" id="lightBoxContent">
+                    @{ Html.RenderAction(MVC.Admin.Folder.ActionNames.ListForLightBox, MVC.Admin.Folder.Name);}
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">تایید</button>
+        </div>
+    </div>
+</div>

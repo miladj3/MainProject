@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainClasses.Entities;
-using ViewModel.ViewModel.Admin.Setting;
+using ViewModel.ViewModel.Admin.SlideShow;
 using System.Data.Entity;
 using DataLayer.Context;
 using EntityFramework.Extensions;
@@ -47,16 +47,14 @@ namespace ServiceLayer.EFServices
             _slideShow.Add(model);
         }
 
-        public Boolean AllowAdd() =>
-            _slideShow.Count() <= 10;
+        public async Task<Boolean> AllowAdd() =>
+            await _slideShow.CountAsync() <= 5;
 
-        public void Delete(Int64 id)
-        {
-            _slideShow.Where(x => x.Id.Equals(id)).Delete();
-        }
+        public async Task Delete(Int64 id) =>
+            await _slideShow.Where(x => x.Id == id).DeleteAsync();
 
-        public EditSlideShowViewModel GetByIdForEdit(Int64 id) =>
-            _slideShow.Where(x => x.Id.Equals(id)).Select(x => new EditSlideShowViewModel()
+        public async Task<EditSlideShowViewModel> GetByIdForEdit(Int64 id) =>
+            await _slideShow.Where(x => x.Id == id).Select(x => new EditSlideShowViewModel()
             {
                 Id = x.Id,
                 ImageAltText = x.ImageAltText,
@@ -69,10 +67,13 @@ namespace ServiceLayer.EFServices
                 Position = x.Position,
                 ShowTransition = x.ShowTransition,
                 DataVertical = x.DataVertical
-            }).FirstOrDefault();
+            }).FirstOrDefaultAsync();
 
-        public IEnumerable<SlideShow> List() =>
-            _slideShow.OrderByDescending(x => x.Id).Cacheable().ToList();
+        public async Task<IEnumerable<SlideShow>> List() =>
+            await _slideShow.OrderByDescending(x => x.Id).ToListAsync();
+
+        public IEnumerable<SlideShow> ListForIndexPage() =>
+             _slideShow.OrderByDescending(x => x.Id).Cacheable().ToList();
 
         public void Update(EditSlideShowViewModel viewModel)
         {
@@ -87,7 +88,8 @@ namespace ServiceLayer.EFServices
                 HideTransition = viewModel.HideTransition,
                 Position = viewModel.Position,
                 ShowTransition = viewModel.ShowTransition,
-                DataVertical = viewModel.DataVertical
+                DataVertical = viewModel.DataVertical,
+                 Id=viewModel.Id
             };
             _unitOfWorks.MarkAsChanged(model);
         }

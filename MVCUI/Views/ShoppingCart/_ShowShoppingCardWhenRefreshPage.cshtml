@@ -1,0 +1,16 @@
+﻿@using ViewModel.ViewModel.Admin.ShoppingCard
+@model IEnumerable<shoppingCartInHeaderViewModel>
+
+
+@foreach (shoppingCartInHeaderViewModel item in Model)
+{
+    <li data-id="@item.Id" class="countNumberShoppingCard_@item.Id _parent">
+        <i class="fa fa-times removeShoppingCartItem" aria-hidden="true"></i>
+        <strong>@item.Name<bdi class="number_persian">(@item.CountItem)</bdi></strong>
+        <img src="@item.Image" alt="@item.Name"/>
+    </li>
+}
+
+<script>
+    document.getElementById('shoppingCart').innerText = '' +@Html.DisplayTextFor(x => x.FirstOrDefault().Count) +'';
+</script>

@@ -40,12 +40,14 @@ namespace T4MVC
             {
                 public readonly string _Footer_Partial = "_Footer_Partial";
                 public readonly string _Layout = "_Layout";
+                public readonly string _reCaptcha = "_reCaptcha";
                 public readonly string _scroll_up = "_scroll_up";
                 public readonly string _subscribe = "_subscribe";
                 public readonly string MetaTag = "MetaTag";
             }
             public readonly string _Footer_Partial = "~/Views/Shared/_Footer_Partial.cshtml";
             public readonly string _Layout = "~/Views/Shared/_Layout.cshtml";
+            public readonly string _reCaptcha = "~/Views/Shared/_reCaptcha.cshtml";
             public readonly string _scroll_up = "~/Views/Shared/_scroll_up.cshtml";
             public readonly string _subscribe = "~/Views/Shared/_subscribe.cshtml";
             public readonly string MetaTag = "~/Views/Shared/MetaTag.cshtml";

@@ -34,7 +34,7 @@ namespace MVCUI.Searching
         {
             get
             {
-                if (_seracher.Equals(null))
+                if (_seracher == null)
                     _seracher = new IndexSearcher(FSDirectory.Open(new DirectoryInfo(_path)), true);
                 return _seracher;
             }
@@ -62,8 +62,7 @@ namespace MVCUI.Searching
             inputText = inputText.ApplyCorrectPersianLucene();
             if (String.IsNullOrEmpty(inputText.Replace("*", "").Replace("?", "")))
                 return resultList;
-            //TODO: Delete After Test
-            //  inputText = inputText.ApplyCorrectPersianLucene();
+            inputText = inputText.ApplyCorrectPersianLucene();
 
             StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
             TopDocs result = Searcher.Search(new PrefixQuery(new Lucene.Net.Index.Term(Name, inputText)), null, maxItem);
@@ -98,6 +97,9 @@ namespace MVCUI.Searching
         #region Create Index
         public static void CreateIndexes(IEnumerable<ProductLuceneViewModel> viewModel)
         {
+            if (!System.IO.Directory.Exists(_path))
+                System.IO.Directory.CreateDirectory(_path);
+
             FSDirectory directory = FSDirectory.Open(new DirectoryInfo(_path));
             StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
             using (IndexWriter writerIndex = new IndexWriter(directory, analyzer, create: true, mfl: IndexWriter.MaxFieldLength.UNLIMITED))
@@ -120,6 +122,7 @@ namespace MVCUI.Searching
             {
                 FSDirectory directory = FSDirectory.Open(new DirectoryInfo(_path));
                 StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
+
                 using (IndexWriter indexWriter = new IndexWriter(directory, analyzer, create: false, mfl: IndexWriter.MaxFieldLength.UNLIMITED))
                 {
                     indexWriter.DeleteAll();
@@ -145,7 +148,6 @@ namespace MVCUI.Searching
                 Document newDoc = MapProductToDocument(viewModel);
 
                 indexWriter.UpdateDocument(new Term(Id, viewModel.Id.ToString(CultureInfo.InvariantCulture)), newDoc);
-
                 indexWriter.Commit();
                 indexWriter.Dispose();
                 directory.Dispose();
@@ -160,15 +162,19 @@ namespace MVCUI.Searching
             {
                 indexWriter.DeleteDocuments(new Term(Id, id.ToString(CultureInfo.InvariantCulture)));
                 indexWriter.Commit();
-                indexWriter.Dispose();
                 indexWriter.Optimize();
+                indexWriter.Dispose();
                 directory.Dispose();
             }
         }
         public static void AddIndex(ProductLuceneViewModel viewModel)
         {
+            if (!System.IO.Directory.Exists(_path))
+                System.IO.Directory.CreateDirectory(_path);
+
             FSDirectory directory = FSDirectory.Open(new DirectoryInfo(_path));
             StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
+
             using (IndexWriter writer = new IndexWriter(directory, analyzer, create: false, mfl: IndexWriter.MaxFieldLength.UNLIMITED))
             {
                 writer.AddDocument(MapProductToDocument(viewModel));
@@ -421,7 +427,7 @@ namespace MVCUI.Searching
         #region More Like
         private static Int32 GetLuceneDocumentNumber(Int64 id)
         {
-            StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
+            StandardAnalyzer analyzer = new StandardAnalyzer(_version);
             QueryParser parser = new QueryParser(_version, Id, analyzer);
             Query query = ParseQuery(id.ToString(CultureInfo.InvariantCulture), parser);
             TopDocs doc = Searcher.Search(query, 1);
@@ -431,7 +437,7 @@ namespace MVCUI.Searching
         private static Query CreateMoreLikeThisQuery(Int64 id)
         {
             Int32 docNum = GetLuceneDocumentNumber(id);
-            if (docNum.Equals(0))
+            if (docNum == 0)
                 return null;
 
             StandardAnalyzer analyzer = new StandardAnalyzer(_version, GetStopWords());
@@ -445,10 +451,10 @@ namespace MVCUI.Searching
             return MoreLikeThis.Like(docNum);
         }
 
-        private static IList<ProductSearchResultViewModel> ShowMoreLikeThisPostItems(Int64 id)
+        public static IList<ProductSearchResultViewModel> ShowMoreLikeThisPostItems(Int64 id)
         {
             Query query = CreateMoreLikeThisQuery(id);
-            if (query.Equals(null))
+            if (query == null)
                 return null;
 
             TopDocs hitResult = Searcher.Search(query, n: 7);

@@ -1,22 +1,44 @@
-﻿<div id="m-subscribe">
-    @using (Ajax.BeginForm(new AjaxOptions() { }))
+﻿@using ViewModel.ViewModel.Admin.Subscribe
+@model SubscribeViewModel
+
+<div id="m-subscribe">
+    <div id="loading_in_subscribe">
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+    </div>
+    <div id="load_content_after">
+        <p>
+            
+        </p>
+    </div>
+    @using (Ajax.BeginForm(new AjaxOptions()
     {
-        <div>
-            <i class="fa fa-envelope"></i>
+        HttpMethod = "Post",
+        AllowCache = false,
+        Url = Url.Action(MVC._SharedItem.ActionNames.subscribe, MVC._SharedItem.Name),
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementDuration = 0,
+        LoadingElementId= "loading_in_subscribe",
+        OnSuccess="OnSuccessSubscribe"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="_sub">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
             @Html.Label("مشترک ما شوید و محصولات جدید را از طریق ایمیل دریافت کنید")
-            @Html.TextBox("name", null, htmlAttributes: new
+            @Html.TextBoxFor(x => x.NameSubscribe, null, htmlAttributes: new
        {
-           id = "m-text-box-name",
            placeholder = "نام خود را وارد نمایید",
            @required = "required",
-           @type = "text"
+           @type = "text",
+           @title = "نام خود را وارد نمایید"
        })
-            @Html.TextBox("subscibe", null, htmlAttributes: new
+
+            @Html.TextBoxFor(x => x.EmailSubscribe, null, htmlAttributes: new
        {
-           id = "m-text-box-email",
            placeholder = "ایمیل خود را وارد نمایید",
            @required = "required",
-           @type = "email"
+           @type = "email",
+           @title = "برای مطلع شدن از جدیدترین محصولات ما ایمیل خود را وارد نمایید"
        })
             <button type="submit">ارسال</button>
         </div>

@@ -146,12 +146,9 @@ namespace MVCUI.Helpers
             return result;
         }
 
-        public static String GeneratePageDescription(String description)
-        {
-            return
+        public static String GeneratePageDescription(String description)=>
                 description.Substring(0,
                     description.Length <= MaxLenghtDescription ? description.Length : MaxLenghtDescription).Trim();
-        }
 
         #endregion
     }

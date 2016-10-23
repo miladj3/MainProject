@@ -36,8 +36,27 @@ namespace ViewModel.ViewModel.Admin.Setting
         [DisplayName("شماره موبایل 1")]
         public String PhoneNumber2 { get; set; }
 
+        [EmailAddress]
+        [DisplayName("ایمیل")]
+        public String Email { get; set; }
+
+        [DisplayName("نشان اعتماد الکتریکی")]
+        public Boolean Trust { get; set; }
+
+        [DisplayName("لوگوی سایت")]
+        public String Logo { get; set; }
+
         [DisplayName("مدیریت نظرات")]
         public Boolean CommentModeratorStatus { get; set; }
 
+        [DisplayName("تلگرام")]
+        public String Telegram { get; set; }
+
+        [DisplayName("اینستاگرام")]
+        public String Instagram { get; set; }
+
+        [DisplayName("فیسبوک")]
+        public String Facebook { get; set; }
+        
     }
 }

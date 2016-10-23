@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DomainClasses.Entities.ProductImage>
+
+@{
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+    ViewBag.Title = "ویرایش تصاویر";
+}
+
+@section CSS{
+    <style>
+        .form-group {
+            margin-bottom: 26px !important;
+        }
+
+        .font-size-30 {
+            font-size: 30px;
+        }
+    </style>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            for (int i = 0; i < Model.Count()-2; i++)
+            {
+
+                <text>
+                    <input type="hidden" name="[@i].ProductId" value="@Model.ElementAt(i).ProductId" />
+                    <input type="hidden" name="[@i].Id" value="@Model.ElementAt(i).Id" />
+                    <div class="form-group">
+                        @{ var index = i + 1;}
+                        <label for="[@i].Path" class="control-label col-md-1">تصویر @index</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" value="@Model.ElementAt(i).Path" id="[@i].Path" name="[@i].Path" />
+                        </div><a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-success="LightBox.onSuccess" data-ajax-update="#lightBox" data-toggle="modal"
+                                 href="@Url.Action(MVC.Admin.Folder.ActionNames.Index, MVC.Admin.Folder.Name)?elementId=[@i].Path" rel="nofollow" role="button">
+                            <i class="glyphicon glyphicon-picture font-size-30"></i>
+                        </a>
+                    </div>
+
+                </text>
+
+                            }
+                            <div class="form-group">
+                                <div class="col-md-offset-1 col-md-5">
+                                    <input type="submit" value="ذخیره تغییرات" class="btn btn-success" />
+                                </div>
+                            </div>
+                            }
+    </div>
+</div>
+@section scipts{
+@Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script async defer type="text/javascript">
+        var $_that;
+        function OnBoxAddPictureToProduct(res) {
+            $_that = $(this);
+        }
+        $(document).on('click', '.imageloadedContainers img', function (event) {
+            var select_id_from_href = $_that.data('id');
+            var select_input = $('input#' + select_id_from_href + '');
+            var data_img = $(this).data('id');
+            select_input.val(data_img);
+            $('.imageloadedContainers img').removeClass('border');
+            $(this).addClass('border');
+        })
+    </script>
+}

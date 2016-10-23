@@ -1,0 +1,103 @@
+﻿@using ViewModel.ViewModel.Admin.ShoppingCard
+@model IEnumerable<ShoppingCardViewModel>
+@{
+    ViewBag.Title = ViewBag.Title;
+    Layout = MVC.Shared.Views._Layout;
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
+}
+<div id="__checkout">
+    <table class="_parent_shopping_Card" data-url="@Url.Action(MVC.ShoppingCart.ActionNames.RemoveFromCart, MVC.ShoppingCart.Name)">
+        <caption>
+            سبد محصولات خریداری شده
+        </caption>
+        <thead>
+            <tr>
+                <th>حذف</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().NameProduct)</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().PriceProduct)</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().PriceProductAfterDiscount)</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().Quantity)</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().PriceTotalProduct)</th>
+                <th>@Html.DisplayNameFor(x => x.FirstOrDefault().IsFreeShipping)</th>
+                <th id="container_img_checkout"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (ShoppingCardViewModel item in Model)
+                {
+                    <tr data-id="@item.Id" class="countNumberShoppingCard_@item.Id _parent">
+                        <td><i class="fa fa-times removeShoppingCartItem" aria-hidden="true"></i></td>
+                        <td>@Html.DisplayFor(x => item.NameProduct)</td>
+                        @if (item.PriceProductAfterDiscount == item.PriceProduct)
+                        {
+                            <td class="number_persian">@item.PriceProduct.ToString("###,###.####")</td>
+                        }
+                        else
+                        {
+                            <td class="number_persian" style="text-decoration:line-through; opacity:.7">@item.PriceProduct.ToString("###,###.####")</td>
+                        }
+                        @if (item.PriceProductAfterDiscount == item.PriceProduct)
+                        {
+                            <td class="number_persian">---</td>
+                        }
+                        else
+                        {
+                            <td class="number_persian">@item.PriceProductAfterDiscount.ToString("###,###.####") &nbsp;<bdi> ريال</bdi></td>
+                        }
+                        <td class="number_persian">@Html.DisplayTextFor(x => item.Quantity) </td>
+                        <td class="number_persian">@item.PriceTotalProduct.ToString("###,###.####") &nbsp;<bdi> ريال</bdi></td>
+                        <td style="text-align:center">
+                            @{
+                                if (item.IsFreeShipping)
+                                {
+                                    @:&#10003;
+                                 }
+                                else
+                                {
+                                    @: &#10007;
+                                }
+                            }
+                        </td>
+                        <td><img src="@item.ImageProduct" /></td>
+                    </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td></td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                        <td>------</td>
+                                    </tr>
+                                }
+        </tbody>
+    </table>
+    <div id="continue_order_btn">
+        @Ajax.ActionLink("ادامه خرید",
+       MVC.ShoppingCart.ActionNames.PersonDetail,
+       MVC.ShoppingCart.Name,
+       null,
+        new AjaxOptions
+        {
+            AllowCache=false,
+            HttpMethod=FormMethod.Get.ToString(),
+            OnBegin= "person_detail_order_OnBegin",
+            OnSuccess= "person_detail_order_OnSuccess"
+        },
+       new
+       {
+           @rel = "nofollow, noindex",
+           @role = "button"
+       })
+    </div>
+    <hr />
+    <div id="_load_complete_order"></div>
+</div>

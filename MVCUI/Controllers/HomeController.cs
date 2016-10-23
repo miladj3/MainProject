@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MVCUI.Controllers
 {
+    [T4MVC]
     public partial class HomeController : Controller
     {
         #region Fields
@@ -16,7 +17,6 @@ namespace MVCUI.Controllers
         private const int _1houe = 3600;
         private const int _15min = 900;
         private const int _10min = 600;
-        private readonly IProductService _product;
         private readonly ISlideShowService _slideShow;
         private readonly IPageService _page;
         private readonly IUnitOfWork _unitOfWork;
@@ -25,25 +25,31 @@ namespace MVCUI.Controllers
 
         #region Constructor
         public HomeController(IUnitOfWork unitOfWork,
-                                            IPageService pageService, 
-                                            ISlideShowService slideShowService, 
-                                            ISettingService settingService,
-                                             IProductService productService)
+                                            IPageService pageService,
+                                            ISlideShowService slideShowService,
+                                            ISettingService settingService)
         {
             _unitOfWork = unitOfWork;
             _page = pageService;
             _slideShow = slideShowService;
-            _product = productService;
             _setting = settingService;
         }
         #endregion
 
-        #region section Index
+        #region Actions
         [HttpGet]
+        [OutputCache(CacheProfile ="long")]
         public virtual ActionResult Index()
         {
-            return View();
+            ViewBag.Title = "خانه";
+            return View(MVC.Home.Views.Index);
         }
+
+        [ChildActionOnly]
+        [HttpGet]
+        [OutputCache(Duration =1, VaryByParam ="*")]
+        public virtual PartialViewResult _slider() =>
+            PartialView(MVC.Home.Views._Slider,_slideShow.ListForIndexPage());
         #endregion
     }
 }

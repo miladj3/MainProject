@@ -14,6 +14,16 @@ namespace MVCUI.Extentions
             httpcontext.AddCookie(cookieName, value, DateTime.Now.AddDays(30));
         }
 
+        public static void AddCookie(this HttpContextBase httpContext, String cookieName, String value, DateTime expire, Boolean httpOnly = false)
+        {
+            HttpCookie cookie = new HttpCookie(cookieName);
+            cookie.Value = httpContext.Server.UrlEncode(value);
+            cookie.Expires = expire;
+            cookie.HttpOnly = httpOnly;
+
+            httpContext.Response.Cookies.Set(cookie);
+        }
+
         public static void RemoveCookie(this HttpContextBase httpcontext, String cookieName)
         {
             HttpCookie cookie = new HttpCookie(cookieName);
@@ -29,21 +39,11 @@ namespace MVCUI.Extentions
 
             httpcontext.Response.Cookies.Set(cookie);
         }
-
-        public static void AddCookie(this HttpContextBase httpContext, String cookieName, String value, DateTime expire, Boolean httpOnly = false)
-        {
-            HttpCookie cookie = new HttpCookie(cookieName);
-            cookie.Value = httpContext.Server.UrlEncode(value);
-            cookie.Expires = expire;
-            cookie.HttpOnly = httpOnly;
-
-            httpContext.Response.Cookies.Set(cookie);
-        }
-
+        
         public static String GetCookieValue(this HttpContextBase httpcontext, String cookieName)
         {
             HttpCookie cookie = httpcontext.Request.Cookies[cookieName];
-            if (cookie.Equals(null))
+            if (cookie==null)
                 return String.Empty; ;
             return httpcontext.Server.UrlDecode(cookie.Value);
         }

@@ -1,77 +1,114 @@
-﻿<div id="m-container-header-first-child">
+﻿@using MVCUI.Helpers
+@using DomainClasses.Enums
+@using System.Web.Mvc.Ajax
+
+<div id="m-container-header-first-child">
     <ul>
         <!-- #region Shopping Cart -->
         <li id="m-cart-item" title="سبد خرید">
             @if (Request.IsAuthenticated)
             {
-                <em>(سبد خرید<bdi class="number_persian" id="shoppingCart">0</bdi>)</em>
-                <i class="fa fa-shopping-cart"></i>
+            <em>(سبد خرید<bdi class="number_persian" id="shoppingCart">0</bdi>)</em>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <div id="m-cart-info">
+                <p>محصولات انتخاب شده</p>
+                <ul class="_parent_shopping_Card" data-url="@Url.Action(MVC.ShoppingCart.ActionNames.RemoveFromCart, MVC.ShoppingCart.Name)">
+                    <!--  محصولات انتخاب شده در سبد کالا -->
+                    <!--  Templete of select Shopping Card -->
+                    <!--
+                        <li>
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            <strong>کرم بعد اصلاح ادیداس</strong>
+                            <img src="" />
+                        </li>
+                    -->
+                    @Html.Action(MVC.ShoppingCart.ActionNames.ShowShoppingCardWhenRefreshPage, MVC.ShoppingCart.Name)
+                </ul>
+                @Html.ActionLink(
+                                            linkText: "تکمیل خرید",
+                                            actionName: MVC.ShoppingCart.ActionNames.Index,
+                                            controllerName: MVC.ShoppingCart.Name,
+                                            routeValues: null,
+                                            htmlAttributes: new
+                                            {
+                                                @role = "button",
+                                                @rel = "nofollow",
+                                                @id = "_buttonShop"
+                                            })
+            </div>
             }
             else
             {
-                <em>(سبد خرید<bdi class="number_persian">0</bdi>)</em>
-                <i class="fa fa-shopping-cart"></i>
+            <em>(سبد خرید<bdi class="number_persian">0</bdi>)</em>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             }
-            <div id="m-cart-info">
-                <p>محصولات انتخاب شده</p>
-                <ul>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
-                </ul>
-            </div>
         </li>
         <!-- #endregion -->
         <!-- #region Whish List -->
         <li id="m-whishlist">
-            <em>محصولات پسندیده</em>
-            <i class="fa fa-heart"></i>
+            <em>@Html.ActionLink("محصولات پسندیده", MVC.User.ActionNames.WhishesList, MVC.User.Name)</em>
+            <i class="fa fa-heart" aria-hidden="true"></i>
         </li>
         <!-- #endregion -->
         <!-- #region Compare -->
         <li id="m-compare">
             <em>مقایسه کالا</em>
-            <i class="fa fa-compress"></i>
+            <i class="fa fa-compress" aria-hidden="true"></i>
             <div id="m-container-popup-menu">
                 <p>لیست مقایسه کالاها</p>
                 <ul>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
-                    <li>
-                        <i class="fa fa-times"></i>
-                        <strong>کرم بعد اصلاح ادیداس</strong>
-                        <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
-                    </li>
+                    <!--  محصولات انتخاب شده برای مقایسه کالا -->
+                    <!--  Templete of select for compare -->
+                    <!--   <li>
+                                   <i class="fa fa-times" aria-hidden="true"></i>
+                                   <strong>تست نام کالا</strong>
+                                   <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                             </li>   -->
+                    @if (Request.Cookies.Get(Links.BundleExtension.CookiesName.CookieNameOfCompareProduct) != null)
+                    {
+                        @Html.Action(MVC.Product.ActionNames.checkExistCookieForCompareList, MVC.Product.Name)
+                    }
                 </ul>
+                @Html.ActionLink(
+                                            linkText: "مقایسه کن",
+                                            actionName: MVC.Product.ActionNames.Compare,
+                                            controllerName: MVC.Product.Name,
+                                            routeValues: null,
+                                            htmlAttributes: new
+                                            {
+                                                @role = "button",
+                                                @rel = "nofollow",
+                                                @id = "_buttonCompare"
+                                            })
             </div>
         </li>
         <!-- #endregion -->
         <!-- #region USER -->
-        @if (Request.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated)
         {
             <li id="m-account">
-                <em>حساب کاربری</em>
-                <i class="fa fa-user"></i>
+                @if (User.IsInRole("admin"))
+                {
+                    <em>@Html.ActionLink("پنل مدیریت", MVC.Admin.Home.Index())</em>
+                }
+                else
+                {
+                    <em>@Html.ActionLink("حساب کاربری", MVC.User.ActionNames.Profile, MVC.User.Name)</em>
+                }
+
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </li>
+            <li id="m-logout">
+                @using (Html.BeginForm(actionName: MVC.User.ActionNames.logOut,
+                    controllerName: MVC.User.Name,
+                  method: FormMethod.Post,
+                  htmlAttributes: null,
+                  routeValues: null))
+                {
+                    @Html.AntiForgeryToken()
+                    <em><input type="submit" value="خروج" /></em>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                }
             </li>
         }
         else
@@ -80,24 +117,26 @@
                 <em>
                     @Html.ActionLink("ورود کاربری", MVC.User.Login(ViewBag.returnUrl as String), MVC.User.Name)
                 </em>
-                <i class="fa fa-key"></i>
+                <i class="fa fa-key" aria-hidden="true"></i>
             </li>
             <li id="m-register">
-                <em>ثبت نام</em>
-                <i class="fa fa-user"></i>
+                <em>
+                    @Html.ActionLink("ثبت نام", MVC.User.ActionNames.Register, MVC.User.Name)
+                </em>
+                <i class="fa fa-user" aria-hidden="true"></i>
             </li>
         }
         <!-- #endregion -->
     </ul>
     <ul>
         <li id="m-unit-money">
-            <i class="fa fa-caret-down"></i>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
             <em>ریال</em>
             <img src="@Links.Content.Image.iran_flag_32_png" alt="ریال" />
         </li>
         <li id="m-phone-number">
-            <em class="number_persian">098-91234567</em>
-            <i class="fa fa-phone"></i>
+            <em class="number_persian" id="number_phone_in_header"></em>
+            <i class="fa fa-phone" aria-hidden="true"></i>
         </li>
     </ul>
 </div>

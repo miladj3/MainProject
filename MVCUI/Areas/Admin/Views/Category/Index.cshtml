@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+    ViewBag.Title = "گروه های محصولات";
+}
+<div class="row">
+    <div class="col-lg-12">
+
+        @using (Ajax.BeginForm(MVC.Admin.Category.ActionNames.List, MVC.Admin.Category.Name, null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "categoriesList" }, new { @class = "form-horizontal", id = "categoryFilterForm" }))
+        {
+            <div class="row">
+                <div class="well-sm col-md-8">
+                    <div class="col-md-5">
+                        <input name="term" value="" placeholder="جستجو با نام" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" value="جست و جو" class="btn btn-md btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="table-responsive col-lg-12" id="categoriesList">
+        @{ Html.RenderAction(MVC.Admin.Category.ActionNames.List, MVC.Admin.Category.Name);}
+    </div>
+</div>
+
+@section scipts{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script>
+        $(function () {
+            $("span.deleteSpan").on("click", function () {
+                var $that = $(this),
+                    id = $(this).data('id'),
+                    name = $(this).data('name'),
+                    token = $('input[name="__RequestVerificationToken"]').val();
+
+                var t=confirm('آیا مایل به حذف '+name+' هستید؟');
+                if(t==true){
+                    $.ajax({
+                        type: 'POST',
+                        url:'@Url.Action(MVC.Admin.Category.ActionNames.Delete, MVC.Admin.Category.Name)',
+                        cache: false,
+                        async:true,
+                        data: {
+                            __RequestVerificationToken: token,
+                            id:id
+                        }
+                    }).done(function(result){
+                        if(result){
+                            $that.parents('tr').remove();
+                        }
+                    }).fail(function(){
+                        alert("عملیات حذف به مشکل برخورد");
+                    })
+                }
+                else{
+                    alert("عملیات حذف "+name+" لغو گردید");
+                }
+            })
+        })
+    </script>
+}

@@ -1,0 +1,86 @@
+﻿@using MVCUI.Helpers
+@using ViewModel.ViewModel.Admin.Product
+@model ProductSectionViewModel
+
+@{
+    Boolean _inStock = Model.IsInStock;
+    Boolean _comingSoon = !Model.ComingSoon;
+}
+<li class="proXXXXXX">
+    <i class="fa fa-times __removePopulated" title="حذف از محصولات محبوب من" data-id="@Model.Id" aria-hidden="true"></i>
+    <div class="m-container-product">
+        <div class="__y">
+            @if (_comingSoon)
+            {
+                if (_inStock)
+                {
+                    if (Model.IsFreeShipping)
+                    {
+                        <p class="_isfreeShopping">ارسال رایگان</p>
+                    }
+                    if (Model.TotalDiscount > 0)
+                    {
+                        <p class="_isTotalDiscount">تخفیف &nbsp;<bdi class="number_persian">@Model.TotalDiscount</bdi>&nbsp;%</p>
+                    }
+                }
+            }
+            else
+            {
+                <p class="_comingSoon">به زودی</p>
+            }
+        </div>
+        <div class="m-container-img-product">
+            <img src="@Model.PrincipleImagePath" alt="@Model.Name" />
+        </div>
+        <h2>@Model.Name</h2>
+        @if (_comingSoon)
+            {
+                if (_inStock)
+                {
+                    if (Model.TotalDiscount > 0 ||
+                        !(Model.PriceAfterDiscount == Model.Price))
+                    {
+                    <p class="number_persian second_price_product">@Model.Price.ToString("###,###.####")<bdi> ريال</bdi></p>
+                        <p class="number_persian">@Model.PriceAfterDiscount.ToString("###,###.####")<bdi> ريال</bdi></p>
+                }
+                else
+                {
+                    <p class="number_persian">@Model.Price.ToString("###,###.####")<bdi> ريال</bdi></p>
+                }
+                <div class="m_pop_up_product">
+                    @Html.ActionLink(linkText: "جزئیات بیشتر...",
+                       actionName: MVC.Product.ActionNames.Index,
+                       controllerName: MVC.Product.Name,
+                       routeValues: new
+                       {
+                           productid = Model.Id,
+                           name = SeoExtentions.ResolveTitleForUrl(Model.Name)
+                       },
+                       htmlAttributes: new
+                       {
+                           @rel = "follow, index",
+                           @title = "مشاهده سریع"
+                       })
+                    <div>
+                        <button class="m_btn_add_to_cart" data-id-url="@Url.Action(MVC.ShoppingCart.ActionNames.AddToCart, MVC.ShoppingCart.Name)" data-id-product="@Model.Id">افزودن به لیست خرید</button>
+                    </div>
+                    @_StarRating.StarRate(Model.AvrageRate, Url.Action(MVC.Product.ActionNames.SaveRating, MVC.Product.Name), Model.Id)
+                    <div>
+                        <i title="افزودن به لیست محبوب من" data-productid="@Model.Id" data-url="@Url.Action(MVC.Product.ActionNames.AddToPopulate, MVC.Product.Name)" class="fa fa-heart _addToPopulator"></i>
+
+                        <i title="افزودن به لیست مقایسه" class="fa fa-random _addToCompare" data-url="@Url.Action(MVC.Product.ActionNames.AddToCompare, MVC.Product.Name)" data-id="@Model.Id"></i>
+                      
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p class="number_persian">ناموجود</p>
+            }
+        }
+        else
+        {
+            <p class="number_persian">به زودی</p>
+        }
+    </div>
+</li>

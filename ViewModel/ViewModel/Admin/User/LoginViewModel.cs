@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace ViewModel.ViewModel.Admin.User
 {
@@ -21,5 +22,8 @@ namespace ViewModel.ViewModel.Admin.User
 
         [DisplayName("مرا به خاطر بسپار")]
         public Boolean RememberMe { get; set; }
+
+        [HiddenInput(DisplayValue =true)]
+        public String returnUrl { get; set; }
     }
 }

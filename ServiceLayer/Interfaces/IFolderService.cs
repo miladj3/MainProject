@@ -10,12 +10,12 @@ namespace ServiceLayer.Interfaces
 {
     public interface IFolderService
     {
-        Boolean Add(AddFolderViewModel viewModel);
-        void Delete(Int64 id);
-        Boolean Edit(EditFolderViewModel viewModel);
-        EditFolderViewModel GetForEdit(Int64 id);
-        IEnumerable<Folder> GetList();
-        Boolean CheckNameExist(String name);
-        Boolean CheckNameExist(String name, Int64 id);
+        Task<Boolean> Add(AddFolderViewModel viewModel);
+        Task Delete(Int64 id);
+        Task<Boolean> Edit(EditFolderViewModel viewModel);
+        Task<EditFolderViewModel> GetForEdit(Int64 id);
+        Task<IEnumerable<Folder>> GetList();
+        Task<Boolean> CheckNameExist(String name);
+        Task<Boolean> CheckNameExist(String name, Int64 id);
     }
 }

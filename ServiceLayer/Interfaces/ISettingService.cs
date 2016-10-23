@@ -9,8 +9,8 @@ namespace ServiceLayer.Interfaces
 {
     public interface ISettingService
     {
-        void Update(EditSettingViewModel viewModel);
-        EditSettingViewModel GetOptionsForEdit();
+        Task Update(EditSettingViewModel viewModel);
+        Task<EditSettingViewModel> GetOptionsForEdit();
         EditSettingViewModel GetOptionsForShowOnFooter();
         Boolean CommentMangement();
     }

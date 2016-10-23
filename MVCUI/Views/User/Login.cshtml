@@ -2,7 +2,9 @@
 
 @{
     Layout = MVC.Shared.Views._Layout;
-    ViewBag.Title = "Login";
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
 }
 <section id="login_section">
     <p id="breadcrump">
@@ -21,32 +23,55 @@
                 <li>پیگیری محصول ارسال شده</li>
                 <li>ذخیره کردن کالاهای محبوب</li>
             </ol>
-            @Html.ActionLink("کلیک کنید و حساب کاربری خود را ایجاد نمائید.", MVC.User.ActionNames.Register, MVC.User.Name, htmlAttributes: new { id="__link_reg"})
+            @Html.ActionLink(
+                                           linkText: "کلیک کنید و حساب کاربری خود را ایجاد نمائید.",
+                                           actionName: MVC.User.ActionNames.Register,
+                                           controllerName: MVC.User.Name,
+                                           routeValues: null,
+                                           htmlAttributes: new
+                                           {
+                                               id = "__link_reg",
+                                               role = "button"
+                                           })
         </div>
         <div id="section_login">
             <strong>ورود به حساب کاربری</strong>
-            @using (Html.BeginForm(MVC.User.ActionNames.Register, MVC.User.Name, FormMethod.Post, htmlAttributes: null))
+            @using (Html.BeginForm(MVC.User.ActionNames.Login, MVC.User.Name, FormMethod.Post, htmlAttributes: null))
             {
                 <fieldset>
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true, string.Empty, null, "em")
                     <div>
-                        @Html.LabelFor(x => x.PhoneNumber, new { @class="label_i"})
-                        @Html.TextBoxFor(x=>x.PhoneNumber, new { @type= "number" })
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, string.Empty, null, "em")
+                        @Html.HiddenFor(x => x.returnUrl, ViewBag.returnUrl as String)
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.PhoneNumber, new { @class = "label_i" })
+                        @Html.TextBoxFor(x => x.PhoneNumber, new { @type = "number", placeholder = "09xxxxxxxxx" })
                         <div>
-                            @Html.ValidationMessageFor(x=>x.PhoneNumber, String.Empty, new { @class="error_i"})
+                            @Html.ValidationMessageFor(x => x.PhoneNumber, String.Empty, new { @class = "error_i" })
                         </div>
                     </div>
                     <div>
                         @Html.LabelFor(x => x.Password, new { @class = "label_i" })
-                        @Html.TextBoxFor(x => x.Password, new { @type = "password" })
+                        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "*********" })
                         <div>
                             @Html.ValidationMessageFor(x => x.Password, String.Empty, new { @class = "error_i" })
                         </div>
                     </div>
                     <div>
-                        <input type="submit" value="ثبت نام" />
-                        @Html.ActionLink("رمز عبور خود را فراموش کردید؟", MVC.User.ActionNames.Register)
+                        @Html.CheckBoxFor(x => x.RememberMe, htmlAttributes: new { id = "__chkBox00" })
+                        @Html.LabelFor(x => x.RememberMe, new { @class = "label_i", id = "__lbl00" })
+                    </div>
+                    <div>
+                        <input type="submit" value="ورود" />
+                        @Html.ActionLink(linkText: "رمز عبور خود را فراموش کردید؟",
+                                                       actionName: MVC.User.ActionNames.ForgetPassword,
+                                                       controllerName: MVC.User.Name,
+                                                       routeValues: null,
+                                                       htmlAttributes: new
+                                                       {
+                                                           role = "button"
+                                                       })
                     </div>
                 </fieldset>
             }

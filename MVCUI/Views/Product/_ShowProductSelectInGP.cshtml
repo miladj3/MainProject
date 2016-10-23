@@ -1,0 +1,33 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@using MVCUI.Helpers
+@model ProductSectionViewModel
+
+<div class="__container_product_selected_GP">
+    <div class="__img_product_selected_GP">
+        <img src="@Model.PrincipleImagePath" alt="@Model.Name" />
+    </div>
+    <div>
+        @Html.ActionLink(linkText: Model.Name,
+                                   actionName: MVC.Product.ActionNames.Index,
+                                   controllerName: MVC.Product.Name,
+                                   routeValues: new
+                                   {
+                                       productId = Model.Id,
+                                       name = Model.Name.GenerateSlug()
+                                   },
+                                   htmlAttributes: null)
+
+        @if (Model.TotalDiscount > 0)
+            {
+            <del class="__price number_persian">@Html.DisplayTextFor(x => Model.Price) <bdi>ريال</bdi></del>
+            <p class="__afterPrice number_persian">@Html.DisplayTextFor(x => Model.PriceAfterDiscount) <bdi>ريال</bdi></p>
+        }
+        else
+        {
+            <p class="__afterPrice number_persian">@Html.DisplayTextFor(x => Model.Price) <bdi>ريال</bdi></p>
+        }
+        <div>
+            @_StarRating.StarRate(Model.AvrageRate ?? (Double)0, Url.Action(MVC.Product.ActionNames.SaveRating, MVC.Product.Name), Model.Id)
+        </div>
+    </div>
+</div>

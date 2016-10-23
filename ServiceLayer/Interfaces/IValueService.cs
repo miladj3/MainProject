@@ -12,10 +12,10 @@ namespace ServiceLayer.Interfaces
     {
         void Insert(Value value);
         void AddCategoryAttributesToProduct(IEnumerable<DomainClasses.Entities.Attribute> attributes, Int64 productId);
-        IEnumerable<FillProductAttributesViewModel> GetForUpdateValuesByProductId(Int64 productId);
-        void UpdateValues(IEnumerable<FillProductAttributesViewModel> values);
-        void RemoveByProductId(Int64 productId);
+        Task<IEnumerable<FillProductAttributesViewModel>> GetForUpdateValuesByProductId(Int64 productId);
+        Task UpdateValues(IEnumerable<FillProductAttributesViewModel> values);
+        Task RemoveByProductId(Int64 productId);
         IEnumerable<AttributeValueViewModel> GetProductProperties(Int64 id);
-        String[] GetAttValueOfProduct(Int64 productId);
+        Task<String[]> GetAttValueOfProduct(Int64 productId);
     }
 }

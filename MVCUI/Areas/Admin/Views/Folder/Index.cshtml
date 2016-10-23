@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DomainClasses.Entities.Folder>
+
+@{
+    ViewBag.Title = "لیست فولدر ها";
+    if (Request.IsAjaxRequest())
+    {
+        Layout = null;
+    }
+    else
+    {
+        Layout = MVC.Admin.Shared.Views._AdminLayout;
+    }
+    @section css{
+        <style>
+            .font-size-70 {
+                font-size: 70px !important;
+            }
+        </style>
+    }
+}
+@Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-12">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-2">
+
+                        @Html.ActionLink(" ", MVC.Admin.Folder.ActionNames.Pictures, MVC.Admin.Folder.Name, new { folderId = item.Id }, new { @class = "glyphicon glyphicon-folder-open font-size-70" })
+                        <h5>@item.Name</h5>
+                        @Html.ActionLink("ویرایش", MVC.Admin.Folder.ActionNames.Edit, MVC.Admin.Folder.Name, new
+                   {
+                       id = item.Id
+                   }, htmlAttributes: new { @class = "btn btn-success btn-xs" })
+                        <span id="row-@item.Id" data-id="@item.Id" data-name="@item.Name" class="btn btn-danger btn-xs">
+                            حذف
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scipts{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script async defer type="text/javascript">
+        $(document).on('click', 'span[id^="row-"]', function (e) {
+            var $that = $(this);
+            var id = $that.data('id');
+            var name = $that.data('name');
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            var result = confirm('آیا برای حذف فولدر ' + name + ' مطمئن هستید؟ \n تمامی اطلاعات داخل پوشه حذف میگردد...');
+            if (result) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action(MVC.Admin.Folder.ActionNames.DeleteFolder, MVC.Admin.Folder.Name)',
+                    async: true,
+                    cache: false,
+                    data: {
+                        __RequestVerificationToken: token,
+                        Id: id
+                    }
+                }).done(function (res) {
+                    if (res) {
+                        alert(' پوشه  ' + name + ' همراه با اطلاعات داخل پوشه حذف گردید...');
+                        $that.parent('div').remove();
+                    }
+                    else {
+                        alert('عملیات انجام نشد. یکبار دیگر تلاش کنید');
+                    }
+                }).fail(function (res) {
+                    alert('مشکل داخلی \n عملیات انجام نشد. یکبار دیگر تلاش کنید');
+                })
+            }
+            else {
+                alert('عملیات لغو گردید');
+            }
+        })
+    </script>
+}

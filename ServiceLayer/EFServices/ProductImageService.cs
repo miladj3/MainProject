@@ -44,16 +44,16 @@ namespace ServiceLayer.EFServices
                 Path = viewModel.Image3,
                 ProductId = viewModel.ProductId
             });
-            _productImages.Add(new ProductImage
-            {
-                Path = viewModel.Image4,
-                ProductId = viewModel.ProductId
-            });
-            _productImages.Add(new ProductImage
-            {
-                Path = viewModel.Image5,
-                ProductId = viewModel.ProductId
-            });
+            //_productImages.Add(new ProductImage
+            //{
+            //    Path = viewModel.Image4,
+            //    ProductId = viewModel.ProductId
+            //});
+            //_productImages.Add(new ProductImage
+            //{
+            //    Path = viewModel.Image5,
+            //    ProductId = viewModel.ProductId
+            //});
         }
 
         public void Edit(IEnumerable<ProductImage> images)
@@ -62,9 +62,9 @@ namespace ServiceLayer.EFServices
                 _unitOfWork.MarkAsChanged(image);
         }
 
-        public IEnumerable<DomainClasses.Entities.ProductImage> GetImages(Int64 productId) =>
-            _productImages.Include(a => a.Product)
-            .Where(a => a.ProductId == productId).ToList();
+        public async Task<IEnumerable<ProductImage>> GetImages(Int64 productId) =>
+            await _productImages.Include(a => a.Product)
+            .Where(a => a.ProductId == productId).ToListAsync();
 
         #endregion
     }

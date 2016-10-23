@@ -33,17 +33,17 @@ namespace ServiceLayer.EFServices
             foreach (DomainClasses.Entities.Attribute item in attributes)
                 _value.Add(new Value()
                 {
-                    Content = "---",
+                    Content = "توضیحات خود را وارد نمایید",
                     AttributeId = item.Id,
                     ProductId = productId
                 });
         }
 
-        public String[] GetAttValueOfProduct(Int64 productId) =>
-            _value.Where(x => x.ProductId.Equals(productId)).Select(x => x.Attribute.Name + ":" + x.Content).ToArray();
+        public async Task<String[]> GetAttValueOfProduct(Int64 productId) =>
+            await _value.Where(x => x.ProductId.Equals(productId)).Select(x => x.Attribute.Name + ":" + x.Content).ToArrayAsync();
 
-        public IEnumerable<FillProductAttributesViewModel> GetForUpdateValuesByProductId(Int64 productId) =>
-            _value.Include(x => x.Product)
+        public async Task<IEnumerable<FillProductAttributesViewModel>> GetForUpdateValuesByProductId(Int64 productId) =>
+            await _value.Include(x => x.Product)
             .Include(x => x.Attribute)
             .Where(x => x.ProductId.Equals(productId))
             .Select(x => new FillProductAttributesViewModel()
@@ -51,12 +51,12 @@ namespace ServiceLayer.EFServices
                 Name = x.Attribute.Name,
                 Id = x.Id,
                 Value = x.Content
-            }).ToList();
+            }).ToListAsync();
 
         public IEnumerable<AttributeValueViewModel> GetProductProperties(Int64 id) =>
             _value.Include(x => x.Attribute)
             .Include(x => x.Product)
-            .Where(x => x.ProductId.Equals(id))
+            .Where(x => x.ProductId==id)
             .Select(x => new AttributeValueViewModel()
             {
                 Name = x.Attribute.Name,
@@ -68,19 +68,18 @@ namespace ServiceLayer.EFServices
             throw new NotImplementedException();
         }
 
-        public void RemoveByProductId(Int64 productId)
-        {
-            _value.Where(x => x.ProductId.Equals(productId)).Delete();
-        }
+        public async Task RemoveByProductId(Int64 productId)=>
+            await _value.Where(x => x.ProductId.Equals(productId)).DeleteAsync();
 
-        public void UpdateValues(IEnumerable<FillProductAttributesViewModel> values)
+        public async Task UpdateValues(IEnumerable<FillProductAttributesViewModel> values)
         {
             if (values == null)
                 return;
-            var fillProducts = values as IList<FillProductAttributesViewModel> ?? values.ToList();
+            IEnumerable<FillProductAttributesViewModel> fillProducts = values as IList<FillProductAttributesViewModel> ?? values.ToList();
             var ids = fillProducts.Select(x => x.Id);
-            var selectedValue = _value.Where(x => ids.Contains(x.Id)).ToList();
-            for (int i = 0; i < selectedValue.Count; i++)
+            IEnumerable<Value> selectedValue = await _value.Where(x => ids.Contains(x.Id)).ToListAsync();
+            Int32 count = selectedValue.Count();
+            for (int i = 0; i < count; i++)
                 selectedValue.ElementAt(i).Content = fillProducts.ElementAt(i).Value;
         }
         #endregion

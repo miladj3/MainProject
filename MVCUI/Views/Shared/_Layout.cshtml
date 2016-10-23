@@ -1,41 +1,42 @@
-﻿@using StackExchange.Profiling;
+﻿@using ViewModel.ViewModel.Admin.Subscribe
+@using StackExchange.Profiling
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <!-- #region Meta Tag -->
-    @*@Html.Action(MVC.CreateMetaTag.ActionNames.MetaTag, MVC.CreateMetaTag.Name, new
-        {
-            title = ViewBag.Title,
-            description = ViewBag.Description,
-            keyWords = ViewBag.KeyWords
-        })*@
+    @Html.Action(MVC._SharedItem.ActionNames._MetaTags, MVC._SharedItem.Name, new
+{
+    title = ViewBag.Title,
+    description = ViewBag.Description,
+    keyWords = ViewBag.KeyWords
+})
     <link rel="canonical" href="@ViewBag.CanonicalUrl" />
     <meta http-equiv="Content-Language" content="fa" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    @RenderSection("metatags", false)
-    <link rel="shortcut icon" href="@Links.Content.favicon.favicon_ico" type="image/x-icon">
-    @*<link rel="apple-touch-icon" href="@Links.Content.Images.fav.apple_touch_icon_iphone_png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="@Links.Content.Images.fav.apple_touch_icon_ipad_png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="@Links.Content.Images.fav.apple_touch_icon_iphone4_png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="@Links.Content.Images.fav.apple_touch_icon_ipad3_png" />*@
+    <meta name="viewport" content="width=device-width">
+    @RenderSection(Links.BundleExtension.RenderSection.MetaTagSection, false)
+    <link rel="shortcut icon" href="@Url.Content(Links.Content.favicon.Url("favicon.ico"))" type="image/x-icon">
+
     @*<link title="فید محصولات جدید سایت" href="@Url.Action(MVC.Feed.ActionNames.Product, MVC.Feed.Name)" type="application/rss+xml" rel="alternate" />*@
+
     <!-- #endregion -->
     <!--#region Bundle Style-->
     @Styles.Render(Links.BundleExtension.Style.MainCss_Css)
     @Styles.Render(Links.BundleExtension.Style.fonts)
     @Scripts.Render(Links.BundleExtension.Scripts.Modernizer)
-    <!--Remove thiss meta tag after BundleTable.EnableOptimizations = false; -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-    @*@Styles.Render("~/Content/css")
-        @Styles.Render("~/Search/css")*@
     @RenderSection(Links.BundleExtension.RenderSection.CssSection, required: false)
     <!--#endregion-->
 </head>
 <body>
     <noscript>
-        <meta http-equiv="refresh" content="0;url=http://www.google.com">
+        <div id="__nosript">
+            <p>مرورگر شما از قابلیت جاوااسکریپت پشتیبانی نمیکند. برای اینکه از تمامی امکانات سایت استفاده کنید باید جاوااسکریپت شما فعال باشد.درغیر اینصورت مرورگر خود را عوض نمایید</p>
+        </div>
     </noscript>
+
     <div id="m-container">
         <!-- #region Header -->
         <header id="m-header">
@@ -44,26 +45,167 @@
             @{ Html.RenderAction(MVC._SharedItem.ActionNames.Menu, MVC._SharedItem.Name); }
         </header>
         <!-- #endregion -->
-
         <!-- #region Body -->
         @RenderBody()
         <!-- #endregion -->
-
         <!-- #region Footer -->
-        @{ Html.RenderPartial(MVC.Shared.Views._subscribe); }
-        @{ Html.RenderPartial(MVC.Shared.Views._Footer_Partial); }
-        @{ Html.RenderPartial(MVC.Shared.Views._scroll_up); }
+        @{ Html.RenderPartial(MVC.Shared.Views._subscribe, new SubscribeViewModel()); }
+        @{ Html.RenderAction(MVC._SharedItem.ActionNames.AboutUs, MVC._SharedItem.Name); }
+
+        <!-- #region scrol To Up -->
+        <div id="m-scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </div>
         <!-- #endregion -->
+        <!-- #endregion -->
+        <!--#region Div For Loading Content-->
+        <div id="_load_result_in_top">
+            <p></p>
+        </div>
+        <!--#ednregion-->
+        <!-- #region Telegram In Side -->
+        <div id="__telegram_in_side">
+            <p>به کانال تلگرام ما بپیوندید</p>
+            <a href="#" id="__telegram_in_img">
+                <img src="~/Content/Image/Telegram_logo.svg.png" alt="samteb.ir" />
+            </a>
+        </div>
+        <!-- #endregion -->
+
     </div>
+
     <!-- #region Bundle Scripts -->
+
     @Scripts.Render(Links.BundleExtension.Scripts.Jquery)
     @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
-    @*  @Scripts.Render("~/bundles/masterjs")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/customerBundle/js")*@
+    @Scripts.Render(Links.BundleExtension.Scripts._starRating_Compare_AddToPopulate_AddToCart)
 
     @RenderSection(Links.BundleExtension.RenderSection.ScriptsSection, false)
+    <script type="text/javascript" async defer>
+        function OnSuccessSubscribe(_subscribe) {
+            if (_subscribe.result) {
+                $('#loading_in_subscribe').fadeOut('slow', function () {
+                    $('#load_content_after').fadeIn('fast', function () {
+                        $(this).children('p').text(_subscribe.message);
+                    });
+                });
+            } else {
+                if (_subscribe.hasMessage) {
+                    $('#loading_in_subscribe').fadeOut('slow', function () {
+                        $('#load_content_after').fadeIn('fast', function () {
+                            $(this).children('p').text(_subscribe.message);
+                        });
+                    });
+                } else {
+                    $('#loading_in_subscribe').fadeOut('slow', function () {
+                        $('#load_content_after').fadeIn('fast');
+                    })
+                }
+            }
+        }
+
+        $(function () {
+            $(document).scroll(function () {
+                var $$__scrollTop = $(window).scrollTop();
+                if ($$__scrollTop > 400) {
+                    $('#m-scroll-top').addClass('m-scroll-top-show');
+                } else {
+                    $('#m-scroll-top').removeClass('m-scroll-top-show');
+                }
+            })
+            $(document).on('click', '#m-scroll-top', function () {
+                var body = $("html, body");
+                body.stop().animate({ scrollTop: 0 }, '500', 'swing');
+            })
+        })
+
+        $(function () {
+            $(document).on('click', '#m-toggle-menu', function () {
+                var $_drawer_menu = $('#_m34x2y');
+                var $$_status = $_drawer_menu.data('toggle');
+                var $__close_drawer = function (event) {
+                    var target = $(event.target)
+                    if (!target.is($_drawer_menu)) {
+                        $_drawer_menu.stop().removeClass('m-drawer-menu_move');
+                        $_drawer_menu.attr('data-toggle', true);
+                        setTimeout(function () {
+                            $('#m-drawer-menu').removeClass('m-drawer-menu');
+                        }, 400);
+                        $(document).off('click', $__close_drawer);
+                    }
+                }
+
+                if ($$_status) {
+                    $_drawer_menu.stop().addClass('m-drawer-menu_move');
+                    $('#m-drawer-menu').addClass('m-drawer-menu');
+                    $_drawer_menu.attr('data-toggle', false);
+                    $(document).on('click', $__close_drawer);
+                    return false;
+                }
+            })
+        })
+
+        $(function () {
+            $(document).on('keyup', '#m-text-box-search', function (e) {
+                var code = e.keyCode || e.which;
+                if (code == 13) { 
+                    $('#_search_form').submit();
+                    return false;
+                }
+                var val = $(this).val();
+                $.ajax({
+                    url: '@Url.Action(MVC.Search.ActionNames.Search, MVC.Search.Name)',
+                    async: true,
+                    cache: false,
+                    type: 'GET',
+                    data: {
+                        word: val
+                    },
+                    beforeSend: function () {
+                        $('#__load_search_container')
+                            .empty()
+                            .fadeIn()
+                            .append('<div id="_loading_searching">\
+                                               <div  id="__loading_searching">\
+                                                   <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>\
+                                               </div>\
+                                         </div>')
+                    }
+                }).done(function (res) {
+                    $('#__load_search_container').empty().html(res);
+                }).fail(function () {
+                    $('#__load_search_container').empty().html(' <p>هیچ کالایی پیدا نشد</p>');
+                })
+            })
+            $(this).focusout(function () {
+                $('#__load_search_container').fadeOut();
+            })
+            $(this).focusin(function () {
+                $('#__load_search_container').fadeIn();
+            })
+        })
+    </script>
     <!-- #endregion -->
+
     @MiniProfiler.RenderIncludes()
+    @if (!Request.IsLocal)
+    {
+  <!-- Google Tag Manager (noscript) -->
+        <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || []; w[l].push({
+                    'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+                }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-5H46MG');
+        </script>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H46MG"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    }
 </body>
 </html>

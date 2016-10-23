@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DomainClasses.Entities.SlideShow>
+
+@{
+    ViewBag.Title = "لیست تصاویر اسلاید شو";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+@Html.AntiForgeryToken()
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>
+                عنوان
+            </th>
+            <th class="text-center">
+                تصویر
+            </th>
+            <th>
+                متن جایگزین تصویر
+            </th>
+            <th>
+                آدرس
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="text-center">
+                    <img src="@item.ImagePath" class="img-circle" alt="@item.ImageAltText" width="60" height="60">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImageAltText)
+                </td>
+                <td style = "direction: ltr;">
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td class="text-left">
+                    @Html.ActionLink("ویرایش", MVC.Admin.SlideShow.ActionNames.EditSlide, MVC.Admin.SlideShow.Name, new
+               {
+                   slideId = item.Id
+               }, new { @class = "btn btn-success btn-sm" })
+
+                    <span id="row-@item.Id" data-id="@item.Id" data-name="@item.Title" class="btn btn-danger btn-sm">حذف</span>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scipts{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script async defer type="text/javascript">
+        $(document).on('click', 'span[id^="row-"]', function () {
+            var $this = $(this);
+            var id = $this.data('id');
+            var name = $this.data('name');
+            var _confirm = confirm("آیا برای حذف " + name + " مطمئن هستید.");
+            var token = $('input[name="__RequestVerificationToken"]').val();
+
+            if (_confirm) {
+                $.ajax({
+                    url:'@Url.Action(MVC.Admin.SlideShow.ActionNames.DeleteSlideShow, MVC.Admin.SlideShow.Name)',
+                    type:'POST',
+                    async:true,
+                    cache:false,
+                    data:{
+                        __RequestVerificationToken: token,
+                        id: id
+                    }
+                }).done(function(res){
+                    if(res){
+                        alert('آیتم '+ name +' با موفقیت حذف گردید');
+                        $this.parents('tr').remove();
+                    }
+                    else{
+                        alert('عملیات حذف انجام نشد \n لطفا دوباره تلاش کنید');
+                    }
+                }).fail(function(res){
+                    alert('عملیات حذف انجام نشد \n لطفا دوباره تلاش کنید');
+                })
+            }
+            else{
+                alert('عملیات حذف، لغو گردید');
+            }
+        })
+    </script>
+    }

@@ -1,0 +1,236 @@
+﻿<error errorId="982dac5b-f427-4720-b6a7-bbad9414f437" application="/LM/W3SVC/2/ROOT" host="DESKTOP-SC0FIS6" type="System.Web.HttpException" message="No matching action was found on controller 'MVCUI.Areas.Admin.Controllers.ProductController'. This can happen when a controller uses RouteAttribute for routing, but no action on that controller matches the request." source="System.Web.Mvc" detail="System.Web.HttpException (0x80004005): No matching action was found on controller 'MVCUI.Areas.Admin.Controllers.ProductController'. This can happen when a controller uses RouteAttribute for routing, but no action on that controller matches the request.&#xD;&#xA;   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="admin" time="2016-08-09T13:07:29.3573475Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_CONTENT_LENGTH:260&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=qyBg36Q6-W0Wrn1wnchey8AM4U6uEDr0pfXnnrYOvbDhepIQSYa21GoHrWxP7OF3NP1VX-uHXZW763ygdIQM3d-AtZbhRsSgpdcCKBv5mWE1; MyWebsitLogin=0E095A5217CDDFC7B2D6605FF1086BDB9D76EA53D7B5C05810717635BA20C151C740EA6242B5C8D855CA70A4B1F77FF9A2F706F6B52192CD3A0B4728E239B0C235F6AF49920C15F1C72E52C6FA6A7B692FBC6715E6163B70E1D4974C38518D2F; goldenShop=A0D5BB30E1816090DD88DC2A5796AE834BCFEC2F2DD66DF31FA0A36444CA4D5270B8D866ED71C6AAE93F7C3F88F6CDDAFF96E4A9F4E40EBD8CA3E796285549476DDA993B842D24112C1026C4A35B15360002EC97EBC21B59CD2A740519308FDA; _okdetect=%7B%22token%22%3A%2214700821412380%22%2C%22proto%22%3A%22http%3A%22%2C%22host%22%3A%22localhost%3A4040%22%7D; _okbk=cd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1470082141657%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd5%3Daway%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C; _ok=1700-237-10-3483; olfsk=olfsk5949292397019779; wcsid=mE2odz85gmiOUGdf3m39N324DKR03MEa; hblid=1Uq2NXKgPvvcf2RB3m39N324DKR30MEo; _oklv=1470082940274%2CmE2odz85gmiOUGdf3m39N324DKR03MEa&#xD;&#xA;HTTP_HOST:localhost:13458&#xD;&#xA;HTTP_REFERER:http://localhost:13458/admin/product/index&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:13458&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Content-Length: 260&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;Cookie: __RequestVerificationToken=qyBg36Q6-W0Wrn1wnchey8AM4U6uEDr0pfXnnrYOvbDhepIQSYa21GoHrWxP7OF3NP1VX-uHXZW763ygdIQM3d-AtZbhRsSgpdcCKBv5mWE1; MyWebsitLogin=0E095A5217CDDFC7B2D6605FF1086BDB9D76EA53D7B5C05810717635BA20C151C740EA6242B5C8D855CA70A4B1F77FF9A2F706F6B52192CD3A0B4728E239B0C235F6AF49920C15F1C72E52C6FA6A7B692FBC6715E6163B70E1D4974C38518D2F; goldenShop=A0D5BB30E1816090DD88DC2A5796AE834BCFEC2F2DD66DF31FA0A36444CA4D5270B8D866ED71C6AAE93F7C3F88F6CDDAFF96E4A9F4E40EBD8CA3E796285549476DDA993B842D24112C1026C4A35B15360002EC97EBC21B59CD2A740519308FDA; _okdetect=%7B%22token%22%3A%2214700821412380%22%2C%22proto%22%3A%22http%3A%22%2C%22host%22%3A%22localhost%3A4040%22%7D; _okbk=cd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1470082141657%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd5%3Daway%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C; _ok=1700-237-10-3483; olfsk=olfsk5949292397019779; wcsid=mE2odz85gmiOUGdf3m39N324DKR03MEa; hblid=1Uq2NXKgPvvcf2RB3m39N324DKR30MEo; _oklv=1470082940274%2CmE2odz85gmiOUGdf3m39N324DKR03MEa&#xD;&#xA;Host: localhost:13458&#xD;&#xA;Referer: http://localhost:13458/admin/product/index&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36&#xD;&#xA;Origin: http://localhost:13458&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="260" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/admin/product/22/attribut-product" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\admin\product\22\attribut-product" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="52250" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/admin/product/22/attribut-product" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="13458" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/admin/product/22/attribut-product" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="260" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,fa;q=0.6,ar;q=0.4" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=qyBg36Q6-W0Wrn1wnchey8AM4U6uEDr0pfXnnrYOvbDhepIQSYa21GoHrWxP7OF3NP1VX-uHXZW763ygdIQM3d-AtZbhRsSgpdcCKBv5mWE1; MyWebsitLogin=0E095A5217CDDFC7B2D6605FF1086BDB9D76EA53D7B5C05810717635BA20C151C740EA6242B5C8D855CA70A4B1F77FF9A2F706F6B52192CD3A0B4728E239B0C235F6AF49920C15F1C72E52C6FA6A7B692FBC6715E6163B70E1D4974C38518D2F; goldenShop=A0D5BB30E1816090DD88DC2A5796AE834BCFEC2F2DD66DF31FA0A36444CA4D5270B8D866ED71C6AAE93F7C3F88F6CDDAFF96E4A9F4E40EBD8CA3E796285549476DDA993B842D24112C1026C4A35B15360002EC97EBC21B59CD2A740519308FDA; _okdetect=%7B%22token%22%3A%2214700821412380%22%2C%22proto%22%3A%22http%3A%22%2C%22host%22%3A%22localhost%3A4040%22%7D; _okbk=cd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1470082141657%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd5%3Daway%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C; _ok=1700-237-10-3483; olfsk=olfsk5949292397019779; wcsid=mE2odz85gmiOUGdf3m39N324DKR03MEa; hblid=1Uq2NXKgPvvcf2RB3m39N324DKR30MEo; _oklv=1470082940274%2CmE2odz85gmiOUGdf3m39N324DKR03MEa" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:13458" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:13458/admin/product/index" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:13458" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="__RequestVerificationToken">
+      <value string="QZI7PCHRn3utBZ1e1UgWMBB9a5ukQLRaagYan1DNsASWp3dA9wcb7OWMdhRhqtz4hbt4aSR9h1DSgBNTvbbpu890-4bltbRO4j1eSgvEFdA1" />
+    </item>
+    <item name="[0].Id">
+      <value string="3" />
+    </item>
+    <item name="[0].Value">
+      <value string="---" />
+    </item>
+    <item name="[1].Id">
+      <value string="4" />
+    </item>
+    <item name="[1].Value">
+      <value string="---" />
+    </item>
+    <item name="[2].Id">
+      <value string="5" />
+    </item>
+    <item name="[2].Value">
+      <value string="---" />
+    </item>
+    <item name="X-Requested-With">
+      <value string="XMLHttpRequest" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="qyBg36Q6-W0Wrn1wnchey8AM4U6uEDr0pfXnnrYOvbDhepIQSYa21GoHrWxP7OF3NP1VX-uHXZW763ygdIQM3d-AtZbhRsSgpdcCKBv5mWE1" />
+    </item>
+    <item name="MyWebsitLogin">
+      <value string="0E095A5217CDDFC7B2D6605FF1086BDB9D76EA53D7B5C05810717635BA20C151C740EA6242B5C8D855CA70A4B1F77FF9A2F706F6B52192CD3A0B4728E239B0C235F6AF49920C15F1C72E52C6FA6A7B692FBC6715E6163B70E1D4974C38518D2F" />
+    </item>
+    <item name="goldenShop">
+      <value string="A0D5BB30E1816090DD88DC2A5796AE834BCFEC2F2DD66DF31FA0A36444CA4D5270B8D866ED71C6AAE93F7C3F88F6CDDAFF96E4A9F4E40EBD8CA3E796285549476DDA993B842D24112C1026C4A35B15360002EC97EBC21B59CD2A740519308FDA" />
+    </item>
+    <item name="_okdetect">
+      <value string="%7B%22token%22%3A%2214700821412380%22%2C%22proto%22%3A%22http%3A%22%2C%22host%22%3A%22localhost%3A4040%22%7D" />
+    </item>
+    <item name="_okbk">
+      <value string="cd4%3Dtrue%2Cvi5%3D0%2Cvi4%3D1470082141657%2Cvi3%3Dactive%2Cvi2%3Dfalse%2Cvi1%3Dfalse%2Ccd8%3Dchat%2Ccd6%3D0%2Ccd5%3Daway%2Ccd3%3Dfalse%2Ccd2%3D0%2Ccd1%3D0%2C" />
+    </item>
+    <item name="_ok">
+      <value string="1700-237-10-3483" />
+    </item>
+    <item name="olfsk">
+      <value string="olfsk5949292397019779" />
+    </item>
+    <item name="wcsid">
+      <value string="mE2odz85gmiOUGdf3m39N324DKR03MEa" />
+    </item>
+    <item name="hblid">
+      <value string="1Uq2NXKgPvvcf2RB3m39N324DKR30MEo" />
+    </item>
+    <item name="_oklv">
+      <value string="1470082940274%2CmE2odz85gmiOUGdf3m39N324DKR03MEa" />
+    </item>
+  </cookies>
+</error>

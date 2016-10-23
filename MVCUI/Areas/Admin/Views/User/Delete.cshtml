@@ -1,0 +1,36 @@
+﻿@model ViewModel.ViewModel.Admin.User.UserViewModel
+
+@{
+    ViewBag.Title = "حذف";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+
+@section css{
+    <style>
+        .i11 p {
+            font-size: 2.2rem;
+            color: #f00;
+        }
+
+        .i11 strong {
+            color: cornflowerblue;
+            font-weight: 800;
+            font-size: 2.2rem;
+        }
+    </style>
+}
+<div class="alert alert-danger i11">
+    <p>آیا مایل به پاک کردن کابری : <strong>@Model.FullName</strong> هستید؟؟</p>
+</div>
+@using(Html.BeginForm(actionName: MVC.Admin.User.ActionNames.Delete,
+    controllerName: MVC.Admin.User.Name,
+    htmlAttributes:null,
+    method:FormMethod.Post,
+    routeValues: Model))
+{
+    @Html.AntiForgeryToken()
+    <input class="btn btn-sm btn-danger" type="submit" value="حذف شود" />
+
+    @Html.ActionLink("عملیات لغو گردد", MVC.Admin.User.ActionNames.Index, MVC.Admin.User.Name, htmlAttributes: new { @class= "btn btn-sm btn-success" })
+}
+

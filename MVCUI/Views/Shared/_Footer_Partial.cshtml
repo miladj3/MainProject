@@ -1,95 +1,147 @@
-﻿<footer id="footer">
+﻿@using ViewModel.ViewModel.Admin.Page
+@using MVCUI.Helpers
+@using ViewModel.ViewModel.Admin.Category
+@model FooterViewModel
+
+<footer id="footer">
     <div>
         <div id="m-recenet-blog">
-            <h5>آخرین مطالب وبلاگ</h5>
+            <h5>@Html.ActionLink(linkText: "آخرین مطالب وبلاگ", actionName: MVC.Blog.ActionNames.Index, controllerName: MVC.Blog.Name, routeValues: null, htmlAttributes: new { @style = "font-size: inherit;" })</h5>
             <ul>
+                @foreach (PageViewModel item in Model.Pages)
+                {
                 <li>
                     <div class="m-recent-blog-container">
                         <div>
-                            <img src="~/Content/Image/banner5.jpg" />
+                            <img src="@item.LinkImage" alt="@item.Title" />
                         </div>
-                        <div>
-                            @Html.ActionLink("راه های مقابله با چاقی شکمی", "#")
-                            <p>چاقی شکمی که در پایین شکم به وجود می آید یکی از شایع ترین مشکلات در بسیاری...</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="m-recent-blog-container">
-                        <div>
-                            <img src="~/Content/Image/banner55.jpg" />
-                        </div>
-                        <div>
-                            @Html.ActionLink("مواد غذایی که ظاهر شما را پیرتر نشان دهد", "#")
-                            <p>چاقی شکمی که در پایین شکم به وجود می آید یکی از شایع ترین مشکلات درهرچیزی که شما می‌خورید روی پوست شما تاثیرمی گذارد. ...</p>
+                        <div class="__recent_contet_blog">
+                            @Html.ActionLink(linkText: item.Title, actionName: MVC.Blog.ActionNames.blog, controllerName: MVC.Blog.Name, routeValues: new { id = item.Id, title = item.Title.GenerateSlug() }, htmlAttributes: null)
+                            <p>
+                                @Html.Raw(item.Content.Substring(0, item.Content.Count() < 230 ? item.Content.Count() : 230)).......
+                            </p>
                         </div>
                     </div>
                 </li>
+                }
             </ul>
         </div>
         <div id="m-quick-link">
             <h5>دسترسی سریع</h5>
             <ul>
                 <li>
-                    @Html.ActionLink("درباره ما","#")
+                    @Html.ActionLink("درباره ما", MVC.Home.ActionNames.Index, MVC.Home.Name, null, new { @rel = "nofollow, noindex" })
                 </li>
                 <li>
-                    @Html.ActionLink("تماس با ما", "#")
+                    @Html.ActionLink("تماس با ما", MVC._SharedItem.ActionNames.ContactUs, MVC._SharedItem.Name, new { type=DomainClasses.Enums.ContactType.All }, new { @rel = "nofollow, noindex" })
                 </li>
                 <li>
-                    @Html.ActionLink("نقشه سایت", "#")
+                    @Html.ActionLink("نقشه سایت", MVC.SiteMap.ActionNames.Index, MVC.SiteMap.Name)
                 </li>
                 <li>
-                    @Html.ActionLink("نحوه ارسال کالا", "#")
+                    @Html.ActionLink("نحوه ارسال کالا", MVC.Home.ActionNames.Index, MVC.Home.Name, null, new { @rel = "nofollow, noindex" })
                 </li>
                 <li>
-                    @Html.ActionLink("پیگیری محصول", "#")
+                    @Html.ActionLink("پیگیری محصول", MVC.Home.ActionNames.Index, MVC.Home.Name, null, new { @rel = "nofollow, noindex" })
                 </li>
                 <li>
-                    @Html.ActionLink("شکایات و انتفادات", "#")
+                    @Html.ActionLink("شکایات و انتقادات", MVC._SharedItem.ActionNames.ContactUs, MVC._SharedItem.Name, new { type = DomainClasses.Enums.ContactType.Criticism }, new { @rel = "nofollow, noindex" })
                 </li>
             </ul>
         </div>
-        <div id="m-about-us">
+        <div class="m-about-us" itemscope itemtype="http://schema.org/LocalBusiness">
+            <span style="display:none" itemprop="name">@Model.EditSettingViewModel.StoreName</span>
             <h5>درباره ما</h5>
-            <strong>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است  </strong>
-            <ul>
+            <h1 itemprop="description">
+              @Model.EditSettingViewModel.StoreDescription
+            </h1>
+            <ul itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                 <li>
-                    <address><i class="fa fa-map-marker"></i>تهران  خیابان ولیعصر خیابان ولیعصر</address>
+                    <address itemprop="streetAddress">
+                        <i class="fa fa-map-marker"></i>@Model.EditSettingViewModel.Address
+                    </address>
                 </li>
                 <li>
                     <i class="fa fa-phone"></i>
-                    <p class="number_persian">0098-912345435</p>
+                    <p class="number_persian" itemprop="telephone">
+                        @Model.EditSettingViewModel.Tel1
+                    </p>
                 </li>
                 <li>
                     <i class="fa fa-mobile"></i>
-                    <p class="number_persian">0098-912345435</p>
+                    <p class="number_persian" itemprop="telephone">
+                        @Model.EditSettingViewModel.Tel2
+                    </p>
                 </li>
                 <li>
-                    <i class="fa fa-envelope-o"></i>
-                    <p>test@test.com</p>
+                    <i class="fa fa-envelope-o" itemprop="email"></i>
+                    <p>@Model.EditSettingViewModel.Email</p>
                 </li>
             </ul>
         </div>
         <div id="m-stay-connect">
             <h5>نشان تجاری</h5>
             <div id="m-contianer-img-trust">
+                @if (Model.EditSettingViewModel.Trust)
+                {
                 <img src="~/Content/Image/adc10615ba4f693ae3ac87186a0cd87f.jpg" />
+                }
             </div>
             <div id="m-container-img-logo-bank">
                 <img src="~/Content/Image/banks-logo.png" />
             </div>
             <h5>بامادرارتباط باشید</h5>
             <ul>
-                <li><i class="fa fa-facebook"></i></li>
+                @if (!String.IsNullOrEmpty(Model.EditSettingViewModel.Telegram))
+                {
+                <li>
+                    <a href="@Url.Content(Model.EditSettingViewModel.Telegram)"><i class="fa fa-location-arrow"></i></a>
+                </li>
+                }
+                else
+                {
+                <li>
+                    <i class="fa fa-location-arrow"></i>
+                </li>
+                }
+                @if (!String.IsNullOrEmpty(Model.EditSettingViewModel.Instagram))
+                {
+                <li>
+                    <a href="@Url.Content(Model.EditSettingViewModel.Instagram)"><i class="fa fa-instagram"></i></a>
+                </li>
+                }
+                else
+                {
+                <li>
+                    <i class="fa fa-instagram"></i>
+                </li>
+                }
+                @if (!String.IsNullOrEmpty(Model.EditSettingViewModel.Facebook))
+                {
+                <li>
+                    <a href="@Model.EditSettingViewModel.Facebook"><i class="fa fa-facebook"></i></a>
+                </li>
+                }
+                else
+                {
+                <li>
+                    <i class="fa fa-facebook"></i>
+                </li>
+                }
                 <li><i class="fa fa-pinterest-p"></i></li>
-                <li><i class="fa fa-instagram"></i></li>
-                <li><i class="fa fa-location-arrow"></i></li>
                 <li><i class="fa fa-google-plus"></i></li>
             </ul>
         </div>
     </div>
     <div>
-        <p>&copy;@DateTime.Now.Year<span>&nbsp;|&nbsp;تمامی حقوق این سایت محفوظ است</span></p>
+        <p>&copy;@DateTime.Now.Year<span>&nbsp;|&nbsp;تمامی حقوق این سایت متعلق به <a href="http://www.miladjafari.ml">میلاد جعفری</a> است</span></p>
     </div>
 </footer>
+
+<script async defer>
+    window.onload = function () {
+        document.getElementById('number_phone_in_header').innerHTML='@Model.EditSettingViewModel.PhoneNumber1';
+        document.getElementById('_logo_img0000').src='@Model.EditSettingViewModel.Logo';
+        document.getElementById('__telegram_in_img').href='@Model.EditSettingViewModel.Telegram';
+    }
+</script>

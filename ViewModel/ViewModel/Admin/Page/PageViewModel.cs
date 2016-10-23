@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace ViewModel.ViewModel.Page
+namespace ViewModel.ViewModel.Admin.Page
 {
     public class PageViewModel
     {
-        public Int32 Id { get; set; }
+        public Int64 Id { get; set; }
 
         [DisplayName("محتوای صفحه")]
         [AllowHtml]
@@ -24,5 +24,12 @@ namespace ViewModel.ViewModel.Page
 
         [DisplayName("تصویر لینک")]
         public String LinkImage { get; set; }
+
+        public String Description { get; set; }
+
+        public String KeyWords { get; set; }
+
+        [DisplayName("تاریخ ایجاد")]
+        public DateTime DateCreated { get; set; }
     }
 }

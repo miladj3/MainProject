@@ -1,0 +1,19 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<AttributeValueViewModel>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <strong>
+                    @item.Name:
+                </strong>
+                <strong>
+                    @item.Value
+                </strong>
+            </li>
+        }
+    </ul>
+}

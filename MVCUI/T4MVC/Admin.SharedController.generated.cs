@@ -39,8 +39,14 @@ namespace T4MVC.Admin
             public class _ViewNamesClass
             {
                 public readonly string _AdminLayout = "_AdminLayout";
+                public readonly string _FoldersLightBox = "_FoldersLightBox";
+                public readonly string _PictureLightBox = "_PictureLightBox";
+                public readonly string _PicturesList = "_PicturesList";
             }
             public readonly string _AdminLayout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+            public readonly string _FoldersLightBox = "~/Areas/Admin/Views/Shared/_FoldersLightBox.cshtml";
+            public readonly string _PictureLightBox = "~/Areas/Admin/Views/Shared/_PictureLightBox.cshtml";
+            public readonly string _PicturesList = "~/Areas/Admin/Views/Shared/_PicturesList.cshtml";
         }
     }
 

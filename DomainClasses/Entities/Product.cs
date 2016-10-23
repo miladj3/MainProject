@@ -21,7 +21,9 @@ namespace DomainClasses.Entities
         public virtual Decimal SellCount { get; set; }
         public virtual Int32 ViewCount { get; set; }
         public virtual Int64 Price { get; set; }
+        public virtual Int64 PriceAfterDiscount { get; set; }
         public virtual Boolean Deleted { get; set; }
+        public virtual Boolean ComingSoon { get; set; }
         public virtual Rate Rate { get; set; }
         public virtual Decimal Ratio { get; set; }
         public virtual Boolean ApplyCategoryDiscount { get; set; }
@@ -40,5 +42,8 @@ namespace DomainClasses.Entities
         public virtual ICollection<ProductImage> Images { get; set; }
 
         public virtual ICollection<User> LikedUser { get; set; }
+        public virtual Boolean HomePage { get; set; }
+        public virtual Boolean SpecialSell { get; set; }
+
     }
 }

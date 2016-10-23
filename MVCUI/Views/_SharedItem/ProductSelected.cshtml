@@ -1,0 +1,17 @@
+﻿@using MVCUI.Helpers
+@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSectionViewModel>
+
+@if (Model.Any())
+{
+    <div id="_selected_product">
+        <div id="container_selected_pro" class="m-list-product" style="display:block">
+            <ul id="__ul_slider_selected">
+                @foreach (ProductSectionViewModel item in Model)
+                {
+                    { Html.RenderPartial(MVC._SharedItem.Views._ShowProduct, item); }
+                }
+            </ul>
+        </div>
+    </div>
+}

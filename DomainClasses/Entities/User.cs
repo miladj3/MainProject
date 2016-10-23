@@ -24,7 +24,7 @@ namespace DomainClasses.Entities
         public virtual UserRegisterType RegisterType { get; set; }
         [Index(IsUnique =true)]
         public virtual String PhoneNumber { get; set; }
-        public virtual String Address { get; set; }
+        public virtual Address Address { get; set; }
         public virtual String IP { get; set; }
         public virtual Boolean IsBaned { get; set; }
         public virtual DateTime RegisterDate { get; set; }
@@ -36,6 +36,5 @@ namespace DomainClasses.Entities
         public virtual ICollection<Comment> LikedComments { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual Byte[] RowVersion { get; set; }
-
     }
 }

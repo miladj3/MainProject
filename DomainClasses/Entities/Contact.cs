@@ -10,9 +10,10 @@ namespace DomainClasses.Entities
     public class Contact
     {
         public virtual Int64 Id { get; set; }
+        public virtual String Name { get; set; }
+        public virtual String EmailOrPhone { get; set; }
         public virtual String Title { get; set; }
         public virtual String Content { get; set; }
-        public virtual User User { get; set; }
         public virtual DateTime Date { get; set; }
         public virtual Byte[] RowVersion { get; set; }
         public virtual Boolean IsSeen { get; set; }

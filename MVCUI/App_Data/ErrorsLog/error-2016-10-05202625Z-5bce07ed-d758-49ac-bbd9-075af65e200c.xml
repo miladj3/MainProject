@@ -1,0 +1,174 @@
+﻿<error errorId="5bce07ed-d758-49ac-bbd9-075af65e200c" application="/LM/W3SVC/2/ROOT" host="DESKTOP-SC0FIS6" type="System.InvalidOperationException" message="Page not found: /favicon.ico" source="MVCUI" detail="System.InvalidOperationException: Page not found: /favicon.ico&#xD;&#xA;   at MVCUI.MvcApplication.StructureMapControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) in C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\Global.asax.cs:line 142&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at MvcSiteMapProvider.DI.ControllerFactoryDecorator.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="admin" time="2016-10-05T20:26:25.5667006Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=u3hwLSsHaIw6HHO9YrePtWUkPcoUDKEmxZxzRt23mYAs2QNQIQDIw5R89MiJ6_KqeOLXJE05XcbNlXV6DND4UkGUKgdj3_R9D0DqLRyqwNM1; CountProductInCompareList=3; CompareProduct=%5b%7b%22ProductId%22%3a8%2c%22ProductName%22%3a%22%d8%aa%d9%86%d9%88%d9%86%d9%84%d8%b2%d9%86%d8%ba%d8%a6%d9%86%d8%b2%d9%86%d8%a6%d8%b2%d9%88%d8%b9%d9%88%d8%b9%d8%ba%d8%b9%d9%88%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a3%2c%22Description%22%3a%22%d8%ba%d8%b9%d9%85%d8%b9%d8%ba%d9%85%d8%ba%d9%85%d8%ba%d9%85%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d9%85%d9%86%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%ad%d8%a6%d8%ae%d9%87%d8%af%d8%ac%d8%ae%22%5d%2c%22Price%22%3a789789%2c%22Discount%22%3a7%2c%22PriceAfterDiscount%22%3a734504%2c%22ImagePath%22%3a%22%2fUploadFiles%2f4fe85bed-9c1d-4ce6-ac0c-46be34e21bd7.png%22%2c%22FreeSend%22%3afalse%7d%2c%7b%22ProductId%22%3a7%2c%22ProductName%22%3a%22%d8%a7%d8%aa%d8%a7%d8%aa%d9%86%d8%a7%d8%aa%d9%86%d8%a7%d9%86%d8%a7%d9%86%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a4%2c%22Description%22%3a%22%d9%86%d8%a7%d9%86%d8%a7%d8%aa%d9%86%d8%aa%d8%a7%d9%86%d8%aa%d8%a7%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a+%d8%ae%d8%b5%d9%88%d8%b5%d9%88%db%8c%d8%aa%d8%aa%d8%aa%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%aa%d9%88%22%5d%2c%22Price%22%3a678686%2c%22Discount%22%3a67%2c%22PriceAfterDiscount%22%3a223967%2c%22ImagePath%22%3a%22%2fUploadFiles%2f760f720a-94da-4567-b248-27d7961340ca.png%22%2c%22FreeSend%22%3afalse%7d%5d; CookieForUser=8D5A1A6D278D79CD0F0596DCADB2E0C7C441CB22544CC0704850C49CEE13D5BF2BC4153433D1E398FADBDE5D6686136C61823C11A8717C9828219AEB3B3D3C79C3A56986883877C093F7BA6125022B8CF1638D506F55388FA2201D9DD8A46B38&#xD;&#xA;HTTP_HOST:localhost:13458&#xD;&#xA;HTTP_REFERER:http://localhost:13458/admin/product/add-product&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;Cookie: __RequestVerificationToken=u3hwLSsHaIw6HHO9YrePtWUkPcoUDKEmxZxzRt23mYAs2QNQIQDIw5R89MiJ6_KqeOLXJE05XcbNlXV6DND4UkGUKgdj3_R9D0DqLRyqwNM1; CountProductInCompareList=3; CompareProduct=%5b%7b%22ProductId%22%3a8%2c%22ProductName%22%3a%22%d8%aa%d9%86%d9%88%d9%86%d9%84%d8%b2%d9%86%d8%ba%d8%a6%d9%86%d8%b2%d9%86%d8%a6%d8%b2%d9%88%d8%b9%d9%88%d8%b9%d8%ba%d8%b9%d9%88%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a3%2c%22Description%22%3a%22%d8%ba%d8%b9%d9%85%d8%b9%d8%ba%d9%85%d8%ba%d9%85%d8%ba%d9%85%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d9%85%d9%86%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%ad%d8%a6%d8%ae%d9%87%d8%af%d8%ac%d8%ae%22%5d%2c%22Price%22%3a789789%2c%22Discount%22%3a7%2c%22PriceAfterDiscount%22%3a734504%2c%22ImagePath%22%3a%22%2fUploadFiles%2f4fe85bed-9c1d-4ce6-ac0c-46be34e21bd7.png%22%2c%22FreeSend%22%3afalse%7d%2c%7b%22ProductId%22%3a7%2c%22ProductName%22%3a%22%d8%a7%d8%aa%d8%a7%d8%aa%d9%86%d8%a7%d8%aa%d9%86%d8%a7%d9%86%d8%a7%d9%86%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a4%2c%22Description%22%3a%22%d9%86%d8%a7%d9%86%d8%a7%d8%aa%d9%86%d8%aa%d8%a7%d9%86%d8%aa%d8%a7%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a+%d8%ae%d8%b5%d9%88%d8%b5%d9%88%db%8c%d8%aa%d8%aa%d8%aa%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%aa%d9%88%22%5d%2c%22Price%22%3a678686%2c%22Discount%22%3a67%2c%22PriceAfterDiscount%22%3a223967%2c%22ImagePath%22%3a%22%2fUploadFiles%2f760f720a-94da-4567-b248-27d7961340ca.png%22%2c%22FreeSend%22%3afalse%7d%5d; CookieForUser=8D5A1A6D278D79CD0F0596DCADB2E0C7C441CB22544CC0704850C49CEE13D5BF2BC4153433D1E398FADBDE5D6686136C61823C11A8717C9828219AEB3B3D3C79C3A56986883877C093F7BA6125022B8CF1638D506F55388FA2201D9DD8A46B38&#xD;&#xA;Host: localhost:13458&#xD;&#xA;Referer: http://localhost:13458/admin/product/add-product&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="admin" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="admin" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="admin" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\favicon.ico" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="23501" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="13458" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,fa;q=0.6,ar;q=0.4" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=u3hwLSsHaIw6HHO9YrePtWUkPcoUDKEmxZxzRt23mYAs2QNQIQDIw5R89MiJ6_KqeOLXJE05XcbNlXV6DND4UkGUKgdj3_R9D0DqLRyqwNM1; CountProductInCompareList=3; CompareProduct=%5b%7b%22ProductId%22%3a8%2c%22ProductName%22%3a%22%d8%aa%d9%86%d9%88%d9%86%d9%84%d8%b2%d9%86%d8%ba%d8%a6%d9%86%d8%b2%d9%86%d8%a6%d8%b2%d9%88%d8%b9%d9%88%d8%b9%d8%ba%d8%b9%d9%88%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a3%2c%22Description%22%3a%22%d8%ba%d8%b9%d9%85%d8%b9%d8%ba%d9%85%d8%ba%d9%85%d8%ba%d9%85%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d9%85%d9%86%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%ad%d8%a6%d8%ae%d9%87%d8%af%d8%ac%d8%ae%22%5d%2c%22Price%22%3a789789%2c%22Discount%22%3a7%2c%22PriceAfterDiscount%22%3a734504%2c%22ImagePath%22%3a%22%2fUploadFiles%2f4fe85bed-9c1d-4ce6-ac0c-46be34e21bd7.png%22%2c%22FreeSend%22%3afalse%7d%2c%7b%22ProductId%22%3a7%2c%22ProductName%22%3a%22%d8%a7%d8%aa%d8%a7%d8%aa%d9%86%d8%a7%d8%aa%d9%86%d8%a7%d9%86%d8%a7%d9%86%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a4%2c%22Description%22%3a%22%d9%86%d8%a7%d9%86%d8%a7%d8%aa%d9%86%d8%aa%d8%a7%d9%86%d8%aa%d8%a7%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a+%d8%ae%d8%b5%d9%88%d8%b5%d9%88%db%8c%d8%aa%d8%aa%d8%aa%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%aa%d9%88%22%5d%2c%22Price%22%3a678686%2c%22Discount%22%3a67%2c%22PriceAfterDiscount%22%3a223967%2c%22ImagePath%22%3a%22%2fUploadFiles%2f760f720a-94da-4567-b248-27d7961340ca.png%22%2c%22FreeSend%22%3afalse%7d%5d; CookieForUser=8D5A1A6D278D79CD0F0596DCADB2E0C7C441CB22544CC0704850C49CEE13D5BF2BC4153433D1E398FADBDE5D6686136C61823C11A8717C9828219AEB3B3D3C79C3A56986883877C093F7BA6125022B8CF1638D506F55388FA2201D9DD8A46B38" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:13458" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:13458/admin/product/add-product" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="u3hwLSsHaIw6HHO9YrePtWUkPcoUDKEmxZxzRt23mYAs2QNQIQDIw5R89MiJ6_KqeOLXJE05XcbNlXV6DND4UkGUKgdj3_R9D0DqLRyqwNM1" />
+    </item>
+    <item name="CountProductInCompareList">
+      <value string="3" />
+    </item>
+    <item name="CompareProduct">
+      <value string="%5b%7b%22ProductId%22%3a8%2c%22ProductName%22%3a%22%d8%aa%d9%86%d9%88%d9%86%d9%84%d8%b2%d9%86%d8%ba%d8%a6%d9%86%d8%b2%d9%86%d8%a6%d8%b2%d9%88%d8%b9%d9%88%d8%b9%d8%ba%d8%b9%d9%88%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a3%2c%22Description%22%3a%22%d8%ba%d8%b9%d9%85%d8%b9%d8%ba%d9%85%d8%ba%d9%85%d8%ba%d9%85%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d9%85%d9%86%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%ad%d8%a6%d8%ae%d9%87%d8%af%d8%ac%d8%ae%22%5d%2c%22Price%22%3a789789%2c%22Discount%22%3a7%2c%22PriceAfterDiscount%22%3a734504%2c%22ImagePath%22%3a%22%2fUploadFiles%2f4fe85bed-9c1d-4ce6-ac0c-46be34e21bd7.png%22%2c%22FreeSend%22%3afalse%7d%2c%7b%22ProductId%22%3a7%2c%22ProductName%22%3a%22%d8%a7%d8%aa%d8%a7%d8%aa%d9%86%d8%a7%d8%aa%d9%86%d8%a7%d9%86%d8%a7%d9%86%22%2c%22TotalRaters%22%3a1%2c%22AvrageRate%22%3a4%2c%22Description%22%3a%22%d9%86%d8%a7%d9%86%d8%a7%d8%aa%d9%86%d8%aa%d8%a7%d9%86%d8%aa%d8%a7%22%2c%22Attributes%22%3a%5b%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a+%d8%ae%d8%b5%d9%88%d8%b5%d9%88%db%8c%d8%aa%d8%aa%d8%aa%d8%aa%22%2c%22%d8%ae%d8%b5%d9%88%d8%b5%db%8c%d8%aa+2+%d8%a8%d8%b1%d8%a7%db%8c+%d9%84%d8%a7%d8%ba%d8%b1%db%8c%3a%d8%aa%d9%88%22%5d%2c%22Price%22%3a678686%2c%22Discount%22%3a67%2c%22PriceAfterDiscount%22%3a223967%2c%22ImagePath%22%3a%22%2fUploadFiles%2f760f720a-94da-4567-b248-27d7961340ca.png%22%2c%22FreeSend%22%3afalse%7d%5d" />
+    </item>
+    <item name="CookieForUser">
+      <value string="8D5A1A6D278D79CD0F0596DCADB2E0C7C441CB22544CC0704850C49CEE13D5BF2BC4153433D1E398FADBDE5D6686136C61823C11A8717C9828219AEB3B3D3C79C3A56986883877C093F7BA6125022B8CF1638D506F55388FA2201D9DD8A46B38" />
+    </item>
+  </cookies>
+</error>

@@ -12,10 +12,11 @@ namespace ServiceLayer.Interfaces
         void Add(ShoppingCart cart);
         Task<Int32> Delete(String cartId);
         void Update(ShoppingCart cart);
-        IEnumerable<ShoppingCart> List(String cartId);
+        Task<IEnumerable<ShoppingCart>> List(String cartId, Boolean IsAsNoTracking=true);
+        IEnumerable<ShoppingCart> ListNoAsync(String cartId, Boolean IsAsNoTracking = true);
         ShoppingCart GetById(Int64 id);
-        Decimal TotalValueInCart(String cartId);
-        ShoppingCart GetCartItem(Int64 productId, String cartId);
-        Decimal DeleteItem(Int64 productId, String cartId);
+        Task<Decimal> TotalValueInCart(String cartId);
+        Task<ShoppingCart> GetCartItem(Int64 productId, String cartId);
+        Task<Tuple<Decimal, Int64>> DeleteItem(Int64 shoppingId, String cartId);
     }
 }

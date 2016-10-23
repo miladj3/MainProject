@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "لیست تصاویر";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+<div class="row">
+    <div class="col-lg-12">
+        @Html.ActionLink(linkText: "افزودن تصویر",
+       actionName: MVC.Admin.Folder.ActionNames.AddPictureToFolder,
+       controllerName: MVC.Admin.Folder.Name,
+       routeValues: new { folderId = ViewBag.FolderId },
+       htmlAttributes: new { @class = "btn btn-info" })
+
+        @Html.ActionLink(linkText: "لیست فولدرها",
+       actionName: MVC.Admin.Folder.ActionNames.Index,
+       controllerName: MVC.Admin.Folder.Name,
+       routeValues: null,
+       htmlAttributes: new { @class = "btn btn-info" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" id="picturesList">
+        <div class="panel-body">
+            @{ Html.RenderAction(MVC.Admin.Folder.ActionNames.ListOfPicture, MVC.Admin.Folder.Name);}
+        </div>
+    </div>
+</div>
+@section scipts{
+    <script async defer type="text/javascript">
+        //  <div class="col-md-11 deletePicture">
+        @*<span id="row-@Model.Id" data-id="@Model.Id" class="btn btn-danger btn-sm">حذف</span>*@
+
+    </script>
+}

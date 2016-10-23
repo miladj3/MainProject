@@ -5,8 +5,7 @@ using DataAnnotationsExtensions.ClientValidation;
 namespace MVCUI.App_Start {
     public static class RegisterClientValidationExtensions {
         public static void Start() {
-            //TODO: ERROR assemply
-            //DataAnnotationsModelValidatorProviderExtensions.RegisterValidationExtensions();            
+            DataAnnotationsModelValidatorProviderExtensions.RegisterValidationExtensions();            
         }
     }
 }

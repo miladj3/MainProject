@@ -1,0 +1,177 @@
+﻿<error errorId="b6e297c5-b214-45c8-9f3f-4e4d9d5c0b2d" application="/LM/W3SVC/2/ROOT" host="DESKTOP-SC0FIS6" type="System.InvalidOperationException" message="Page not found: /favicon.ico" source="MVCUI" detail="System.InvalidOperationException: Page not found: /favicon.ico&#xD;&#xA;   at MVCUI.MvcApplication.StructureMapControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType) in C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\Global.asax.cs:line 130&#xD;&#xA;   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at MvcSiteMapProvider.DI.ControllerFactoryDecorator.CreateController(RequestContext requestContext, String controllerName)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController&amp; controller, IControllerFactory&amp; factory)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2016-07-28T12:15:56.2979784Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=gUNvwG8uFJ_plbYQxeT8_4q3Cy4YOv9VwnbmBUti2O8p3MCxtXEdwod2XcKiEq2dhoXFgP7vhunlTejxFb5IAoxRRfHhBNjVnb3Xj6bhTfk1; wrawrsatrsrweasrdxsf=d991983e13d4420492ce62894e71cdd8=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU/XcVrHv5q60uA1ZZHDJDg2bAA0ibDqR0Crlmk8QIYgCy5/0nTM/9QjYgavE1PDy5bdUeXz72ZqAkPodPC3kKE6RmIW+hol58wEfban9rD/rg==&amp;e230ec92398148b3ae22e15fe55a9cab=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyohT68FYykqQMf0cVQbUBDgsVLOvGLwwm6QrUncrWMTmF1djdNaFHaW+Srf37bESTc9Hg9S1F6TBj8e3I3lZa07xD6QfW38N7nk86e1sqbTv5IJpBQSCqwYaLaU7rG8eZ5pHPNeCZ8mk/q3i37S1Qoymst1n9Aok2T60mHKYMuFpw==&amp;98f1a9720ef2410e900859c9f9107194=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+lkNncyiRsK+QbVla41SKEMcLiGVNMUOpDjgHF8DsaXfkCRmHrITPs7pYoOuAu94ZVzNcnvZ6loszfg28wr8cJ/nFbz7BiCFaVdTuHm4TW8w==&amp;3c8c8c53b8284017af48e282c70e3b3c=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+bPFZPmLiPUuAcntP2QWmXJeJ1i4iC3diqZp8bOZIbGZFWFvT1+8Z4eMgQhmHSGx23Q9RJ0kgeqIIupz7D0cFbNARoX/z7ewBqFb/3VzMvyw==&amp;139e6a0810a14d6d9b0eefce076fa848=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+IPNNFrNrhYU1KQv4oxuxdgtrYtQSNkZ7QcOBqKYrnqCMVRCn3jigk1xnWgkbhyo+VV/A6jmFLYh1BWk8ARR5GGC6cPMjB55BdJf02CJKIHQ==&amp;d3dd2b6930e54260a085e401e5d0e87f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8FoY2cIHEyBEDpQnC6xxyzKuq3aXB/XyxwGqph9Qt65bztvfYCJ2AQXXHedZly9t+27iGbcHXpZKc5Ic70ikfeasiJjgZMMuK/+KYVeZFA7w==&amp;00e70d29a1134a6786bb03702011add1=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+YXyQmZ+YZ1cTUOjkCGu99Gny7Z28nKHRayMqNKnrgaZAUZ9knmE7B7cgTqXy3zObIE0ErhdBUmWgIz/Dse+Oawpt6BCo4HiAB6em8cdjKEw==&amp;129361c08f704e589fb695c915d845fd=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8NCGjsMw+tSzmc06uzDEJ0OVTDDH8Qn7F8NmGxUPC0X6cw+/aZKQESE0DZ4mmw2Iy689A95LoXRBMJKUqHf6u81st12UAIz04xmNyY0VJmAQ==&amp;35bce551202843b68de5a6e6d920abe2=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU9sTH2GN5GLDoZUShPR2vVnC/gIe6Hrv27w0F045W+8ljCrVhx8uyr5SqL61MJYfZLeVRD1jHzsWg+d0pgih/8GhDfyVuK8vjz+QUscms7duQ==; wrawrsatrsrweasrdxsfw2ewasjret=8bfa857436a14b6a9682d54e4c0ed64f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8F1y9GE06MwMWXVjaSs87hDANUbo6zkWUwYnZQik47WE9NuI+Sf4ChS/JF7FvCUFKW5BU6vl73Y2wxpX/aj0WbUkkYFDdClizTBvv79vdN/Q==&#xD;&#xA;HTTP_HOST:localhost:13458&#xD;&#xA;HTTP_REFERER:http://localhost:13458/customer/forgetpassword&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: en-US,en;q=0.8,fa;q=0.6,ar;q=0.4&#xD;&#xA;Cookie: __RequestVerificationToken=gUNvwG8uFJ_plbYQxeT8_4q3Cy4YOv9VwnbmBUti2O8p3MCxtXEdwod2XcKiEq2dhoXFgP7vhunlTejxFb5IAoxRRfHhBNjVnb3Xj6bhTfk1; wrawrsatrsrweasrdxsf=d991983e13d4420492ce62894e71cdd8=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU/XcVrHv5q60uA1ZZHDJDg2bAA0ibDqR0Crlmk8QIYgCy5/0nTM/9QjYgavE1PDy5bdUeXz72ZqAkPodPC3kKE6RmIW+hol58wEfban9rD/rg==&amp;e230ec92398148b3ae22e15fe55a9cab=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyohT68FYykqQMf0cVQbUBDgsVLOvGLwwm6QrUncrWMTmF1djdNaFHaW+Srf37bESTc9Hg9S1F6TBj8e3I3lZa07xD6QfW38N7nk86e1sqbTv5IJpBQSCqwYaLaU7rG8eZ5pHPNeCZ8mk/q3i37S1Qoymst1n9Aok2T60mHKYMuFpw==&amp;98f1a9720ef2410e900859c9f9107194=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+lkNncyiRsK+QbVla41SKEMcLiGVNMUOpDjgHF8DsaXfkCRmHrITPs7pYoOuAu94ZVzNcnvZ6loszfg28wr8cJ/nFbz7BiCFaVdTuHm4TW8w==&amp;3c8c8c53b8284017af48e282c70e3b3c=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+bPFZPmLiPUuAcntP2QWmXJeJ1i4iC3diqZp8bOZIbGZFWFvT1+8Z4eMgQhmHSGx23Q9RJ0kgeqIIupz7D0cFbNARoX/z7ewBqFb/3VzMvyw==&amp;139e6a0810a14d6d9b0eefce076fa848=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+IPNNFrNrhYU1KQv4oxuxdgtrYtQSNkZ7QcOBqKYrnqCMVRCn3jigk1xnWgkbhyo+VV/A6jmFLYh1BWk8ARR5GGC6cPMjB55BdJf02CJKIHQ==&amp;d3dd2b6930e54260a085e401e5d0e87f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8FoY2cIHEyBEDpQnC6xxyzKuq3aXB/XyxwGqph9Qt65bztvfYCJ2AQXXHedZly9t+27iGbcHXpZKc5Ic70ikfeasiJjgZMMuK/+KYVeZFA7w==&amp;00e70d29a1134a6786bb03702011add1=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+YXyQmZ+YZ1cTUOjkCGu99Gny7Z28nKHRayMqNKnrgaZAUZ9knmE7B7cgTqXy3zObIE0ErhdBUmWgIz/Dse+Oawpt6BCo4HiAB6em8cdjKEw==&amp;129361c08f704e589fb695c915d845fd=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8NCGjsMw+tSzmc06uzDEJ0OVTDDH8Qn7F8NmGxUPC0X6cw+/aZKQESE0DZ4mmw2Iy689A95LoXRBMJKUqHf6u81st12UAIz04xmNyY0VJmAQ==&amp;35bce551202843b68de5a6e6d920abe2=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU9sTH2GN5GLDoZUShPR2vVnC/gIe6Hrv27w0F045W+8ljCrVhx8uyr5SqL61MJYfZLeVRD1jHzsWg+d0pgih/8GhDfyVuK8vjz+QUscms7duQ==; wrawrsatrsrweasrdxsfw2ewasjret=8bfa857436a14b6a9682d54e4c0ed64f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8F1y9GE06MwMWXVjaSs87hDANUbo6zkWUwYnZQik47WE9NuI+Sf4ChS/JF7FvCUFKW5BU6vl73Y2wxpX/aj0WbUkkYFDdClizTBvv79vdN/Q==&#xD;&#xA;Host: localhost:13458&#xD;&#xA;Referer: http://localhost:13458/customer/forgetpassword&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\atefeh\Desktop\eshop\MainProject\MVCUI\favicon.ico" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="12217" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="13458" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/favicon.ico" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8,fa;q=0.6,ar;q=0.4" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=gUNvwG8uFJ_plbYQxeT8_4q3Cy4YOv9VwnbmBUti2O8p3MCxtXEdwod2XcKiEq2dhoXFgP7vhunlTejxFb5IAoxRRfHhBNjVnb3Xj6bhTfk1; wrawrsatrsrweasrdxsf=d991983e13d4420492ce62894e71cdd8=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU/XcVrHv5q60uA1ZZHDJDg2bAA0ibDqR0Crlmk8QIYgCy5/0nTM/9QjYgavE1PDy5bdUeXz72ZqAkPodPC3kKE6RmIW+hol58wEfban9rD/rg==&amp;e230ec92398148b3ae22e15fe55a9cab=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyohT68FYykqQMf0cVQbUBDgsVLOvGLwwm6QrUncrWMTmF1djdNaFHaW+Srf37bESTc9Hg9S1F6TBj8e3I3lZa07xD6QfW38N7nk86e1sqbTv5IJpBQSCqwYaLaU7rG8eZ5pHPNeCZ8mk/q3i37S1Qoymst1n9Aok2T60mHKYMuFpw==&amp;98f1a9720ef2410e900859c9f9107194=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+lkNncyiRsK+QbVla41SKEMcLiGVNMUOpDjgHF8DsaXfkCRmHrITPs7pYoOuAu94ZVzNcnvZ6loszfg28wr8cJ/nFbz7BiCFaVdTuHm4TW8w==&amp;3c8c8c53b8284017af48e282c70e3b3c=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+bPFZPmLiPUuAcntP2QWmXJeJ1i4iC3diqZp8bOZIbGZFWFvT1+8Z4eMgQhmHSGx23Q9RJ0kgeqIIupz7D0cFbNARoX/z7ewBqFb/3VzMvyw==&amp;139e6a0810a14d6d9b0eefce076fa848=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+IPNNFrNrhYU1KQv4oxuxdgtrYtQSNkZ7QcOBqKYrnqCMVRCn3jigk1xnWgkbhyo+VV/A6jmFLYh1BWk8ARR5GGC6cPMjB55BdJf02CJKIHQ==&amp;d3dd2b6930e54260a085e401e5d0e87f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8FoY2cIHEyBEDpQnC6xxyzKuq3aXB/XyxwGqph9Qt65bztvfYCJ2AQXXHedZly9t+27iGbcHXpZKc5Ic70ikfeasiJjgZMMuK/+KYVeZFA7w==&amp;00e70d29a1134a6786bb03702011add1=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+YXyQmZ+YZ1cTUOjkCGu99Gny7Z28nKHRayMqNKnrgaZAUZ9knmE7B7cgTqXy3zObIE0ErhdBUmWgIz/Dse+Oawpt6BCo4HiAB6em8cdjKEw==&amp;129361c08f704e589fb695c915d845fd=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8NCGjsMw+tSzmc06uzDEJ0OVTDDH8Qn7F8NmGxUPC0X6cw+/aZKQESE0DZ4mmw2Iy689A95LoXRBMJKUqHf6u81st12UAIz04xmNyY0VJmAQ==&amp;35bce551202843b68de5a6e6d920abe2=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU9sTH2GN5GLDoZUShPR2vVnC/gIe6Hrv27w0F045W+8ljCrVhx8uyr5SqL61MJYfZLeVRD1jHzsWg+d0pgih/8GhDfyVuK8vjz+QUscms7duQ==; wrawrsatrsrweasrdxsfw2ewasjret=8bfa857436a14b6a9682d54e4c0ed64f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8F1y9GE06MwMWXVjaSs87hDANUbo6zkWUwYnZQik47WE9NuI+Sf4ChS/JF7FvCUFKW5BU6vl73Y2wxpX/aj0WbUkkYFDdClizTBvv79vdN/Q==" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:13458" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:13458/customer/forgetpassword" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="gUNvwG8uFJ_plbYQxeT8_4q3Cy4YOv9VwnbmBUti2O8p3MCxtXEdwod2XcKiEq2dhoXFgP7vhunlTejxFb5IAoxRRfHhBNjVnb3Xj6bhTfk1" />
+    </item>
+    <item name="wrawrsatrsrweasrdxsf">
+      <value string="d991983e13d4420492ce62894e71cdd8=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU/XcVrHv5q60uA1ZZHDJDg2bAA0ibDqR0Crlmk8QIYgCy5/0nTM/9QjYgavE1PDy5bdUeXz72ZqAkPodPC3kKE6RmIW+hol58wEfban9rD/rg==&amp;e230ec92398148b3ae22e15fe55a9cab=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyohT68FYykqQMf0cVQbUBDgsVLOvGLwwm6QrUncrWMTmF1djdNaFHaW+Srf37bESTc9Hg9S1F6TBj8e3I3lZa07xD6QfW38N7nk86e1sqbTv5IJpBQSCqwYaLaU7rG8eZ5pHPNeCZ8mk/q3i37S1Qoymst1n9Aok2T60mHKYMuFpw==&amp;98f1a9720ef2410e900859c9f9107194=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+lkNncyiRsK+QbVla41SKEMcLiGVNMUOpDjgHF8DsaXfkCRmHrITPs7pYoOuAu94ZVzNcnvZ6loszfg28wr8cJ/nFbz7BiCFaVdTuHm4TW8w==&amp;3c8c8c53b8284017af48e282c70e3b3c=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+bPFZPmLiPUuAcntP2QWmXJeJ1i4iC3diqZp8bOZIbGZFWFvT1+8Z4eMgQhmHSGx23Q9RJ0kgeqIIupz7D0cFbNARoX/z7ewBqFb/3VzMvyw==&amp;139e6a0810a14d6d9b0eefce076fa848=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+IPNNFrNrhYU1KQv4oxuxdgtrYtQSNkZ7QcOBqKYrnqCMVRCn3jigk1xnWgkbhyo+VV/A6jmFLYh1BWk8ARR5GGC6cPMjB55BdJf02CJKIHQ==&amp;d3dd2b6930e54260a085e401e5d0e87f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8FoY2cIHEyBEDpQnC6xxyzKuq3aXB/XyxwGqph9Qt65bztvfYCJ2AQXXHedZly9t+27iGbcHXpZKc5Ic70ikfeasiJjgZMMuK/+KYVeZFA7w==&amp;00e70d29a1134a6786bb03702011add1=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU+YXyQmZ+YZ1cTUOjkCGu99Gny7Z28nKHRayMqNKnrgaZAUZ9knmE7B7cgTqXy3zObIE0ErhdBUmWgIz/Dse+Oawpt6BCo4HiAB6em8cdjKEw==&amp;129361c08f704e589fb695c915d845fd=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8NCGjsMw+tSzmc06uzDEJ0OVTDDH8Qn7F8NmGxUPC0X6cw+/aZKQESE0DZ4mmw2Iy689A95LoXRBMJKUqHf6u81st12UAIz04xmNyY0VJmAQ==&amp;35bce551202843b68de5a6e6d920abe2=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU9sTH2GN5GLDoZUShPR2vVnC/gIe6Hrv27w0F045W+8ljCrVhx8uyr5SqL61MJYfZLeVRD1jHzsWg+d0pgih/8GhDfyVuK8vjz+QUscms7duQ==" />
+    </item>
+    <item name="wrawrsatrsrweasrdxsfw2ewasjret">
+      <value string="8bfa857436a14b6a9682d54e4c0ed64f=WUBEw87awMZXw8L2Ini3Jp4SdZu4Uhl20IeeEgfBvyqgbfTjw0LTSLwcX4H4vj9Kb/xiax3V0bK+k66TJzCCj24n5LGa44Skjrt6DTNBxU8F1y9GE06MwMWXVjaSs87hDANUbo6zkWUwYnZQik47WE9NuI+Sf4ChS/JF7FvCUFKW5BU6vl73Y2wxpX/aj0WbUkkYFDdClizTBvv79vdN/Q==" />
+    </item>
+  </cookies>
+</error>

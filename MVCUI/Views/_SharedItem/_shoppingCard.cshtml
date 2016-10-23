@@ -1,0 +1,29 @@
+﻿<li id="m-cart-item" title="سبد خرید">
+    @if (Request.IsAuthenticated)
+            {
+        <em>(سبد خرید<bdi class="number_persian" id="shoppingCart">0</bdi>)</em>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                <div id="m-cart-info">
+                    <p>محصولات انتخاب شده</p>
+                    <ul>
+                        @if ()
+                        <!--  محصولات انتخاب شده در سبد کالا -->
+                            <!--  Templete of select Shopping Card -->
+                            <!--
+                                <li>
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    <strong>کرم بعد اصلاح ادیداس</strong>
+                                    <img src="@Links.Content.Image.scaleBlue_Challenge_by_Adidas_Aftershave_100ml_jpg" />
+                                </li>
+                            -->
+                        </ul>
+                    </div>
+    }
+    else
+    {
+        <em>(سبد خرید<bdi class="number_persian">0</bdi>)</em>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    }
+</li>
+

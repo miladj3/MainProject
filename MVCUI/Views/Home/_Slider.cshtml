@@ -1,18 +1,33 @@
-﻿<div id="m-slider">
+﻿@using DomainClasses.Entities
+@model IEnumerable<SlideShow>
+@{ 
+    Int32 _count = Model.Count();
+}
+<div id="m-slider">
+    <div id="__loading_slider">
+       <div><i class="fa fa-refresh fa-spin fa-4x" aria-hidden="true"></i></div>
+    </div>
     <div id="container-slider">
         <i id="m-slide-next"></i>
-        <img src="@Links.Content.Image._1_jpg" />
+        <ul class="_c">
+            @foreach (SlideShow item in Model)
+            {
+                <li class="_b" data-index="@item.Id" data-ShowTransition="@item.ShowTransition" data-HideTransition="@item.HideTransition" data-DataVertical="@item.DataVertical" data-DataHorizontal="@item.DataHorizontal" data-Position="@item.Position">
+                    <img class="_c" src="@item.ImagePath" alt="@item.ImageAltText" />
+                    <h6 class="_d" id="@item.Id">@item.Title</h6>
+                    <p class="_e">@item.Description</p>
+                    <div class="_f">
+                        <a href="@Url.Content(item.Link)">مشاهده محصول</a>
+                    </div>
+                </li>
+            }
+        </ul>
         <i id="m-slide-prev"></i>
-        <h6>هندزفری های BEATS</h6>
-        <p>کیفیت فوق العاده</p>
-        <div>
-            <button>مشاهده محصول</button>
-        </div>
-        <ul>
-            <li>&bull;</li>
-            <li>&bull;</li>
-            <li>&bull;</li>
-            <li>&bull;</li>
+        <ul id="__bullet">
+            @for (Int32 i = 1; i <= _count; i++)
+            {
+                <li data-index="@i"  class="_dot">&bull;</li>
+            }
         </ul>
     </div>
 </div>

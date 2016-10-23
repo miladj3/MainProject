@@ -1,0 +1,68 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSectionViewModel>
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
+}
+@section CSS{
+    <style>
+        .__removePopulated{
+            display:block !important;
+        }
+    </style>
+    }
+<div id="m-feature">
+    <ul id="m-container-list-product">
+        <li class="m-list-product" id="m-list-more-selll-product">
+            <ul>
+                @foreach (ProductSectionViewModel item in Model)
+            {
+                { Html.RenderPartial(MVC._SharedItem.Views._ShowProduct, item); }
+            }
+            </ul>
+        </li>
+    </ul>
+    </div>
+@section scipts{
+    
+    <script>
+        $(function () {
+            $(document).on('click', '.__removePopulated', function () {
+                var $_that = $(this),
+                    id = $_that.data('id'),
+                    _messResult;
+                function _mess() {
+                    $('#_load_result_in_top').children('p').text(_messResult).end().stop(true, false).slideDown('fast').delay(2000).slideUp('slow');
+                };
+                $.ajax({
+                    type:'Post',
+                    async:true,
+                    cache:false,
+                    url:'@Url.Action(MVC.User.ActionNames.RemovePopulate, MVC.User.Name)',
+                    data: {
+                        productId: id
+                    },
+                    statusCode: {
+                        403: function () {
+                            _messResult = 'به حساب کاربری خود وارد شوید';
+                            _mess();
+                            return false;
+                        }
+                    }
+                }).done(function (res) {
+                    if (res) {
+                        $_that.parents('.proXXXXXX').fadeOut('slow');
+                    } else {
+                        _messResult = 'عملیات به مشکل مواجه گردید. لطفا مجددا امتحان نمایید';
+                        _mess();
+                    }
+                }).fail(function (res) {
+                    _messResult = 'عملیات به مشکل مواجه گردید. لطفا مجددا امتحان نمایید';
+                    _mess();
+                })
+            })
+        })
+    </script>}

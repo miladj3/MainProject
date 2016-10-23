@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DomainClasses.Entities.Attribute>
+@{
+    ViewBag.Title = "خصوصیات گروه  [" + ViewBag.CategoryName + "]";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+@Html.AntiForgeryToken()
+<div class="row">
+    <div class="well-sm col-md-8">
+        @Html.ActionLink("افزودن خصوسیات", MVC.Admin.Category.ActionNames.AddAttribute, MVC.Admin.Category.Name, new { categoryId = ViewBag.CategoryId }, new { @class = "btn  btn-success" })
+
+        @Html.ActionLink("لیست گروه ها", MVC.Admin.Category.ActionNames.Index, MVC.Admin.Category.Name, htmlAttributes: new { @class = "btn btn-info" })
+    </div>
+</div>
+<div class="row">
+
+    <div class="table-responsive col-lg-12">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>
+                    نام خصوصیت
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td class="text-left">
+                        @Html.ActionLink("ویرایش", MVC.Admin.Category.ActionNames.EditAttribute, MVC.Admin.Category.Name, new { id = item.Id }, new { @class = "btn btn-sm btn-success" })
+                        <span id="row-@item.Id" data-id="@item.Id" data-name="@item.Name" class="btn btn-danger btn-sm">حذف</span>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+@section scipts{
+    <script type="text/javascript" defer async>
+        $(function () {
+            $(document).on('click', 'span[id^="row"]', function (e) {
+                e.stopPropagation();
+                var $that = $(this);
+                var id = $that.data('id');
+                var token = $('input[name="__RequestVerificationToken"]').val();
+                var name = $that.data('name');
+                var res = confirm(' ایا برای حذف ' + name + ' مطمئن هستید  ');
+                if (res) {
+                    $.ajax({
+                        async: true,
+                        cache: false,
+                        type: 'POST',
+                        url: '@Url.Action(MVC.Admin.Category.ActionNames.DeleteAttribute, MVC.Admin.Category.Name)',
+                        data: {
+                            id: id,
+                            __RequestVerificationToken: token
+                        }
+                    }).done(function (result) {
+                        if (result) {
+                            alert('گزینه مورد نظر حذف گردید');
+                            $that.parents('tr').remove();
+                        }
+                        else {
+                            alert('مشکل داخلی بوجود امد. مجددا تلاش کنید');
+                        }
+                    }).fail(function (result) {
+                        alert('مشکل داخلی بوجود امد. مجددا تلاش کنید ' + result);
+                    })
+                }
+                else {
+                    alert('عملیات لغو گردید')
+                }
+            })
+        })
+    </script>
+}
+

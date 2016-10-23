@@ -9,7 +9,7 @@ namespace ServiceLayer.Interfaces
 {
     public interface IOrderDetailsService
     {
-        void Add(OrderDetail orderDetail);
+        Task<ICollection<OrderDetail>> Add(IEnumerable<ShoppingCart> shoppingCard);
         void Delete(Int64 id);
         void DeleteByOrderId(Int64 orderId);
         void Update(OrderDetail orderDetail);

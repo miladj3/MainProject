@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "لیست محصولات";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        @using (Ajax.BeginForm(MVC.Admin.Product.ActionNames.List,
+                                MVC.Admin.Product.Name,
+                                null,
+                                new AjaxOptions
+                                {
+                                    HttpMethod = "POST",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "productsList"
+                                }, new
+                                {
+                                    @class = "form-horizontal",
+                                    id = "productSearchForm"
+                                }))
+        {
+
+            <div class="col-md-3">
+                <input name="term" placeholder="جستجو " value="" type="search" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                @Html.DropDownList("categoryId", ViewBag.Categories as IEnumerable<SelectListItem>, "--همه گروه ها--", new { @class = "selectpicker" })
+            </div>
+            <div class="col-md-2" data-toggle="tooltip" data-placement="top" title="ارسال رایگان">
+                <strong>ارسال رایگان</strong>
+                @Html.CheckBox("freeSend", false)
+            </div>
+            <div class="col-md-2" data-toggle="tooltip" data-placement="top" title="حذف شده">
+                <strong>حذف شده</strong>
+                @Html.CheckBox("deleted", false)
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="جست و جو" class="btn btn-md btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive" id="productsList">
+            @{ Html.RenderAction(MVC.Admin.Product.ActionNames.List, MVC.Admin.Product.Name);}
+        </div>
+    </div>
+</div>
+
+@section scipts
+{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script defer async>
+       
+        $(document).on('click', 'span[id^="row-"]', function (e) {
+            var $that = $(this);
+            var id = $that.data('id');
+            var name = $that.data('name');
+            var token = $('input[name="__RequestVerificationToken"]').val();
+            var result = confirm('آیا برای حذف محصول "' + name + '"مطمئن هستید؟');
+            if(result)
+            {
+                $.ajax({
+                    type:'POST',
+                    cache:false,
+                    async:true,
+                    url:'@Url.Action(MVC.Admin.Product.ActionNames.Delete, MVC.Admin.Product.Name)',
+                    data: {
+                        id: id,
+                        __RequestVerificationToken: token
+                    }
+                }).done(function (r) {
+                    if (r) {
+                        alert('محصول "' + name + '" حذف گردید.');
+                        $that.parents('tr').remove();
+                    } else {
+                        alert('مشکل داخلی \n عملیات حذف: ناموفق');
+                    }
+                }).fail(function (r) {
+                    alert('مشکل داخلی \n عملیات حذف: ناموفق');
+                })
+            } else {
+                alert(' لطفا مجددا تلاش کنید.  \n عملیات حذف: ناموفق');
+            }
+        })
+
+        function CompleteFillAttribute(res) {
+            if (res) {
+                alert("تغییرات با موفقیت ذخیره گردید.");
+                Admin.hideModal();
+            }
+        }
+
+    </script>
+}

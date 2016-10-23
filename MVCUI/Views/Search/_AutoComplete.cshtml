@@ -1,0 +1,36 @@
+﻿@using MVCUI.Helpers
+@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSearchResultViewModel>
+
+@if (Model.Any())
+{
+    foreach (ProductSearchResultViewModel item in Model)
+    {
+        <div class="load_content_search">
+            <div class="__link_searching">
+                @Html.ActionLink(linkText: item.Name
+           , actionName: MVC.Product.ActionNames.Index,
+           controllerName: MVC.Product.Name,
+           routeValues: new
+           {
+               productId = item.Id,
+               name = SeoExtentions.ResolveTitleForUrl(item.Name)
+           },
+           htmlAttributes: new { })
+            </div>
+            <div class="__img_searching">
+                <img src="@item.ImagePath" />
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>کالای مورد نظر شما یافت نگردید</p>
+    <hr />
+}
+@Html.ActionLink(linkText: "نمایش بیشتر جستجو....",
+    actionName: MVC.Search.ActionNames.Search,
+    controllerName: MVC.Search.Name,
+    routeValues:new { word= ViewBag.word }, 
+    htmlAttributes:null )

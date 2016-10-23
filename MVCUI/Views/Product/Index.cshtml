@@ -1,0 +1,322 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@using MVCUI.Helpers
+@model ProductDetailsViewModel
+
+@{
+    ViewBag.Title = Model.Name.GenerateSlug();
+    ViewBag.Keywords = Model.MetaKeywords;
+    ViewBag.Description = Model.MetaDescription;
+    Layout = MVC.Shared.Views._Layout;
+    String _availability;
+}
+@section css{
+    <style>
+        .magnify {
+            position: relative;
+        }
+
+        .large {
+            width: 175px;
+            height: 175px;
+            position: absolute;
+            border-radius: 100%;
+            box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+            background-repeat:no-repeat;
+            display: none;
+        }
+
+        .small {
+            display: block;
+        }
+    </style>
+}
+@section metatags{
+    <meta name="robots" content="index" />
+    <meta name="robots" content="follow" />
+}
+<div class="__detailsProduct" id="@Url.Action(MVC.Product.ActionNames.Index, MVC.Product.Name,new {
+                                 productid = Model.Id,
+                                 name = SeoExtentions.ResolveTitleForUrl(Model.Name)
+                             })" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="brand" content="سام طب" />
+    <meta itemprop="category" content="@Model.CategoryName" />
+    <meta itemprop="productID" content="@Model.Id" />
+    <meta itemprop="description" content="@Model.Description" />
+
+    <section id="__selected_product_of_GP">
+        @{ Html.RenderAction(
+                                                                 actionName: MVC.Product.ActionNames._SelectedProducctOfGP,
+                                                                 controllerName: MVC.Product.Name,
+                                                                 routeValues: new
+                                                                 {
+                                                                     categoryId = Model.CategoryId,
+                                                                     take = 4
+                                                                 });
+        }
+    </section>
+
+    <section id="_container_detail_product">
+        <div id="__detail_product_Panel" data-id="@Model.Id">
+            <h2 itemprop="name">
+              @Model.Name
+                <bdi>
+                    <bdi itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <meta content="@Model.AvrageRate" itemprop="ratingValue" />
+                        <meta content="@Model.TotalRaters" itemprop="ratingCount" />
+                        <meta content="0" itemprop="worstRating" />
+                        <meta content="5" itemprop="bestRating">
+                    </bdi>
+                    @_StarRating.StarRate(Model.AvrageRate, Url.Action(MVC.Product.ActionNames.SaveRating, MVC.Product.Name), Model.Id)
+                </bdi>
+            </h2>
+        </div>
+
+        <div id="__detail_product_body">
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.IsInStock)</span>
+                    <strong>
+                        @if (Model.ComingSoon)
+                        {
+                            _availability = "به زودی";
+                            @: به زودی
+                        }
+                        else if (Model.IsInStock)
+                        {
+                            _availability = "موجود است";
+                            @: موجود است
+                        }
+                        else
+                        {
+                            _availability = "تمام شده است";
+                            @: تمام شده است
+                       }
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.Id)</span>
+                    <strong class="number_persian">
+                        @Model.Id
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.Ratio)</span>
+                    <strong class="number_persian">@Model.Ratio</strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.SellCount)</span>
+                    <strong class="number_persian">@Model.SellCount</strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.IsFreeShipping)</span>
+                    <strong>
+                        @if (Model.IsFreeShipping)
+                        {
+                            @: رایگان
+                        }
+                        else
+                        {
+                            @: دارای هزینه
+                        }
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.Price)</span>
+                    <strong class="number_persian" itemprop="price" content="@Model.Price">
+                        @Model.Price.ToString("###,###") <bdi itemprop="priceCurrency" content="RIAL">ريال</bdi>
+                        <meta  itemprop="availability" content="@_availability"/>
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.TotalDiscount)</span>
+                    <strong class="number_persian">
+                        @Model.TotalDiscount <bdi>درصد</bdi>
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.PriceAfterDiscount)</span>
+                    <strong class="number_persian">
+                        @Model.PriceAfterDiscount.ToString("###,###") <bdi>ريال</bdi>
+                    </strong>
+                </div>
+                <div>
+                    <span>@Html.DisplayNameFor(x => x.Description)</span>
+                    <strong>
+                        @Model.Description
+                    </strong>
+                </div>
+                <div id="__techshow">
+                    <button id="__checkout">اضافه به سبد خرید</button>
+
+                    <p title="افزودن به لیست محبوب من" data-productid="@Model.Id" data-url="@Url.Action(MVC.Product.ActionNames.AddToPopulate, MVC.Product.Name)" class="_addToPopulator">
+                        <i title="افزودن به لیست محبوب من" class="fa fa-heart"></i>
+                        اضافه کردن به لیست محبوب
+                    </p>
+
+                    <p title="افزودن به لیست مقایسه" class="_addToCompare" data-id="@Model.Id">
+                        <i title="افزودن به لیست مقایسه" class="fa fa-random"></i>
+                        اضافه کردن به لیست مقایسه
+                    </p>
+
+                </div>
+            </div>
+            <div>
+                <div id="__detail_product_picture_main">
+                    <div class="magnify">
+                        <div class="large"></div>
+                        <img itemprop="image" class="small" src="@Model.PrincipleImage" alt="@Model.Name" />
+                    </div>
+                </div>
+                <ul>
+                    <li class="__thumbnails_picture_product">
+                        <img src="@Model.PrincipleImage" alt="@Model.Name" />
+                    </li>
+                    @foreach (var item in Model.Images)
+                    {
+                        <li class="__thumbnails_picture_product">
+                            <img src="@item" alt="@Model.Name" />
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div id="__detail_product_footer">
+            @Html.Raw(Html.Action(MVC.Product.ActionNames._GetProperties, MVC.Product.Name, new { id = Model.Id }))
+        </div>
+    </section>
+
+    <section class="__related_product_Container">
+        @{ Html.RenderAction(
+                                                                 actionName: MVC.Product.ActionNames._RelatedProduct,
+                                                                 controllerName: MVC.Product.Name,
+                                                                 routeValues: new
+                                                                 {
+                                                                     categoryId = Model.CategoryId,
+                                                                     take = 8
+                                                                 });
+        }
+    </section>
+</div>
+
+@*
+    <!-- this is microdata for Review Of User -->
+    <div itemprop="review" itemscope itemtype="http://schema.org/Review">
+      <span itemprop="name">Not a happy camper</span> -
+      by <span itemprop="author">Ellie</span>,
+      <meta itemprop="datePublished" content="2011-04-01">April 1, 2011
+      <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+        <meta itemprop="worstRating" content = "1">
+        <span itemprop="ratingValue">1</span>/
+        <span itemprop="bestRating">5</span>stars
+      </div>
+      <span itemprop="description">The lamp burned out and now I have to replace
+      it. </span>
+    </div>
+
+*@
+
+@section scipts{
+    <!-- #region Slider For Related Product and Picture Of Product -->
+    <script type="text/javascript" async defer>
+        $(function () {
+            var moveL,
+                moveR,
+                $_width_inner_slider,
+                $_width_without_scroll,
+                $_el_relatedProduct = $('#__slider_inner_relatedProduct');
+            $(document).on('click', '#__left_slider_relatedProduct', function () {
+                moveL = $(this).attr('data-moveL');
+                moveR = $('#__right_slider_relatedProduct').attr('data-moveR');
+                $_width_inner_slider = document.getElementById('__slider_inner_relatedProduct').scrollWidth;
+                $_width_without_scroll = $($_el_relatedProduct).width();
+                var _res_width = ($_width_inner_slider - $_width_without_scroll);
+
+                if (moveL > _res_width)
+                    moveL = _res_width;
+
+                $_el_relatedProduct.css({
+                    '-moz-transform': ' translateX(' + moveL + 'px)',
+                    '-ms-transform': 'translateX(' + moveL + 'px)',
+                    '-o-transform': 'translateX(' + moveL + 'px)',
+                    '-webkit-transform': 'translateX(' + moveL + 'px)',
+                    'transform': 'translateX(' + moveL + 'px)'
+                });
+
+                moveR = (parseInt(moveL) - 210) >= 0 ? (parseInt(moveL) - 210) : parseInt(0);
+                moveL = (parseInt(moveL) + 210);
+
+                $(this).attr('data-moveL', moveL);
+                $('#__right_slider_relatedProduct').attr('data-moveR', moveR);
+            })
+
+            $(document).on('click', '#__right_slider_relatedProduct', function () {
+                moveR = $(this).attr('data-moveR');
+                moveL = $('#__left_slider_relatedProduct').attr('data-moveL');
+                if (moveR <= -1)
+                    return false;
+
+                if ((moveR + 210) < 210)
+                    moveR = parseInt(210);
+
+                $_el_relatedProduct.css({
+                    '-moz-transform': ' translateX(' + moveR + 'px)',
+                    '-ms-transform': 'translateX(' + moveR + 'px)',
+                    '-o-transform': 'translateX(' + moveR + 'px)',
+                    '-webkit-transform': 'translateX(' + moveR + 'px)',
+                    'transform': 'translateX(' + moveR + 'px)'
+                });
+
+                moveL = (parseInt(moveR) + 210) >= 210 ? (parseInt(moveR) + 210) : parseInt(210);
+                moveR = (parseInt(moveR) - 210) > 0 ? (parseInt(moveR) - 210) : parseInt(0);
+
+                $(this).attr('data-moveR', moveR);
+                $('#__left_slider_relatedProduct').attr('data-moveL', moveL);
+            })
+        })
+
+        $(function () {
+            $('.__thumbnails_picture_product > img').mouseenter(function () {
+                $('.small').attr('src', $(this).attr('src'));
+            })
+        })
+
+        $(function () {
+            var native_width = 0;
+            var native_height = 0;
+            var image_zoom;
+            $('.magnify').mousemove(function (e) {
+                image_zoom = $('.small').attr('src');
+                $('.large').css('background-image', 'url("' + image_zoom + '")');
+                if (!native_height && !native_width) {
+                    var image_object  = new Image();
+                    image_object.src = $('.small').attr('src');
+                    native_height = image_object.height;
+                    native_width = image_object.width;
+                }
+                else {
+                    var magnify_offset = $(this).offset();
+                    var mx = e.pageX - magnify_offset.left;
+                    var my = e.pageY - magnify_offset.top;
+                    if (mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0) {
+                        $(".large").fadeIn(100);
+                    }
+                    else {
+                        $(".large").fadeOut(100);
+                    }
+                    if ($(".large").is(":visible")) {
+                        var rx = Math.round(mx / $(".small").width() * native_width - $(".large").width() / 2) * -1;
+                        var ry = Math.round(my / $(".small").height() * native_height - $(".large").height() / 2) * -1;
+                        var bgp = rx + "px " + ry + "px";
+                        var px = mx - $(".large").width() / 2;
+                        var py = my - $(".large").height() / 2;
+                        $(".large").css({ left: px, top: py, backgroundPosition: bgp });
+
+                    }
+                }
+            })
+        })
+    </script>
+    <!-- #endregion -->
+}
+

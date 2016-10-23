@@ -10,12 +10,38 @@ using System.Web.Security;
 
 namespace MVCUI.Filters
 {
-    [AttributeUsage(AttributeTargets.Class| AttributeTargets.Method, Inherited =true, AllowMultiple =true)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class SiteAuthorizeAttribute : AuthorizeAttribute
     {
+
+        protected override Boolean AuthorizeCore(HttpContextBase httpContext)
+        {
+
+            //HttpCookie cookie = httpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+            //if (cookie != null)
+            //{
+            //    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+            //    String roleName = ticket.UserData;
+            //    if (roleName.Equals(this.Roles))
+            //        return true;
+            //}
+
+            return base.AuthorizeCore(httpContext);
+        }
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
+        {
+            base.OnAuthorization(filterContext);
+        }
+
+        protected override HttpValidationStatus OnCacheAuthorization(HttpContextBase httpContext)
+        {
+            return base.OnCacheAuthorization(httpContext);
+        }
+
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            if(filterContext.HttpContext.Request.IsAuthenticated)
+            if (filterContext.HttpContext.Request.IsAuthenticated)
             {
                 FormsAuthentication.SignOut();
                 throw new UnauthorizedAccessException();
@@ -32,7 +58,7 @@ namespace MVCUI.Filters
             HttpContextBase _h = filterContext.HttpContext;
             if (!_h.Request.IsAjaxRequest())
                 return;
-            _h.Response.StatusCode =(Int32) HttpStatusCode.Forbidden;
+            _h.Response.StatusCode = (Int32)HttpStatusCode.Forbidden;
             _h.Response.End();
         }
     }

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace ViewModel.ViewModel.Page
+namespace ViewModel.ViewModel.Admin.Page
 {
     public class AddPageViewModel
     {
@@ -46,5 +46,6 @@ namespace ViewModel.ViewModel.Page
 
         [DisplayName("تصویر لینک")]
         public virtual String ImagePath { get; set; }
+        
     }
 }

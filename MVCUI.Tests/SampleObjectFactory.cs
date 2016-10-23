@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using IocConfig;
 using DataLayer.Context;
 using ServiceLayer.Interfaces;
+using StructureMap;
+using ServiceLayer.EFServices;
 
 namespace MVCUI.Tests
 {
@@ -18,6 +20,12 @@ namespace MVCUI.Tests
         {
             var d = IocConfig.SampleObjectFactory.Container.GetInstance<IProductService>();
             Assert.IsNull(d);
+        }
+
+        [TestMethod]
+        public void Register_Subscribe_in_IOC()
+        {
+            
         }
     }
 }

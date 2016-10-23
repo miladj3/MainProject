@@ -73,12 +73,14 @@ namespace MVCUI.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string _slider = "_slider";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string _slider = "_slider";
         }
 
 
@@ -92,11 +94,9 @@ namespace MVCUI.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string _feature = "_feature";
                 public readonly string _Slider = "_Slider";
                 public readonly string Index = "Index";
             }
-            public readonly string _feature = "~/Views/Home/_feature.cshtml";
             public readonly string _Slider = "~/Views/Home/_Slider.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
         }
@@ -115,6 +115,17 @@ namespace MVCUI.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void _sliderOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.PartialViewResult _slider()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames._slider);
+            _sliderOverride(callInfo);
             return callInfo;
         }
 

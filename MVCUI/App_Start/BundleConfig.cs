@@ -11,14 +11,20 @@ namespace MVCUI.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            #region Customize
             bundles.IgnoreList.Clear();
             BundleTable.Bundles.UseCdn = true;
-            //TODO: after enable this , remove tag  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-            BundleTable.EnableOptimizations = false;  
             bundles.UseCdn = true;
 
-          
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
+            BundleTable.EnableOptimizations = true;
+#endif
 
+            #endregion
+            
+            #region Other
             bundles.Add(new ScriptBundle("~/bundles/masterjs").Include(
                 "~/Scripts/MyScripts/site.js",
                 "~/Scripts/bootstrap.min.js",
@@ -33,18 +39,9 @@ namespace MVCUI.App_Start
                 "~/Scripts/noty/packaged/jquery.noty.packaged.min.js",
                 "~/Scripts/lazysizes.min.js",
                 "~/Scripts/respond.js"));
-            bundles.Add(new StyleBundle("~/fileinp/css").Include(
-               "~/Content/fileinput.min.css"
-               ));
-            bundles.Add(new ScriptBundle("~/fileinp/js").Include(
-               "~/Scripts/fileinput.min.js"));
 
             bundles.Add(new ScriptBundle("~/customerBundle/js").Include(
-                "~/Scripts/starRating-plugin.js",
-                "~/Scripts/MyScripts/AddToCart-plugin.js",
-                "~/Scripts/MyScripts/AddToWishList-plugin.js",
                 "~/Scripts/jquery.cookie.js",
-                "~/Scripts/MyScripts/AddToCompareList-plugin.js",
                 "~/Scripts/noty/packaged/jquery.noty.packaged.min.js",
                 "~/Scripts/MyScripts/customer-actions.js"));
 
@@ -63,19 +60,19 @@ namespace MVCUI.App_Start
 
             bundles.Add(new StyleBundle("~/Search/css").Include(
                 "~/Content/search.css"));
-            
+            #endregion
 
-            bundles.Add(new StyleBundle("~/editor/css").Include(
-             "~/Scripts/ckeditor/contents.css"
-             ));
-            bundles.Add(new ScriptBundle("~/editor/js").Include(
-               "~/Scripts/ckeditor/ckeditor.js"));
+            #region Main Style & Main Js 
 
-            //############# Main Js 
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts._starRating_Compare_AddToPopulate_AddToCart)
+                .Include("~/Scripts/MyScripts/helperStarRateJs.js")
+                .Include("~/Scripts/MyScripts/addToCart.js")
+                 .Include("~/Scripts/MyScripts/AddToMyPopulate.js")
+                .Include("~/Scripts/MyScripts/addToCompareList.js"));
 
             bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.Modernizer).Include(
               "~/Scripts/modernizr-*"));
-            
+
             bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.JqueryVal)
                 .Include("~/Scripts/jquery.validate*")
                 .Include("~/Scripts/jquery.unobtrusive-ajax.min.js"));
@@ -86,20 +83,23 @@ namespace MVCUI.App_Start
                 CdnFallbackExpression = "window.jquery"
             }.Include("~/Scripts/jquery-{version}.js"));
 
-            //############# Main Style
-
             bundles.Add(new StyleBundle(Links.BundleExtension.Style.MainCss_Css)
                 .Include("~/Content/My_style/Reset_Css_Persian.min.css")
-                .Include("~/Content/My_style/_MainCss.min.css"));
+                .Include("~/Content/My_style/_MainCss.min.css", new CssRewriteUrlTransform()));
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.PagedStyleCss)
+                .Include("~/Content/PagedList.css"));
 
             bundles.Add(new StyleBundle(Links.BundleExtension.Style.fonts,
                "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
                .Include("~/Content/font-awesome.min.css"));
+            #endregion
 
-            //############## Style & Js Admin Layout
+            #region Style & Js Admin Layout
 
             bundles.Add(new StyleBundle(Links.BundleExtension.Style.StyleOfAdminLayout).Include(
                "~/Content/bootstrap.min.css",
+               "~/Content/bootstrap-rtl.min.css",
                "~/Content/bootstrap-select.min.css",
                 "~/Content/sweet-alert.css",
                 "~/Content/animate.min.css",
@@ -126,6 +126,22 @@ namespace MVCUI.App_Start
               "~/Scripts/noty/jquery.noty.js",
               "~/Scripts/respond.js"
               ));
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.fileInputUploadCSS).Include(
+              "~/Content/fileinput.min.css"
+              ));
+
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.fileInputUploadJS).Include(
+               "~/Scripts/fileinput.min.js"));
+
+            bundles.Add(new StyleBundle(Links.BundleExtension.Style.CkeEditoreCSS).Include(
+           "~/Scripts/ckeditor/contents.css"
+           ));
+
+            bundles.Add(new ScriptBundle(Links.BundleExtension.Scripts.CkeEditoreJS).Include(
+               "~/Scripts/ckeditor/ckeditor.js"));
+            #endregion
+
         }
     }
 }

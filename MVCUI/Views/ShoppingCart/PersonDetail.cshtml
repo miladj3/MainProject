@@ -1,0 +1,111 @@
+﻿@using ViewModel.ViewModel.Admin.User
+@model UserWithAddressViewModel
+
+<strong>مشخصات و آدرس گیرنده</strong>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Register.FirstName)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Register.FirstName)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Register.LastName)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Register.LastName)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Register.PhoneNumber)
+    </span>
+    <b class="number_persian">
+        @Html.DisplayFor(x => x.Register.PhoneNumber)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Address.CompanyName)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Address.CompanyName)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Address.State)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Address.State)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Address.City)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Address.City)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Address.AddressLine1)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Address.AddressLine1)
+    </b>
+</p>
+<p>
+    <span>
+        @Html.DisplayNameFor(x => x.Address.AddressLine2)
+    </span>
+    <b>
+        @Html.DisplayFor(x => x.Address.AddressLine2)
+    </b>
+</p>
+<div>
+    @Ajax.ActionLink("ویرایش مشخصات",
+    MVC.User.ActionNames.EditUserOrder,
+    MVC.User.Name,
+    null,
+    new AjaxOptions
+    {
+        AllowCache = false,
+        HttpMethod = FormMethod.Get.ToString(),
+        OnBegin = "person_detail_order_OnBegin",
+        OnSuccess = "person_detail_order_OnSuccess",
+        InsertionMode = InsertionMode.Replace
+    }, new
+    {
+        @rel = "nofollow, noindex",
+        @role = "button",
+        @id= "__edit_person_order_btn"
+    })
+
+    @Ajax.ActionLink("تکمیل فرایند خرید",
+    MVC.ShoppingCart.ActionNames.CompleteOrder,
+    MVC.ShoppingCart.Name,
+    null,
+    new AjaxOptions
+    {
+        AllowCache = false,
+        HttpMethod = FormMethod.Post.ToString(),
+        OnBegin = "complete_order_OnBegin",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId= "_confirm_order"
+    }, new
+    {
+        @rel = "nofollow, noindex",
+        @role = "button",
+        id="__complete_order_btn"
+    })
+</div>
+<hr />
+<div id="_confirm_order">
+    <div class="__loading_el_order_class" id="__loading_el_confirm_order">
+        <i class="fa fa-refresh fa-spin fa-2x fa-fw" aria-hidden="true"></i>
+    </div>
+</div>

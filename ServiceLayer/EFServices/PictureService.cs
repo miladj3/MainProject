@@ -33,9 +33,9 @@ namespace ServiceLayer.EFServices
             _pictures.Add(picture);
         }
 
-        public void Delete(Int64 id)
+        public async Task Delete(Int64 id)
         {
-            _pictures.Where(a => a.Id.Equals(id)).Delete();
+           await  _pictures.Where(a => a.Id.Equals(id)).DeleteAsync();
         }
 
         public IEnumerable<Picture> GetAll(Int32 page, Int32 count, out Int32 total, Int64 folderId)
@@ -51,22 +51,22 @@ namespace ServiceLayer.EFServices
             return query.ToList();
         }
 
-        public Picture GetById(Int64 id) =>
-            _pictures.Find(id);
+        public async Task<Picture> GetById(Int64 id) =>
+            await _pictures.SingleOrDefaultAsync(x => x.Id == id);
 
-        public IEnumerable<Picture> GetpictureByFolderId(Int64 folderId) =>
-            _pictures.AsNoTracking()
+        public async Task<IEnumerable<Picture>> GetpictureByFolderId(Int64 folderId) =>
+            await _pictures.AsNoTracking()
                     .Include(a => a.Folder)
                     .Where(a => a.FolderId == folderId)
                     .OrderByDescending(a => a.Id)
-                    .ToList();
+                    .ToListAsync();
 
-        public String[] GetPicturesOfFolder(Int64 id) =>
-                 _pictures.AsNoTracking()
+        public async Task<String[]> GetPicturesOfFolder(Int64 id) =>
+                await  _pictures.AsNoTracking()
                     .Include(a => a.Folder)
                     .Where(a => a.FolderId == id)
                     .Select(a => a.Path)
-                    .ToArray();
+                    .ToArrayAsync();
         #endregion
     }
 }

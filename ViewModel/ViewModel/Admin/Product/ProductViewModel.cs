@@ -36,6 +36,9 @@ namespace ViewModel.ViewModel.Admin.Product
         [DisplayFormat(DataFormatString = "{0:###,###.####}", ApplyFormatInEditMode = true)]
         public Int64 Price { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:###,###.####}", ApplyFormatInEditMode = true)]
+        public Int64 PriceAfterDiscount { get; set; }
+
         public Boolean Notification { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
@@ -49,5 +52,7 @@ namespace ViewModel.ViewModel.Admin.Product
 
         [DisplayFormat(DataFormatString = "{0:0.#}", ApplyFormatInEditMode = true)]
         public Decimal DiscountPercent { get; set; }
+        
+        public Boolean ComingSoon { get; set; }
     }
 }

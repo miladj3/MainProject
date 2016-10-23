@@ -12,6 +12,6 @@ namespace ServiceLayer.Interfaces
     {
         void Insert(AddProductPicturesViewModel viewModel);
         void Edit(IEnumerable<ProductImage> images);
-        IEnumerable<ProductImage> GetImages(Int64 productId);
+        Task<IEnumerable<ProductImage>> GetImages(Int64 productId);
     }
 }

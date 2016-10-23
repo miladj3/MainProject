@@ -31,19 +31,13 @@ namespace MVCUI.Extentions
             return default(T);
         }
 
-        public static void InvalidateCache(this HttpContextBase httpContext, String key)
-        {
+        public static void InvalidateCache(this HttpContextBase httpContext, String key) =>
             httpContext.Cache.Remove(key);
-        }
 
-        public static void InvalidateOutPutCache(String url)
-        {
+        public static void InvalidateOutPutCache(String url) =>
             HttpResponse.RemoveOutputCacheItem(url);
-        }
 
-        public static void InvalidateChildActionsCache()
-        {
+        public static void InvalidateChildActionsCache() =>
             OutputCacheAttribute.ChildActionCache = new System.Runtime.Caching.MemoryCache(Guid.NewGuid().ToString());
-        }
     }
 }

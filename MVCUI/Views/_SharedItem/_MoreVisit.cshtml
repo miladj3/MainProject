@@ -1,0 +1,56 @@
+﻿@using MVCUI.Helpers
+@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSectionViewModel>
+
+<div id="_more_visit_product">
+    <i class="Arrow-slider-more-visited-next" data-moveN="214" id="__nxt_more"></i>
+    <div id="container_more_pro">
+        <b>کالاهایی که بیشترین بازدید کننده را داشته اند</b>
+        <ul id="__ul_slider_more">
+            @foreach (ProductSectionViewModel item in Model)
+            {
+                <li id="@Url.Action(MVC.Product.ActionNames.Index, MVC.Product.Name,new {
+                                 productid = item.Id,
+                                 name = SeoExtentions.ResolveTitleForUrl(item.Name)
+                             })" itemscope itemtype="http://schema.org/Product">
+                    <meta itemprop="name" content="@item.Name" /><bdi itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        <meta content="@item.AvrageRate" itemprop="ratingValue" />
+                        <meta content="@item.TotalRaters" itemprop="ratingCount" />
+                        <meta content="0" itemprop="worstRating" />
+                        <meta content="5" itemprop="bestRating">
+                    </bdi>
+                    <div>
+                        <div class="img5444">
+                            <img itemprop="image" src="@item.PrincipleImagePath" alt="@item.Name" />
+                        </div>
+                        <div class="price5444" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            @Html.ActionLink(
+                           linkText: item.Name,
+                           actionName: MVC.Product.ActionNames.Index,
+                           controllerName: MVC.Product.Name,
+                           routeValues: new
+                           {
+                               productid = item.Id,
+                               name = SeoExtentions.ResolveTitleForUrl(item.Name)
+                           },
+                           htmlAttributes: null)
+                            @if (item.PriceAfterDiscount > 0 && !(item.PriceAfterDiscount == item.Price))
+                            {
+                                <p class="number_persian _ax21 second_price_product">@item.Price<bdi>ريال</bdi></p>
+                                <p itemprop="price" content="@item.Price" class="number_persian">@item.PriceAfterDiscount<bdi itemprop="priceCurrency" content="RIAL">ريال</bdi></p>
+                            }
+                            else
+                            {
+                                <p itemprop="price" content="@item.Price" class="number_persian _ax21">@item.Price<bdi itemprop="priceCurrency" content="RIAL">ريال</bdi></p>
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+
+
+    </div>
+    <i class="Arrow-slider-more-visited-prev" data-moveP="0" id="__prv_more"></i>
+</div>

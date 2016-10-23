@@ -1,0 +1,29 @@
+﻿@using DomainClasses.Entities
+@using PagedList;
+@using PagedList.Mvc;
+@model IEnumerable<Picture>
+@{
+    String path = Links.BundleExtension.PathAbsolouteUploadPicture.PathUploadPicture + "/";
+}
+@foreach (var item in Model)
+{
+    <div class="col-md-2 imageloadedContainers teaser lazyload">
+        <img src="@Url.Content(path + item.Path)?w=80&h=70&mode=crop"
+             data-id="@VirtualPathUtility.ToAbsolute(path + item.Path)"
+             class="img-thumbnail lazyload imgMargin" width="80" height="70">
+    </div>
+
+}
+
+@Html.PagedListPager(new StaticPagedList<Picture>(Model, ViewBag.PageNumber, 18, ViewBag.Total), pageNumber => Url.Action(MVC.Admin.Folder.ActionNames.ListForLightBox, MVC.Admin.Folder.Name, new
+{
+    page = pageNumber,
+    folderId = ViewBag.FolderId
+}), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast, new AjaxOptions { AllowCache = false, HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "lightBoxContent" }))
+<script>
+    window.lazySizesConfig = {
+        addClasses: true
+    };
+    Public.Routin();
+
+</script>

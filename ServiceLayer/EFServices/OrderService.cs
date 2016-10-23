@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DomainClasses.Entities;
 using DataLayer.Context;
 using System.Data.Entity;
+using ViewModel.ViewModel.Admin.Order;
 
 namespace ServiceLayer.EFServices
 {
@@ -14,22 +15,43 @@ namespace ServiceLayer.EFServices
     {
         #region Fields
         private readonly IUnitOfWork _unitOfWorks;
-        private readonly IDbSet<OrderService> _orderService;
+        private readonly IDbSet<Order> _orderService;
+        private readonly IOrderDetailsService _orderDetails;
+        private readonly IUserService _user;
         #endregion
 
-        #region Construcure
-        public OrderService(IUnitOfWork unitOfWorks)
+        #region Constructure
+        public OrderService(IUnitOfWork unitOfWorks, 
+                                        IUserService user, 
+                                        IOrderDetailsService orderDetail)
         {
             _unitOfWorks = unitOfWorks;
-            _orderService = _unitOfWorks.Set<OrderService>();
+            _orderService = _unitOfWorks.Set<Order>();
+            _user = user;
+            _orderDetails = orderDetail;
         }
         #endregion
 
         #region Methods
 
-        public void Add(Order order)
+        public async Task Add(OrderShowViewModel viewModel,IEnumerable<ShoppingCart> shoppingCard)
         {
-            throw new NotImplementedException();
+            User user = await _user.GetUserByUserName(viewModel.UserName);
+            ICollection<OrderDetail> _orderDetailsModel = await _orderDetails.Add(shoppingCard);
+            Order model = new Order
+            {
+                Address = viewModel.Address,
+                BuyDate = viewModel.BuyDate,
+                Buyer = user,
+                DiscountPrice = viewModel.DiscountPrice,
+                OrderDetails = _orderDetailsModel,
+                PeymentType = viewModel.PeymentType,
+                PostDate = viewModel.PostDate,
+                Status = viewModel.Status,
+                TotalPrice = viewModel.TotalPrice,
+                TransactionCode = viewModel.TransactionCode
+            };
+            _orderService.Add(model);
         }
 
         public IEnumerable<Order> DataTable(out Int32 total, Int32 page, Int32 count)

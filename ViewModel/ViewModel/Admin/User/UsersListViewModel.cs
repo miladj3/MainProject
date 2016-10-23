@@ -10,7 +10,7 @@ namespace ViewModel.ViewModel.Admin.User
 {
     public class UsersListViewModel
     {
-        public IEnumerable<AddUserViewModel> UsersList { get; set; }
+        public IEnumerable<UserViewModel> UsersList { get; set; }
 
         public Int32 PageCount { get; set; }
 

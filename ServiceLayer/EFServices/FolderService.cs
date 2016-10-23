@@ -30,9 +30,9 @@ namespace ServiceLayer.EFServices
 
         #region Methods
 
-        public Boolean Add(AddFolderViewModel viewModel)
+        public async Task<Boolean> Add(AddFolderViewModel viewModel)
         {
-            if (CheckNameExist(viewModel.Name))
+            if (await CheckNameExist(viewModel.Name))
                 return false;
             Folder model = new Folder()
             {
@@ -42,20 +42,20 @@ namespace ServiceLayer.EFServices
             return true;
         }
 
-        public Boolean CheckNameExist(String name) =>
-            _folderService.Any(x => x.Name.Equals(name));
+        public async Task<Boolean> CheckNameExist(String name) =>
+            await _folderService.AnyAsync(x => x.Name.Equals(name));
 
-        public Boolean CheckNameExist(String name, Int64 id) =>
-            _folderService.Any(x => x.Id != id && x.Name == name);
+        public async Task<Boolean> CheckNameExist(String name, Int64 id) =>
+            await _folderService.AnyAsync(x => x.Id != id && x.Name == name);
 
-        public void Delete(Int64 id)
+        public async Task Delete(Int64 id)
         {
-            _folderService.Where(x => x.Id == id).Delete();
+           await _folderService.Where(x => x.Id == id).DeleteAsync();
         }
 
-        public Boolean Edit(EditFolderViewModel viewModel)
+        public async Task<Boolean> Edit(EditFolderViewModel viewModel)
         {
-            if (!CheckNameExist(viewModel.Name))
+            if (await CheckNameExist(viewModel.Name, viewModel.Id))
                 return false;
             Folder folder = new Folder
             {
@@ -66,15 +66,15 @@ namespace ServiceLayer.EFServices
             return true;
         }
 
-        public EditFolderViewModel GetForEdit(Int64 id) =>
-            _folderService.Where(x => x.Id.Equals(id)).Select(x => new EditFolderViewModel()
+        public async Task<EditFolderViewModel> GetForEdit(Int64 id) =>
+            await _folderService.Where(x => x.Id.Equals(id)).Select(x => new EditFolderViewModel()
             {
                 Id = x.Id,
                 Name = x.Name
-            }).FirstOrDefault();
+            }).FirstOrDefaultAsync();
 
-        public IEnumerable<Folder> GetList() =>
-            _folderService.AsNoTracking().OrderBy(x => x.Id).ToList();
+        public async Task<IEnumerable<Folder>> GetList() =>
+            await _folderService.AsNoTracking().OrderBy(x => x.Id).ToListAsync();
         #endregion
     }
 }

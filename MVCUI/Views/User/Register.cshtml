@@ -1,17 +1,19 @@
-﻿@model ViewModel.ViewModel.Admin.User.RegisterViewModel
+﻿@using CaptchaMvc.HtmlHelpers
+@model ViewModel.ViewModel.Admin.User.UserWithAddressViewModel
 @{
     Layout = MVC.Shared.Views._Layout;
-    ViewBag.Title = "Register";
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
 }
 <section id="register_section">
     <p id="breadcrump">
         خانه   >  .....  صفحه قبلی   >   صفحه ثبت نام
     </p>
-    <div id="_login00">
+    <div id="_register00">
         <br />
-        <b>ایجاد حساب کاربری  یا ورود</b>
+        <b>ایجاد حساب کاربری</b>
         <div id="section_register">
-            <strong>ایجاد حساب کاربری</strong>
             <p>با ایجاد حساب کاربری شما قادر خواهید بود که:</p>
             <ol>
                 <li>دسترسی سریعتر به محصولات خود</li>
@@ -20,30 +22,185 @@
                 <li>پیگیری محصول ارسال شده</li>
                 <li>ذخیره کردن کالاهای محبوب</li>
             </ol>
-            @Html.ActionLink("کلیک کنید و حساب کاربری خود را ایجاد نمائید.", MVC.User.ActionNames.Register, MVC.User.Name, htmlAttributes: new { id = "__link_reg" })
         </div>
         <div id="section_login">
-            <strong>ورود به حساب کاربری</strong>
-            @using (Html.BeginForm(MVC.User.ActionNames.Register, MVC.User.Name, FormMethod.Post, htmlAttributes: null))
+            @using (Html.BeginForm(MVC.User.ActionNames.Register,
+                                                    MVC.User.Name,
+                                                    FormMethod.Post,
+                                                    htmlAttributes: new { autocomplete = "on" }))
             {
                 <fieldset>
                     <div>
-                        @Html.LabelFor(x => x.PhoneNumber, new { @class = "label_i" })
-                        @Html.TextBoxFor(x => x.PhoneNumber, new { @type = "number" })
+                        @Html.AntiForgeryToken()
                         <div>
-                            @Html.ValidationMessageFor(x => x.PhoneNumber, String.Empty, new { @class = "error_i" })
+                            @Html.ValidationSummary(true, String.Empty, new { @class = "error_i" })
+                        </div>
+                    </div>
+                    <div id="_personal_detail">
+                        <strong>اطلاعات شخصی</strong>
+                        <div>
+                            @Html.LabelFor(x => x.Register.FirstName, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.FirstName, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder="مثال: میلاد"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.FirstName, String.Empty, new
+                           {
+                               @class = "error_i"
+                           })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Register.LastName, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.LastName, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder = "مثال: جعفری"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.LastName, String.Empty, new
+                           {
+                               @class = "error_i"
+                           })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Register.PhoneNumber, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.PhoneNumber, new
+                       {
+                           @type = "number",
+                           placeholder = "09xxxxxxxxx"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.PhoneNumber, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Register.UserName, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.UserName, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete="on",
+                           placeholder = "مثال:milad123 "
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.UserName, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Register.Password, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.Password, new
+                       {
+                           @type = "password",
+                           autocomplete="off",
+                           spellcheck="false",
+                           placeholder = "*******"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.Password, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Register.VerifyPassword, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Register.VerifyPassword, new
+                       {
+                           @type = "password",
+                           autocomplete = "off",
+                           spellcheck = "false",
+                           placeholder = "*******"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Register.VerifyPassword, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                    </div>
+                    <div id="_address_detail">
+                        <strong>آدرس ارسال محصول</strong>
+                        <div>
+                            @Html.LabelFor(x => x.Address.State, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Address.State, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder = "مثال: تهران .."
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Address.State, String.Empty, new
+                           {
+                               @class = "error_i"
+                           })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Address.City, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Address.City, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder="مثال: تهران"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Address.City, String.Empty, new
+                           {
+                               @class = "error_i"
+                           })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Address.CompanyName, new { @class = "label_i" })
+                            @Html.TextBoxFor(x => x.Address.CompanyName, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder="مثال: اسم شرکت"
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Address.CompanyName, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Address.AddressLine1, new { @class = "label_i" })
+                            @Html.EditorFor(x => x.Address.AddressLine1, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder = "مثال: خیابان xxxx کوچه xxx پلاک ..."
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Address.AddressLine1, String.Empty, new { @class = "error_i" })
+                            </div>
+                        </div>
+                        <div>
+                            @Html.LabelFor(x => x.Address.AddressLine2, new { @class = "label_i" })
+                            @Html.EditorFor(x => x.Address.AddressLine2, new
+                       {
+                           @type = "text",
+                           spellcheck = "false",
+                           autocomplete = "on",
+                           placeholder = "مثال: خیابان xxxx کوچه xxx پلاک ..."
+                       })
+                            <div>
+                                @Html.ValidationMessageFor(x => x.Address.AddressLine2, String.Empty, new { @class = "error_i" })
+                            </div>
                         </div>
                     </div>
                     <div>
-                        @Html.LabelFor(x => x.UserName, new { @class = "label_i" })
-                        @Html.TextBoxFor(x => x.UserName, new { @type = "password" })
-                        <div>
-                            @Html.ValidationMessageFor(x => x.UserName, String.Empty, new { @class = "error_i" })
-                        </div>
-                    </div>
-                    <div>
-                        <input type="submit" value="ثبت نام" />
-                        @Html.ActionLink("رمز عبور خود را فراموش کردید؟", MVC.User.ActionNames.Register)
+                  @*      @Html.MathCaptcha(MVC.Shared.Views._reCaptcha)*@
+                        <br />
+                        <button role="button" type="submit" id="__link_reg00">
+                            ثبت نام
+                        </button>
                     </div>
                 </fieldset>
             }

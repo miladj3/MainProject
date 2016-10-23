@@ -158,5 +158,32 @@ namespace MVCUI.Helpers
 
             return new SelectList(list, "Value", "Text", seleted);
         }
+
+        public static SelectList GetTypeContactUs(ContactType type)
+        {
+            var list = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "تماس با ما", Value = "All"},
+                new SelectListItem {Text = "مشکل", Value = "Problem"},
+                 new SelectListItem {Text = "سفارش", Value = "Order"},
+                new SelectListItem {Text = "پیشنهاد", Value = "Offer"},
+                new SelectListItem {Text = "انتقاد", Value = "Criticism"}
+            };
+            return new SelectList(list, "Value", "Text", type);
+        }
+
+        public static SelectList GetTypeContactUsInAdmin(ContactType type)
+        {
+            var list = new List<SelectListItem>
+            {
+                new SelectListItem {Text = "تماس با ما", Value = "All"},
+                new SelectListItem {Text = "مشکل", Value = "Problem"},
+                 new SelectListItem {Text = "سفارش", Value = "Order"},
+                new SelectListItem {Text = "پیشنهاد", Value = "Offer"},
+                new SelectListItem {Text = "انتقاد", Value = "Criticism"},
+                new SelectListItem {Text = "خوانده نشده", Value = "IsNotSeen"}
+            };
+            return new SelectList(list, "Value", "Text", type);
+        }
     }
 }

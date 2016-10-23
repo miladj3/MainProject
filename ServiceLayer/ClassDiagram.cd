@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ServiceLayer.EFServices.AddressService" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EFServices\AddressService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceLayer.EFServices.AttributeService" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EFServices\AttributeService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceLayer.EFServices.CategoryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACAAAAAQQAACBhEAAAAAEAEAAAACAgAAAAAABJg=</HashCode>
+      <FileName>EFServices\CategoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.CommentService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAgAABAQAAAAAAAAAAECAAAACAAA=</HashCode>
+      <FileName>EFServices\CommentService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ContactService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EFServices\ContactService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.FolderService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAACAABAgAAAAAAEAAAACAAAAAAABAAI=</HashCode>
+      <FileName>EFServices\FolderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ImageService" Collapsed="true">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EFServices\ImageService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceLayer.EFServices.OrderDetails" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAACAABAAAAABgAgAAAAAAEAAAAAAAAAAAAAAII=</HashCode>
+      <FileName>EFServices\OrderDetailsService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.OrderService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYEAAAAAAAAAAAAAgAAAAAAAAEAQAAABCAAAAAAAAA=</HashCode>
+      <FileName>EFServices\OrderService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.PageService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAABgAAIAAAAAEAIAACAAAAAAAEAIA=</HashCode>
+      <FileName>EFServices\PageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.PictureService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAgAAAQAAAAEAAAAAEgAAgAAAAIA=</HashCode>
+      <FileName>EFServices\PictureService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ProductImageService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAgAAAAAQAAAAAAACAAAAAAAAAgA=</HashCode>
+      <FileName>EFServices\ProductImageService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ProductService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEBAAcAACADEIjAACQAAAQEBAQgCAIIABECAMIA=</HashCode>
+      <FileName>EFServices\ProductService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.RoleService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAECACAIAAAAAAAgAAAAAAAAEAAAAAAAARAMAQgAI=</HashCode>
+      <FileName>EFServices\RoleService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.SettingService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAEAAAAAgAAAAAAAAAAAAAAEAAAAAAQAAE=</HashCode>
+      <FileName>EFServices\SettingService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ShoppingCartService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACYAAAAAAAAAAAAAAwAAAAAAAAEAAIAAAIEAAAAAAII=</HashCode>
+      <FileName>EFServices\ShoppingCartService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.SlideShowService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIYAAAAAAAAAAAAAAgAAAAAAAAkAAAAAAAAAAIAAAAI=</HashCode>
+      <FileName>EFServices\SlideShowService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.UserService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAARMIARIAAQCARhBAhAYkAAEICbgIWRAAAAECIgA=</HashCode>
+      <FileName>EFServices\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.EFServices.ValueService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAEAAAQAACCAEAgAABAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EFServices\ValueService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ServiceLayer.Interfaces.IAddressService" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IAddressService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceLayer.Interfaces.UserIdAndUserName" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceLayer.Interfaces.UserStatus" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ServiceLayer.Interfaces.IAttributeService" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAAAAAIAAAAAAAAAAAAQEAQAACAAAAAABAEAA=</HashCode>
+      <FileName>Interfaces\IAttributeService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.ICategoryService" Collapsed="true">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACAAAAAQAAACBBEAAAAAEAEAAAACAgAAAAAABJg=</HashCode>
+      <FileName>Interfaces\ICategoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.ICommentService" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAEAAAAACAAA=</HashCode>
+      <FileName>Interfaces\ICommentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IContactService" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IContactService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IFolderService" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAABAgAAAAAAEAAAACAAAAAAAAAAI=</HashCode>
+      <FileName>Interfaces\IFolderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IOrderDetailsService" Collapsed="true">
+    <Position X="5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAABAAgAAAAAAEAAAAAAAAAAAAAAII=</HashCode>
+      <FileName>Interfaces\IOrderDetailsService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IOrderService" Collapsed="true">
+    <Position X="6.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYEAAAAAAAAAAAAAAAAAAAAAAEAQAAABAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IOrderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IPageService" Collapsed="true">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAABAAAIAAAAAEAIAACAAAAAAAEAIA=</HashCode>
+      <FileName>Interfaces\IPageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IPictureService" Collapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAQAAAAEAAAAAEgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IPictureService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IProductImageService" Collapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAQAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IProductImageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IProductService" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEBAAcAACADEIDAACQAAAQEBAAgCAAIABECAMIA=</HashCode>
+      <FileName>Interfaces\IProductService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IRoleService" Collapsed="true">
+    <Position X="6.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAECACAIAAAAAAAAAAAAAAAAEAAAAAAAAQAMAQgAI=</HashCode>
+      <FileName>Interfaces\IRoleService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.ISettingService" Collapsed="true">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAE=</HashCode>
+      <FileName>Interfaces\ISettingService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IShoppingCartService" Collapsed="true">
+    <Position X="10.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACYAAAAAAAAAAAAAAQAAAAAAAAEAAIAAAAAAAAAAAII=</HashCode>
+      <FileName>Interfaces\IShoppingCartService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.ISlideShowService" Collapsed="true">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIYAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Interfaces\ISlideShowService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IUserService" Collapsed="true">
+    <Position X="5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAARMIARIAAQCARBBAhAYkAAEICTgIWRAAAAECIgA=</HashCode>
+      <FileName>Interfaces\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ServiceLayer.Interfaces.IValueService" Collapsed="true">
+    <Position X="6.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAQAACCAEAAAABAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Interfaces\IValueService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

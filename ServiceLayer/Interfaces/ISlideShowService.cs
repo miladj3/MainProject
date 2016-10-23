@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ViewModel.ViewModel.Admin.Setting;
+using ViewModel.ViewModel.Admin.SlideShow;
 
 namespace ServiceLayer.Interfaces
 {
@@ -12,9 +12,10 @@ namespace ServiceLayer.Interfaces
     {
         void Add(AddSlideShowViewModel viewModel);
         void Update(EditSlideShowViewModel viewModel);
-        void Delete(Int64 id);
-        IEnumerable<SlideShow> List();
-        EditSlideShowViewModel GetByIdForEdit(Int64 id);
-        bool AllowAdd();
+        Task Delete(Int64 id);
+        Task<IEnumerable<SlideShow>> List();
+        IEnumerable<SlideShow> ListForIndexPage();
+        Task<EditSlideShowViewModel> GetByIdForEdit(Int64 id);
+        Task<Boolean> AllowAdd();
     }
 }

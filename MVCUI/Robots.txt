@@ -1,0 +1,14 @@
+User-Agent: *
+
+Disallow:
+Disallow: /ShoppingCart
+Disallow: /Customer
+Disallow: /_SharedItem
+Disallow: /admin
+Disallow: /?*
+Disallow: /product/compare
+Disallow: /populate
+
+Allow: /
+
+Sitemap: http://www.samteb.ir/sitemap.xml

@@ -11,7 +11,7 @@ using EntityFramework.Extensions;
 
 namespace ServiceLayer.EFServices
 {
-    class ShoppingCartService : IShoppingCartService
+    public class ShoppingCartService : IShoppingCartService
     {
 
         #region Fields
@@ -31,14 +31,17 @@ namespace ServiceLayer.EFServices
 
         #region Method
 
-        public void Add(ShoppingCart cart)
-        {
+        public void Add(ShoppingCart cart) =>
             _shopCart.Add(cart);
-        }
 
+        /// <summary>
+        /// Delete All Item From User
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
         public async Task<Int32> Delete(String cartId)
         {
-            IQueryable<ShoppingCart> shopCarts = _shopCart.Where(x => x.CartNumber.Equals(cartId));
+            IQueryable<ShoppingCart> shopCarts = _shopCart.Where(x => x.CartNumber == cartId);
             shopCarts.AsNoTracking().ToList().ForEach(a =>
             {
                 _product.DecreaseReserve(a.Id, a.Quantity);
@@ -46,33 +49,53 @@ namespace ServiceLayer.EFServices
             return await shopCarts.DeleteAsync();
         }
 
-        public Decimal DeleteItem(Int64 productId, String cartId)
+        public async Task<Tuple<Decimal, Int64>> DeleteItem(Int64 shoppingId, String cartId)
         {
-            ShoppingCart product = _shopCart.SingleOrDefault(x => x.ProductId.Equals(productId) && x.CartNumber.Equals(cartId));
-            if (product == null)
-                return Decimal.Zero;
-            Decimal val = product.Quantity;
-            _shopCart.Where(x => x.ProductId.Equals(productId) && x.CartNumber.Equals(cartId)).Delete();
-            return val;
+            ShoppingCart model = await _shopCart.SingleOrDefaultAsync(x => x.Id == shoppingId && x.CartNumber == cartId);
+            if (model == null)
+                return new Tuple<Decimal, Int64>(Decimal.Zero, 0);
+            Decimal val = model.Quantity;
+            await _shopCart.Where(x => x.Id == shoppingId && x.CartNumber == cartId).DeleteAsync();
+            return new Tuple<Decimal, Int64>(val, model.ProductId);
         }
 
         public ShoppingCart GetById(Int64 id) =>
             _shopCart.Find(id);
 
-        public ShoppingCart GetCartItem(Int64 productId, String cartId) =>
-            _shopCart.FirstOrDefault(x => x.ProductId.Equals(productId) && x.CartNumber.Equals(cartId));
+        public async Task<ShoppingCart> GetCartItem(Int64 productId, String cartId) =>
+            await _shopCart.FirstOrDefaultAsync(x => x.ProductId == productId && x.CartNumber == cartId);
 
-        public IEnumerable<ShoppingCart> List(String cartId) =>
-            _shopCart.AsNoTracking().Where(x => x.CartNumber.Equals(cartId)).ToList();
-
-        public Decimal TotalValueInCart(String cartId) =>
-            _shopCart.Where(x => x.CartNumber.Equals(cartId)).Sum(x => x.Quantity);
-
-
-        public void Update(ShoppingCart cart)
+        public async Task<IEnumerable<ShoppingCart>> List(String cartId, Boolean IsAsNoTracking = true)
         {
-            _unitOfWOrk.MarkAsChanged(cart);
+            IQueryable<ShoppingCart> model = IsAsNoTracking ?
+                                                                    _shopCart.AsNoTracking().AsQueryable() :
+                                                                    _shopCart.AsQueryable();
+            model = model.Where(x => x.CartNumber == cartId && x.isComplete == false);
+           return await model.ToListAsync();
         }
+        public IEnumerable<ShoppingCart> ListNoAsync(String cartId, Boolean IsAsNoTracking = true)
+        {
+            IQueryable<ShoppingCart> model = IsAsNoTracking ? 
+                                                                _shopCart.AsNoTracking().AsQueryable() : 
+                                                                _shopCart.AsQueryable();
+            model = model.Where(x => x.CartNumber == cartId && x.isComplete == false);
+            return model.ToList();
+        }
+        public async Task<Decimal> TotalValueInCart(String cartId)
+        {
+            try
+            {
+                return await _shopCart.Where(x => x.CartNumber == cartId && x.isComplete == false).SumAsync(x => x.Quantity);
+            }
+            catch (Exception)
+            {
+                return default(Decimal);
+            }
+        }
+
+        public void Update(ShoppingCart cart) =>
+            _unitOfWOrk.MarkAsChanged(cart);
+
         #endregion
     }
 }

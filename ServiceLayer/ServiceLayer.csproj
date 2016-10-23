@@ -65,7 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFServices\AddressService.cs" />
     <Compile Include="EFServices\AttributeService.cs" />
     <Compile Include="EFServices\CategoryService.cs" />
     <Compile Include="EFServices\OrderService.cs" />
@@ -82,9 +81,9 @@
     <Compile Include="EFServices\SettingService.cs" />
     <Compile Include="EFServices\ShoppingCartService.cs" />
     <Compile Include="EFServices\SlideShowService.cs" />
+    <Compile Include="EFServices\SubscribeService.cs" />
     <Compile Include="EFServices\UserService.cs" />
     <Compile Include="EFServices\ValueService.cs" />
-    <Compile Include="Interfaces\IAddressService.cs" />
     <Compile Include="Interfaces\IAttributeService.cs" />
     <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\ICommentService.cs" />
@@ -100,6 +99,7 @@
     <Compile Include="Interfaces\ISettingService.cs" />
     <Compile Include="Interfaces\IShoppingCartService.cs" />
     <Compile Include="Interfaces\ISlideShowService.cs" />
+    <Compile Include="Interfaces\ISubscribeService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IValueService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

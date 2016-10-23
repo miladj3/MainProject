@@ -1,0 +1,26 @@
+﻿@using ViewModel.ViewModel.Admin.Page
+@model PageViewModel
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Keywords = Model.KeyWords;
+    ViewBag.Description = Model.Description;
+    Layout = MVC.Shared.Views._Layout;
+}
+@section metatags{
+    <meta name="robots" content="index" />
+    <meta name="robots" content="follow" />
+}
+<div id="__show_article">
+    <h1>@Model.Title</h1>
+  <div id="__first_blog_container">
+      <article>
+          <p>
+              @Html.Raw(Model.Content)
+          </p>
+      </article>
+  </div>
+  <div id="__last_contaioner_log">
+       <img src="@Model.LinkImage" alt="@Model.Title" />
+   </div>
+    <p id="release__article">تاریخ انتشار: <time>@Model.DateCreated.ToString("D", new System.Globalization.CultureInfo("fa-IR"))</time></p>
+</div>

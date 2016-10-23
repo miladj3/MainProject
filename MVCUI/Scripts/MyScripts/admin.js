@@ -2,7 +2,7 @@
 var Admin = new Object();
 Admin.OneImageUpload = function (inputId) {
     $("#" + inputId).fileinput({
-        maxFileCount: 10,
+        maxFileCount: 100,
         previewFileType: "image",
         browseClass: "btn btn-primary",
         browseLabel: "انتخاب",
@@ -16,13 +16,12 @@ Admin.OneImageUpload = function (inputId) {
         allowedFileExtensions: ['jpg', 'gif', 'png', 'jpeg'],
         msgInvalidFileType: "از تصاویر فقط استفاده کنید",
         msgInvalidFileExtension: "از فایل های مجاز استفاده کنید[jpg,jpeg,png,gif]",
-        msgFilesTooMany: "شما قادر به ارسال 10 عدد فایل میباشید",
+        msgFilesTooMany: "شما قادر به ارسال 100 عدد فایل میباشید",
         msgSizeTooLarge: "شما قادر به ارسال 10 مگا بایت فایل میباشید",
         uploadIcon: '<i class="glyphicon glyphicon-upload"></i>'
     });
 };
 Admin.CkeditorToolbar = [
-
 	{ name: 'clipboard', groups: ['clipboard', 'undo'], items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
 	{ name: 'editing', groups: ['find', 'selection'], items: ['Find', 'Replace', '-', 'SelectAll', '-', 'Preview', 'Scayt'] },
 	{ name: 'forms', items: ['Checkbox', 'Radio', 'Select', 'ImageButton'] },
@@ -75,7 +74,7 @@ Admin.showModal = function () {
     $('#adminModal').modal('show');
 };
 
-Admin.hideModal=function() {
+Admin.hideModal = function () {
     $('#lightBox').modal('hide');
 }
 Admin.DangerAlert = function (e) {
@@ -108,3 +107,24 @@ var LightBox = new Object();
 LightBox.onSuccess = function () {
     $('#lightBox').modal('show');
 }
+
+$(function () {
+    var el1 = document.getElementById("DiscountPercent"),
+        el2 = document.getElementById("DiscountPercent"),
+        el3 = document.getElementById("Price"),
+        el4 = document.getElementById("Price");
+
+    if (el1 !== null && el2 !== null && el3 !== null && el4 !== null) {
+        el1.addEventListener('change', calculatedDiscount);
+        el2.addEventListener('keyup', calculatedDiscount);
+        el3.addEventListener('change', calculatedDiscount);
+        el4.addEventListener('keyup', calculatedDiscount);
+    }
+    function calculatedDiscount() {
+        var price = $('#Price').val();
+        var Discount = $('#DiscountPercent').val();
+        var afterPrice = $('#PriceAfterDiscount');
+        var calculated = parseInt((price - (price * Discount) / 100));
+        afterPrice.val(calculated);
+    }
+})

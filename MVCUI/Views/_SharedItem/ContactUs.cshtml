@@ -1,0 +1,80 @@
+﻿@using ViewModel.ViewModel.Admin.ContactUs
+@model ContactUsViewModel
+
+@{
+    Layout = MVC.Shared.Views._Layout;
+}
+@section metatags{
+    <meta name="robots" content="noindex, nofollow" />
+}
+<div id="contact_us">
+
+    @using (Ajax.BeginForm(actionName: MVC._SharedItem.ActionNames.ContactUs,
+                                                                        controllerName: MVC._SharedItem.Name,
+                                                                        routeValues: null,
+                                                                        ajaxOptions: new AjaxOptions
+                                                                        {
+                                                                            AllowCache = false,
+                                                                            HttpMethod = FormMethod.Post.ToString(),
+                                                                            InsertionMode = InsertionMode.Replace,
+                                                                            UpdateTargetId = "_load_contact_us_container",
+                                                                            OnBegin = "ContactUsOnBegin",
+                                                                            OnSuccess = "ContactUsOnSuccess"
+                                                                        },
+                                                                        htmlAttributes: null))
+    {
+        <div>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "")
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailOrPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.EmailOrPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailOrPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.DropDownListFor(model => model.Type, ViewBag.type as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="_load_contact_us_container">
+            <button id="btn_ontact_us" type="submit">ارسال</button>
+        </div>
+    }
+</div>
+
+@section scipts{
+    <script>
+        function ContactUsOnBegin() {
+            $('#btn_ontact_us').addClass('btn_waiting').append('<i class="fa fa-refresh fa-spin fa-1x fa-fw" aria-hidden="true"></i>').attr('onclick','Javascript: return false;');
+        }
+        function ContactUsOnSuccess() {
+            $('#_load_contact_us_container').addClass('_load_contact_us_container');
+        }
+    </script>
+}

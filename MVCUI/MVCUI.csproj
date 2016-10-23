@@ -87,6 +87,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\EntityFramework.Profiler-v3.0-Build-3093\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
@@ -280,30 +283,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02162614Z-f3149021-6b42-41a1-829a-d2f04827c7b0.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02163455Z-d58cf6c7-e28f-48b3-b255-e92b587aaca5.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02163456Z-136101d3-80e1-4750-b25a-502863eecf49.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02163536Z-b5015bea-02ff-40f1-95e1-9b9584c51adb.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02225932Z-c639cdd6-313c-4753-a285-6ab2d3fcac05.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-02230037Z-25f7dc5b-dac8-4dda-893c-e010497211a0.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03002731Z-f80b37ce-a093-4a42-a497-2f2eac23e6b7.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03002851Z-67e2d626-dd0f-4a54-8b84-5306284c380a.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03102925Z-1c8f6ca5-1251-4a36-a22e-22c833954455.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03103249Z-76f7ca9a-16ed-4322-b7da-af42d213d50d.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03104954Z-5622702d-88f7-49ad-b960-17ff56887541.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03105723Z-86d31c02-3dc9-416c-96e2-180d448532ee.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03105831Z-e142e255-b1c8-4a62-ba91-936a885d8975.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03105930Z-02dfeb39-6539-4903-b91f-48228f60cd50.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03105933Z-07bd9f67-f866-499e-bbd4-f749212a186c.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03110007Z-57d2d3ba-ff23-445a-9930-c4279d019a0c.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03110012Z-e9344b59-00b5-45cd-b2c6-9101d77ca858.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03110904Z-b80cd5fd-4495-4213-ac85-b972bcab8ecb.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03111129Z-92e57652-909e-4a88-921f-1e54ba5a9434.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03111202Z-42380e77-da74-4ec2-b0b4-376dabd5b962.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03111545Z-e1632631-8d42-4aaf-810c-558fa015fc31.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03111602Z-783556e4-31cd-4cf5-a844-7fc409aa6e5c.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03112215Z-7f8c3333-5f16-4fa7-b470-c5b99a701738.xml" />
-    <Content Include="App_Data\ErrorsLog\error-2016-07-03113959Z-442b5a45-e2fc-4cb5-99ff-f4512ece9bef.xml" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\animate.min.css" />
     <Content Include="Content\avatar\default.jpg" />
@@ -321,6 +300,8 @@
     <Content Include="Content\Image\11.png" />
     <Content Include="Content\Image\12.png" />
     <Content Include="Content\Image\13.png" />
+    <Content Include="Content\Image\2.jpg" />
+    <Content Include="Content\Image\3.jpg" />
     <Content Include="Content\Image\adc10615ba4f693ae3ac87186a0cd87f.jpg" />
     <Content Include="Content\Image\banks-logo.png" />
     <Content Include="Content\Image\banner5.jpg" />
@@ -329,6 +310,10 @@
     <Content Include="Content\Image\greyshaded.png" />
     <Content Include="Content\Image\greyshaded1.png" />
     <Content Include="Content\Image\iran_flag_32.png" />
+    <Content Include="Content\Image\4.jpg" />
+    <Content Include="Content\Image\Telegram_logo.svg.png" />
+    <Content Include="googleb53f90a1e7748f2f.html" />
+    <Content Include="img\loading.gif" />
     <Content Include="Content\Image\logo_1401273770_86180_1411562528__88042.png" />
     <Content Include="Content\Image\scaleBlue Challenge by Adidas Aftershave 100ml.jpg" />
     <Content Include="Content\jquery.autocomplete.css" />
@@ -379,6 +364,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Robots.txt" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-select.min.js" />
@@ -394,10 +380,7 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
+    <Content Include="ClassDiagram.cd" />
     <Content Include="Content\My_style\Reset_Css_Persian.less" />
     <Content Include="fonts\IRAN-sans.eot" />
     <Content Include="fonts\IRAN-sans.ttf" />
@@ -408,9 +391,60 @@
     <Content Include="fonts\Vazir-persian-digits-overwrite.eot" />
     <Content Include="fonts\Vazir-persian-digits-overwrite.ttf" />
     <Content Include="fonts\Vazir-persian-digits-overwrite.woff" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\User\List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AddAttribute.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\AttributeList.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\EditAttribute.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\CreateFolder.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\Pictures.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\AddPictureToFolder.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\ListOfPicture.cshtml" />
+    <Content Include="Areas\Admin\Views\Folder\_picturePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PicturesList.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PictureLightBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\_List.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_FoldersLightBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\AddPictures.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\EditPictures.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\FillAttributes.cshtml" />
+    <Content Include="Areas\Admin\Views\Setting\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideShow\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideShow\AddSlide.cshtml" />
+    <Content Include="Areas\Admin\Views\SlideShow\EditSlide.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\_list.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Page\AddPage.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\_SideBarPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\_navigation.cshtml" />
+    <Content Include="App_Code\_StarRating.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\_list.cshtml" />
+    <Content Include="Areas\Admin\Views\Contact\Show.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\PublishProfiles\miladjafari.ml - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\tegrahost.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cloud-zoom.js" />
     <Content Include="Scripts\fileinput.min.js" />
@@ -785,11 +819,12 @@
     <Content Include="Scripts\lazysizes.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\MyScripts\addToCart-plugin.js" />
-    <Content Include="Scripts\MyScripts\addToCompareList-plugin.js" />
-    <Content Include="Scripts\MyScripts\addToWishList-plugin.js" />
+    <Content Include="Scripts\MyScripts\addToCart.js" />
+    <Content Include="Scripts\MyScripts\addToCompareList.js" />
+    <Content Include="Scripts\MyScripts\AddToMyPopulate.js" />
     <Content Include="Scripts\MyScripts\admin.js" />
     <Content Include="Scripts\MyScripts\customer-actions.js" />
+    <Content Include="Scripts\MyScripts\helperStarRateJs.js" />
     <Content Include="Scripts\MyScripts\sb-admin-2.js" />
     <Content Include="Scripts\MyScripts\site.js" />
     <Content Include="Scripts\noty\jquery.noty.js" />
@@ -853,9 +888,22 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FolderController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Controllers\CreateMetaTagController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlideShowController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SiteMapController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\_SharedItemController.cs" />
     <Compile Include="DI\Autofac\Modules\MvcModule.cs" />
@@ -866,18 +914,23 @@
     <Compile Include="Extentions\JsonHelper.cs" />
     <Compile Include="Filters\AjaxOnlyAttribute.cs" />
     <Compile Include="Filters\AllowUploadSpecialFilesAttribute.cs" />
+    <Compile Include="Filters\CompressHtml.cs" />
+    <Compile Include="Filters\DisableCache.cs" />
     <Compile Include="Filters\ElmahHandledErrorLoggerFilter.cs" />
     <Compile Include="Filters\ForceToWww.cs" />
     <Compile Include="Filters\SiteAuthorizeAttribute.cs" />
     <Compile Include="Filters\TurbolinksAttribute.cs" />
+    <Compile Include="Filters\UrlConstraint.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CalculateDiscountOfPrice.cs" />
     <Compile Include="Helpers\DropDown.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\FileUpload.cs" />
     <Compile Include="Helpers\JsonNetResult.cs" />
     <Compile Include="Helpers\JsonNetValueProviderFactory.cs" />
+    <Compile Include="Helpers\MenuActive.cs" />
     <Compile Include="Helpers\SeoExtentions.cs" />
     <Compile Include="Helpers\TreeView.cs" />
     <Compile Include="Helpers\UrlGenerator.cs" />
@@ -890,19 +943,61 @@
     <Compile Include="RSS\RtlHelper.cs" />
     <Compile Include="Searching\CorrectPersianForLucene.cs" />
     <Compile Include="Searching\LuceneProducts.cs" />
+    <Compile Include="SiteMap\ControllerScanner.cs" />
+    <Compile Include="SiteMap\SiteMap.cs" />
+    <Compile Include="SiteMap\XmlResult.cs" />
+    <Compile Include="T4MVC\Admin.CategoryController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.ContactController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.FolderController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\Admin.HomeController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.OrderController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.PageController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.ProductController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.SettingController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\Admin.SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="T4MVC\CreateMetaTagController.generated.cs">
+    <Compile Include="T4MVC\Admin.SlideShowController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.UserController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\BlogController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="T4MVC\ProductController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\SearchController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\SharedController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\ShoppingCartController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\SiteMapController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\T4MVC.cs">
@@ -935,7 +1030,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\MetaTag.cshtml" />
     <Content Include="Views\Home\_Slider.cshtml" />
-    <Content Include="Views\Home\_feature.cshtml" />
+    <Content Include="Views\_SharedItem\_feature.cshtml" />
     <Content Include="Views\Shared\_subscribe.cshtml" />
     <Content Include="Views\Shared\_Footer_Partial.cshtml" />
     <Content Include="Views\Shared\_scroll_up.cshtml" />
@@ -945,6 +1040,36 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <None Include="T4MVC\T4MVC.tt.hooks.t4" />
+    <Content Include="Views\Shared\_reCaptcha.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\ForgetPassword.cshtml" />
+    <Content Include="Views\User\WhishesList.cshtml" />
+    <Content Include="Views\_SharedItem\_shoppingCard.cshtml" />
+    <Content Include="Views\_SharedItem\_ShowProduct.cshtml" />
+    <Content Include="Views\_SharedItem\_BelovedProducts.cshtml" />
+    <Content Include="Views\_SharedItem\_NewestProduct.cshtml" />
+    <Content Include="Views\_SharedItem\_MoreSellProduct.cshtml" />
+    <Content Include="Views\_SharedItem\_MoreVisit.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Product\Compare.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\_SelectedProductOfGP.cshtml" />
+    <Content Include="Views\Product\_ShowProductSelectInGP.cshtml" />
+    <Content Include="Views\Product\_RelateProduct.cshtml" />
+    <Content Include="Views\Product\_ShowProductRelatePartial.cshtml" />
+    <Content Include="Views\Product\_PropertiesProduct.cshtml" />
+    <Content Include="Views\_SharedItem\_MetaTags.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\blog.cshtml" />
+    <Content Include="Views\ShoppingCart\_ShowShoppingCardWhenRefreshPage.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\PersonDetail.cshtml" />
+    <Content Include="Views\User\_EditUserOrder.cshtml" />
+    <Content Include="Views\ShoppingCart\CompleteOrder.cshtml" />
+    <Content Include="Views\_SharedItem\ProductSelected.cshtml" />
+    <Content Include="Views\Search\_AutoComplete.cshtml" />
+    <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\_SharedItem\ContactUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -953,8 +1078,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\ErrorsLog\" />
+    <Folder Include="App_Data\Lucene_Index\" />
+    <Folder Include="App_Data\Lucene_Index_Ver_LUCENE_30\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Uploads\" />
+    <Folder Include="UploadFiles\" />
+    <Folder Include="Views\SiteMap\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

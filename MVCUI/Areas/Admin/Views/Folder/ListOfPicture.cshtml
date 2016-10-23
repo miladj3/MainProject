@@ -1,0 +1,20 @@
+﻿@using DomainClasses.Entities
+@using PagedList;
+@using PagedList.Mvc;
+@model IEnumerable<Picture>
+
+
+@Html.AntiForgeryToken()
+
+@foreach (var item in Model)
+{
+    <div class="col-md-11 deletePicture">
+        @{ Html.RenderPartial(MVC.Admin.Folder.Views._picturePartial, item); }
+    </div>
+}
+
+@Html.PagedListPager(new StaticPagedList<Picture>(Model, ViewBag.PageNumber, 10, ViewBag.Total), pageNumber => Url.Action(MVC.Admin.Folder.ActionNames.ListOfPicture, MVC.Admin.Folder.Name, new
+{
+    page = pageNumber,
+    folderId = ViewBag.FolderId
+}), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast, new AjaxOptions { AllowCache = false, HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "picturesList" }))

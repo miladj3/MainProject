@@ -51,10 +51,13 @@ namespace ViewModel.ViewModel.Admin.Product
         [RegularExpression(@"^\$?\d+(\.(\d{1}))?$", ErrorMessage = "لطفا مقدار(تعداد) هشدار  را درست وارد کنید ")]
         public Decimal NotificationStockMinimum { get; set; }
 
-        [DisplayName("قیمت (تومان)")]
+        [DisplayName("قیمت (ریال)")]
         [Required(ErrorMessage = "لطفا قیمت  را مشخص کنید ")]
         [Integer(ErrorMessage = "فقط از اعداد صحیح استفاده کنید")]
         public Int32 Price { get; set; }
+
+        [DisplayName("قیمت با تخفیف (ریال)")]
+        public Int64 PriceAfterDiscount { get; set; }
 
         [DisplayName("ضریبی برای خرید")]
         [Required(ErrorMessage = "لطفا ضریب خرید  را مشخص کنید ")]
@@ -80,5 +83,14 @@ namespace ViewModel.ViewModel.Admin.Product
 
         [DisplayName("عدم نمایش")]
         public Boolean Deleted { get; set; }
+
+        [DisplayName("به زودی")]
+        public Boolean ComingSoon { get; set; }
+
+        [DisplayName("نمایش در صفحه اصلی")]
+        public Boolean HomePage { get; set; }
+
+        [DisplayName("فروش ویژه")]
+        public Boolean SpecialSell { get; set; }
     }
 }

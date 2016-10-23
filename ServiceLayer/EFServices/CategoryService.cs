@@ -30,28 +30,28 @@ namespace ServiceLayer.EFServices
         #endregion
 
         #region  Methods
-        public Boolean CheckExistName(String name) =>
-            _categories.Any(category => category.Name == name);
+        public async Task<Boolean> CheckExistName(String name) =>
+           await _categories.AnyAsync(category => category.Name == name);
 
-        public Boolean CheckExistName(String name, Int64 id) =>
-            _categories.Any(category => category.Id != id && category.Name == name);
+        public async Task<Boolean> CheckExistName(String name, Int64 id) =>
+           await _categories.AnyAsync(category => category.Id != id && category.Name == name);
         #endregion
 
         #region CRUD
-        public IEnumerable<Category> GetSecondLevelCategories() =>
-                                                _categories.AsNoTracking()
+        public async Task<IEnumerable<Category>> GetSecondLevelCategories() =>
+                                                await _categories.AsNoTracking()
                                                         .Where(a => a.ParentId != null)
-                                                        .ToList();
+                                                        .ToListAsync();
 
-        public IEnumerable<Category> GetAll() =>
-                                               _categories.AsNoTracking().ToList();
+        public async Task<IEnumerable<Category>> GetAll() =>
+                                            await _categories.AsNoTracking().ToListAsync();
 
-        public Category GetCategoryWithChildrenById(Int64 id) =>
-                                             _categories.AsNoTracking()
-                                                .Include(a => a.Children).FirstOrDefault(a => a.Id == id);
+        public async Task<Category> GetCategoryWithChildrenById(Int64 id) =>
+                                            await _categories.AsNoTracking()
+                                                .Include(a => a.Children).FirstOrDefaultAsync(a => a.Id == id);
 
-        public EditCategoryViewModel GetForEdit(Int64 id) =>
-                                            _categories.Where(a => a.Id == id).Select(category =>
+        public async Task<EditCategoryViewModel> GetForEdit(Int64 id) =>
+                                            await _categories.Where(a => a.Id == id).Select(category =>
                                                 new EditCategoryViewModel
                                                 {
                                                     Id = category.Id,
@@ -60,20 +60,22 @@ namespace ServiceLayer.EFServices
                                                     DiscountPercent = category.DiscountPercent,
                                                     DisplayOrder = category.DisplayOrder,
                                                     KeyWords = category.KeyWords
-                                                }).FirstOrDefault();
+                                                }).FirstOrDefaultAsync();
 
-        public Category GetById(Int64 id) =>
-                                                 _categories.Find(id);
+        public async Task<Category> GetById(Int64 id) =>
+                                                await _categories.SingleOrDefaultAsync(x => x.Id == id);
 
         public Category GetByName(String name)
         {
             throw new NotImplementedException();
         }
 
-        public IList<Category> GetFirstLevelCategories() =>
-                                                  _categories.AsNoTracking()
+        public async Task<IList<Category>> GetFirstLevelCategories() =>
+                                                await _categories.AsNoTracking()
                                                         .Where(a => a.ParentId == null)
-                                                        .ToList();
+                                                        .ToListAsync();
+
+
 
         public IEnumerable<ShowCatetoryViewModel> GetDataTable(out Int32 total, String term, Int32 page, Int32 count = 10)
         {
@@ -94,27 +96,27 @@ namespace ServiceLayer.EFServices
             var categories = query.ToList();
             return categories;
         }
-        public void Delete(Int64 id)
+        public async Task Delete(Int64 id)
         {
-            var category = GetById(id);
+            Category category = await GetById(id);
             _unitOfWork.MarkAsDeleted(category);
         }
 
-        public AddCategoryStatus Add(Category category)
+        public async Task<AddCategoryStatus> Add(Category category)
         {
-            if (CheckExistName(category.Name))
+            if (await CheckExistName(category.Name))
                 return AddCategoryStatus.CategoryNameExist;
 
             _categories.Add(category);
             return AddCategoryStatus.AddSuccessfully;
         }
 
-        public EditCategoryStatus Edit(EditCategoryViewModel category)
+        public async Task<EditCategoryStatus> Edit(EditCategoryViewModel category)
         {
-            if (CheckExistName(category.Name, category.Id))
+            if (await CheckExistName(category.Name, category.Id))
                 return EditCategoryStatus.CategoryNameExist;
 
-            var selectedCategory = GetById(category.Id);
+            Category selectedCategory = await GetById(category.Id);
             selectedCategory.Description = category.Description;
             selectedCategory.KeyWords = category.KeyWords;
             selectedCategory.Name = category.Name;
@@ -123,10 +125,25 @@ namespace ServiceLayer.EFServices
             selectedCategory.Id = category.Id;
             return EditCategoryStatus.EditSuccessfully;
         }
-        public IEnumerable<Category> GetByParenId(Int64 parentId) =>
-                                                      _categories.AsNoTracking()
+        public async Task<IEnumerable<Category>> GetByParenId(Int64 parentId) =>
+                                                     await _categories.AsNoTracking()
                                                            .Where(a => a.ParentId == parentId)
-                                                           .ToList();
+                                                           .ToListAsync();
+
+        public async Task<String> GetCategoryName(Int64 categoryId)
+        {
+            Category model = await GetById(categoryId);
+            return model.Name;
+        }
+
+        public async Task<IList<Int64>> GetCountCategoryForSiteMap()
+        {
+            var t= await _categories.AsNoTracking().Select(x => new { id = x.Id }).ToListAsync();
+            IList<Int64> model = new List<Int64>();
+            foreach (var item in t)
+                model.Add(item.id);
+            return model;
+        }
         #endregion
 
         #region Attributes
@@ -136,9 +153,12 @@ namespace ServiceLayer.EFServices
         #endregion
 
         #region Menu
-        public IEnumerable<Category> GetCategoriesForMenu()=>
-                                                      _categories.AsNoTracking().Include(a => a.Children).Where(a => a.ParentId == null)
-                                                            .Cacheable().ToList();
+        public async Task<IEnumerable<Category>> GetCategoriesForMenu() =>
+              await _categories
+            .AsNoTracking()
+            .Include(a => a.Children)
+            .Where(a => a.ParentId == null)
+            .Cacheable().ToListAsync();
 
         #endregion
 

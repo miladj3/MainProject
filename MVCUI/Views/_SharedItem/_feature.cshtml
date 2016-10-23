@@ -1,0 +1,27 @@
+﻿@section Css{
+    <style>
+        #m-feature ul#m-container-list-product li.m-list-product {
+            display: none;
+        }
+    </style>
+}
+<div id="m-feature">
+    <ul id="m-ul-feature-container">
+        <li class="_ll m-feature-class-active" data-mytabs="m-list-more-selll-product" id="more_sell_tab">
+            <strong>پرفروش ترینها</strong>
+        </li>
+        <li>|</li>
+        <li id="newest_tab" data-mytabs="m-list-pro-newest" class="_ll">
+            <strong>جدیدترین محصولات</strong>
+        </li>
+        <li>|</li>
+        <li class="_ll" data-mytabs="m-list-Beloved-feature" id="beloved_tab">
+            <strong>محصولات محبوب</strong>
+        </li>
+    </ul>
+    <ul id="m-container-list-product">
+        @{ Html.RenderAction(MVC._SharedItem.ActionNames.MoreSellProduct, MVC._SharedItem.Name); }
+        @{ Html.RenderAction(MVC._SharedItem.ActionNames.NewestProduct, MVC._SharedItem.Name); }
+        @{ Html.RenderAction(MVC._SharedItem.ActionNames.BelovedProducts, MVC._SharedItem.Name); }
+    </ul>
+</div>

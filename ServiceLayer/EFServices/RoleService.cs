@@ -41,17 +41,19 @@ namespace ServiceLayer.EFServices
             throw new NotImplementedException();
         }
 
-        public IList<Role> GetAllRoles() =>
-            _role.AsNoTracking().ToList();
+        public async Task<IList<Role>> GetAllRolesAsync() =>
+           await _role.AsNoTracking().ToListAsync();
 
         public Role GetRoleByName(String roleName) =>
             _role.Where(x => x.Name.Equals(roleName)).FirstOrDefault();
 
-        public Role GetRoleByRoleId(Int64 roleId) =>
-        _role.Find(roleId);
+        public async Task<Role> GetRoleByRoleIdAsync(Int64 roleId) =>
+        await _role.SingleOrDefaultAsync(x => x.Id == roleId);
 
         public async Task<Role> GetRoleByUserId(Int64 userId) =>
-           await _role.Where(x => x.Users.Where(z => z.id.Equals(userId)).FirstOrDefault().Equals(userId)).FirstOrDefaultAsync();
+           await _role.Where(role => role.Users.Where(user => user.id == userId).FirstOrDefault().id == userId)
+                .FirstOrDefaultAsync();
+
 
         public Role GetRoleByUserName(String userName)
         {
@@ -78,6 +80,6 @@ namespace ServiceLayer.EFServices
             throw new NotImplementedException();
         }
 
-#endregion
+        #endregion
     }
 }

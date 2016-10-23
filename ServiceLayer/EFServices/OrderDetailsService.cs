@@ -11,25 +11,39 @@ using EntityFramework.Extensions;
 
 namespace ServiceLayer.EFServices
 {
-    public class OrderDetails : IOrderDetailsService
+    public class OrderDetailsService : IOrderDetailsService
     {
         #region Fields
         private readonly IUnitOfWork _unitOfWork;
         private readonly IDbSet<OrderDetail> _order;
+        private readonly IProductService _product;
         #endregion
 
         #region Constructure
-        public OrderDetails(IUnitOfWork unitOfWorks)
+        public OrderDetailsService(IUnitOfWork unitOfWorks, IProductService product)
         {
             _unitOfWork = unitOfWorks;
             _order = _unitOfWork.Set<OrderDetail>();
+            _product = product;
         }
         #endregion
 
         #region Methods
-        public void Add(OrderDetail orderDetail)
+        public async Task<ICollection<OrderDetail>> Add(IEnumerable<ShoppingCart> shoppingCard)
         {
-            _order.Add(orderDetail);
+            IList<OrderDetail> model = new List<OrderDetail>();
+            foreach (ShoppingCart item in shoppingCard)
+            {
+                Product product = await _product.GetById(item.ProductId);
+                product.SellCount += item.Quantity;
+                model.Add(new OrderDetail
+                {
+                    Product = product,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.Product.PriceAfterDiscount
+                });
+            }
+            return model;
         }
 
         public void Delete(Int64 id)

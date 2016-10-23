@@ -1,0 +1,152 @@
+﻿@model ViewModel.ViewModel.Admin.SlideShow.AddSlideShowViewModel
+
+@{
+    ViewBag.Title = "افزودن اسلاید شو";
+    Boolean notAllowAdd = ViewBag.AllowAddSlide != null && ViewBag.AllowAddSlide == "NOT";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+@if (notAllowAdd)
+{
+    <div class="col-md-5 alert alert-warning text-center">
+        <h4>به دلیل بارگزاری هرچه سریع تر صفحه اول سایت، شما قادر هستید 5 تصویر برای اسلایدشو درج کنید</h4>
+    </div>
+}
+else
+{
+    using (Html.BeginForm(MVC.Admin.SlideShow.ActionNames.AddSlide, MVC.Admin.SlideShow.Name, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ImagePath, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @style = "direction: ltr;"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                </div>
+                @Ajax.ActionLink(
+                                                linkText: " ",
+                                                actionName: MVC.Admin.Folder.ActionNames.Index,
+                                                controllerName: MVC.Admin.Folder.Name,
+                                                routeValues: new
+                                                {
+                                                    elementId = "ImagePath"
+                                                },
+                                                ajaxOptions: new AjaxOptions
+                                                {
+                                                    AllowCache = false,
+                                                    HttpMethod = FormMethod.Get.ToString(),
+                                                    InsertionMode = InsertionMode.Replace,
+                                                    OnSuccess = "LightBox.onSuccess",
+                                                    UpdateTargetId = "lightBox"
+                                                },
+                                                htmlAttributes: new
+                                                {
+                                                    @class = "glyphicon glyphicon-picture font-size-30",
+                                                    rel = "nofollow",
+                                                    role = "button",
+                                                    @style = "font-size:30px;"
+                                                })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ImageAltText, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.ImageAltText, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ImageAltText, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Link, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @style = "direction: ltr;"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataHorizontal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.DataHorizontal, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DataHorizontal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DataVertical, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.DataVertical, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DataVertical, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ShowTransition, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.ShowTransition, ViewBag.ShowTransitionList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ShowTransition, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.HideTransition, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.HideTransition, ViewBag.HideTransitionList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.HideTransition, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(model => model.Position, ViewBag.PositionList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-7">
+                    <input type="submit" value="ثبت" class="btn  btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+}
+@section scipts
+{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script defer async>
+        $(document).on('click', '.imageloadedContainers img', function () {
+            $('.imageloadedContainers img').removeClass('border');
+            $(this).addClass('border');
+            $('#ImagePath').val($(this).data('id'));
+        })
+    </script>
+}

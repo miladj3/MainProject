@@ -15,12 +15,12 @@ namespace ViewModel.ViewModel.Admin.User
         [Required(ErrorMessage = "لطفا نام نمایشی  را وارد کنید")]
         [MinLength(5, ErrorMessage = "نام نمایشی  باید بیشتر از 5 حرف باشد")]
         [MaxLength(30, ErrorMessage = "نام نمایشی نمیتواند بیشتر از 30 کاراکتر باشد")]
-        [Remote("AdminCheckUserNameIsExistForAdd", "User", "Admin", ErrorMessage = "این نام کاربری قبلا توسط اعضا انتخاب شده است", HttpMethod = "POST")]
+        [Remote("CheckUserNameIsExist", "User", "Admin", ErrorMessage = "این نام کاربری قبلا توسط اعضا انتخاب شده است", HttpMethod = "POST")]
         public String UserName { get; set; }
 
         [DisplayName("شماره همراه")]
         [Required(ErrorMessage = "لطفا برای تکمیل ثبت نام شماره همراه  را وارد کنید")]
-        [Remote("AdminCheckPhoneNumberIsExistForAdd", "User", "Admin", ErrorMessage = "این شماره همراه قبلا ثبت شده است", HttpMethod = "POST")]
+        [Remote("CheckPhoneNumberIsExist", "User", "Admin", ErrorMessage = "این شماره همراه قبلا ثبت شده است", HttpMethod = "POST")]
         [RegularExpression("09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}", ErrorMessage = "لطفا شماره همراه  را به شکل صحیح وارد کنید")]
         public String PhoneNumber { get; set; }
 

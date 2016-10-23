@@ -1,10 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace MVCUI.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
+        public override String AreaName 
         {
             get 
             {
@@ -17,8 +18,8 @@ namespace MVCUI.Areas.Admin
             context.MapRoute(
                name: "Admin_default",
                url: "Admin/{controller}/{action}/{id}",
-                defaults: new { action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "MVCUI.Areas.Admin.Controllers" }
+                defaults: new { controller="Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new String[] { "MVCUI.Areas.Admin.Controllers" }
             );
         }
     }

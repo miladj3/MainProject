@@ -1,0 +1,18 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@model IList<ProductSearchResultViewModel>
+
+<div class="__slider_outter_relatedProduct">
+    <strong>
+        محصولات مشابه
+        <small>
+            <bdi id="__left_slider_relatedProduct" data-moveL="210">&lsaquo;</bdi>
+            <bdi id="__right_slider_relatedProduct" data-moveR="-1">&rsaquo;</bdi>
+        </small>
+    </strong>
+    <div id="__slider_inner_relatedProduct">
+        @foreach (ProductSearchResultViewModel item in Model)
+         {
+             { Html.RenderPartial(MVC.Product.Views._ShowProductRelatePartial, item); }
+         }
+    </div>
+</div>

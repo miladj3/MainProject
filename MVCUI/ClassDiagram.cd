@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MVCUI.ActionFilters.TurbolinksAttribute" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>ActionFilters\TurbolinksAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVCUI.App_Start.BundleConfig" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.App_Start.FilterConfig" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.App_Start.RegisterClientValidationExtensions" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RegisterClientValidationExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.RouteConfig" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.WebApiConfig" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.MvcApplication" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAIBAAAAAAAAAE=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Areas.Admin.AdminAreaRegistration" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Admin\AdminAreaRegistration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Areas.Admin.Controllers.HomeController" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAIAAAAAAAAAAAAAQABAAAAAQAACEABwAAAAA=</HashCode>
+      <FileName>Areas\Admin\Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Areas.Admin.Controllers.T4MVC_HomeController" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>T4MVC\Admin.HomeController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers._SharedItemController" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAIAAABAAQwgAAAAQABAAMAQQAACAABwAgAAA=</HashCode>
+      <FileName>Controllers\_SharedItemController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.CreateMetaTagController" Collapsed="true">
+    <Position X="0.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAABJAAAAAAAgAAAAAQABAAAAAQAACAAJwAAAAA=</HashCode>
+      <FileName>Controllers\CreateMetaTagController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.HomeController" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAIAAAAAAQwgAAAAQABAAAIQQAAKEAB4AAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.UserController" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAIAAAAAAAAgAAAAQABAABAIQAAKARByAAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.T4MVC__SharedItemController" Collapsed="true">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAcAAAAAEAAAAAgAAA=</HashCode>
+      <FileName>T4MVC\_SharedItemController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.T4MVC_CreateMetaTagController" Collapsed="true">
+    <Position X="0.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>T4MVC\CreateMetaTagController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.T4MVC_HomeController" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>T4MVC\HomeController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Controllers.T4MVC_UserController" Collapsed="true">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAAAAg=</HashCode>
+      <FileName>T4MVC\UserController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.DI.Autofac.Modules.MvcModule" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\Autofac\Modules\MvcModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.DI.Autofac.Modules.MvcSiteMapProviderModule" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DI\Autofac\Modules\MvcSiteMapProviderModule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.DI.CommonConventions" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAQAAAAQAAAAAAAAIAAAAAAgABIAAAAAAAI=</HashCode>
+      <FileName>DI\CommonConventions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Extentions.CacheManager" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAAAAAAAAAIAAAAAgAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Extentions\CacheManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Extentions.CookieHelper" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Extentions\CookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Extentions.JsonHelper" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Extentions\JsonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Filters.AjaxOnlyAttribute" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\AjaxOnlyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Filters.AllowUploadSpecialFilesAttribute" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEQAAAAAAIAAAAAAAAAAIAAAAAAAAAAQ=</HashCode>
+      <FileName>Filters\AllowUploadSpecialFilesAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Filters.ElmahHandledErrorLoggerFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Filters\ElmahHandledErrorLoggerFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVCUI.Filters.ForceToWww" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAAAQAAAAAUAAQAAAAAABAAQAAAAAAAAIAAAAQAA=</HashCode>
+      <FileName>Filters\ForceToWww.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Filters.SiteAuthorizeAttribute" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\SiteAuthorizeAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Filters.TurbolinksAttribute" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Filters\TurbolinksAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVCUI.Helpers.DropDown" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAEAAAAAAAABAAAQBAAACAEAAAIAQAGAAAA=</HashCode>
+      <FileName>Helpers\DropDown.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.EnumHelper" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAABAA=</HashCode>
+      <FileName>Helpers\EnumHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.FileUpload" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\FileUpload.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.JsonNetResult" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAA=</HashCode>
+      <FileName>Helpers\JsonNetResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.JsonNetValueProviderFactory" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACACAAABAAAAAAAAAAACAAAABAAAA=</HashCode>
+      <FileName>Helpers\JsonNetValueProviderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.SeoExtentions" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAEIAAAAAAAAAAAABASAAAIAAAAAgACIABBAAAAAQA=</HashCode>
+      <FileName>Helpers\SeoExtentions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.TreeViewHelper" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Helpers\TreeView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Helpers.TreeView&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgEAAIEQAEAIEEAEAAABQgQAEQAFAAACQAAAA=</HashCode>
+      <FileName>Helpers\TreeView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVCUI.Helpers.UrlGenerator" Collapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Helpers\UrlGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.HtmlCleaner.AntiXssModule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAABAACAAAAABAAAAAAAAAEAAAAAAAAACAAAABIA=</HashCode>
+      <FileName>HtmlCleaner\AntiXssModule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVCUI.HtmlCleaner.HtmlSanitizer" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAggABAAAAggAgAAAAA=</HashCode>
+      <FileName>HtmlCleaner\HtmlSanitizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.HtmlCleaner.PersianProofWriter" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAACAAAAACAAAAAAAACAAgAAAAAAQCAAAgAIEAQ=</HashCode>
+      <FileName>HtmlCleaner\PersianProofWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.RSS.CryptoUtils" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RSS\CryptoUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.RSS.FeedResult" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAACCAAAAAEAAAAAAAAAAAAAAAAQEAgAAAQAAA=</HashCode>
+      <FileName>RSS\FeedResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.RSS.RtlHelper" Collapsed="true">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAACAAA=</HashCode>
+      <FileName>RSS\RtlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Searching.CorrectPersianForLucene" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAACAAAAAAAACAAAAAAAAAAAAAggAAAAA=</HashCode>
+      <FileName>Searching\CorrectPersianForLucene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVCUI.Searching.LuceneProducts" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIEAAQiJEJFAAAQEAQAAAAAQAAIAAAAAIBAAQA=</HashCode>
+      <FileName>Searching\LuceneProducts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Links.BundleExtension" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>T4MVC\BundleExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Links.Scripts" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgBAQAQIIAAACAQBCaQg0ClIgUEIqIAECABCAYJACAE=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Links.Content" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hIBABEBAQCAQAIACEAAAgQEAgQAZABgACQEAACBAARA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Links.Bundles" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4MVC.Admin.SharedController" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>T4MVC\Admin.SharedController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4MVC.SharedController" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>T4MVC\SharedController.generated.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4MVC.AdminClass" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4MVC.Dummy" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVC" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAAAAAAAIAAAAAAQAAAAQAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="T4MVC_System_Web_Mvc_PartialViewResult" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="T4MVC_System_Web_Mvc_ActionResult" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="T4MVCHelpers" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>T4MVC\T4MVC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

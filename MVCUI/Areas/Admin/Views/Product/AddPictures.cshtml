@@ -1,0 +1,187 @@
+﻿@model ViewModel.ViewModel.Admin.Product.AddProductPicturesViewModel
+
+@{
+    ViewBag.Title = "درج تصویر";
+    Layout = MVC.Admin.Shared.Views._AdminLayout;
+}
+@section CSS{
+    <style>
+        .font-size-30 {
+            font-size: 30px;
+        }
+    </style>
+}
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.HiddenFor(a => a.ProductId)
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Image1, new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Image1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image1, "", new { @class = "text-danger" })
+                    </div>
+                    @Ajax.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Folder.ActionNames.Index,
+                   controllerName: MVC.Admin.Folder.Name,
+                    routeValues: new { elementId = Html.IdFor(x=>x.Image1) },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = FormMethod.Get.ToString(),
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "LightBox.onSuccess",
+                        UpdateTargetId = "lightBox",
+                        OnComplete = "OnBoxAddPictureToProduct"
+                    },
+                     htmlAttributes: new
+                     {
+                         @class = "glyphicon glyphicon-picture font-size-30",
+                         @rel = "nofollow",
+                         @role = "button",
+                         @data_id= Html.IdFor(x => x.Image1)
+                     })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Image2, new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Image2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image2, "", new { @class = "text-danger" })
+                    </div>
+                    @Ajax.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Folder.ActionNames.Index,
+                   controllerName: MVC.Admin.Folder.Name,
+                    routeValues: new { elementId = Html.IdFor(x => x.Image2) },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = FormMethod.Get.ToString(),
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "LightBox.onSuccess",
+                        UpdateTargetId = "lightBox",
+                        OnComplete = "OnBoxAddPictureToProduct"
+                    },
+                     htmlAttributes: new
+                     {
+                         @class = "glyphicon glyphicon-picture font-size-30",
+                         @rel = "nofollow",
+                         @role = "button",
+                         @data_id = Html.IdFor(x => x.Image2)
+                     })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Image3, new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Image3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image3, "", new { @class = "text-danger" })
+                    </div>
+                    @Ajax.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Folder.ActionNames.Index,
+                   controllerName: MVC.Admin.Folder.Name,
+                    routeValues: new { elementId = Html.IdFor(x => x.Image3) },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = FormMethod.Get.ToString(),
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "LightBox.onSuccess",
+                        UpdateTargetId = "lightBox",
+                        OnComplete = "OnBoxAddPictureToProduct"
+                    },
+                     htmlAttributes: new
+                     {
+                         @class = "glyphicon glyphicon-picture font-size-30",
+                         @rel = "nofollow",
+                         @role = "button",
+                         @data_id = Html.IdFor(x => x.Image3)
+                     })
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(x => x.Image4, new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Image4, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image4, "", new { @class = "text-danger" })
+                    </div>
+                    @Ajax.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Folder.ActionNames.Index,
+                   controllerName: MVC.Admin.Folder.Name,
+                    routeValues: new { elementId = Html.IdFor(x => x.Image4) },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = FormMethod.Get.ToString(),
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "LightBox.onSuccess",
+                        UpdateTargetId = "lightBox",
+                        OnComplete = "OnBoxAddPictureToProduct"
+                    },
+                     htmlAttributes: new
+                     {
+                         @class = "glyphicon glyphicon-picture font-size-30",
+                         @rel = "nofollow",
+                         @role = "button",
+                         @style = "font-size:30px;",
+                         @data_id = Html.IdFor(x => x.Image4)
+                     })
+                </div>*@
+
+                @*<div class="form-group">
+                    @Html.LabelFor(x => x.Image5, new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.EditorFor(model => model.Image5, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image5, "", new { @class = "text-danger" })
+                    </div>
+                    @Ajax.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Folder.ActionNames.Index,
+                   controllerName: MVC.Admin.Folder.Name,
+                    routeValues: new { elementId = Html.IdFor(x => x.Image5) },
+                    ajaxOptions: new AjaxOptions
+                    {
+                        HttpMethod = FormMethod.Get.ToString(),
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "LightBox.onSuccess",
+                        UpdateTargetId = "lightBox",
+                        OnComplete="OnBoxAddPictureToProduct"
+                    },
+                     htmlAttributes: new
+                     {
+                         @class = "glyphicon glyphicon-picture font-size-30",
+                         @rel = "nofollow",
+                         @role = "button",
+                         @data_id = Html.IdFor(x => x.Image5)
+                     })
+                </div>*@
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+                        <input type="submit" value="ثبت" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scipts{
+    @Scripts.Render(Links.BundleExtension.Scripts.JqueryVal)
+    <script defer async type="text/javascript">
+        var $_that;
+        function OnBoxAddPictureToProduct(res) {
+            $_that = $(this);
+        }
+        $(document).on('click', '.imageloadedContainers img', function (event) {
+            var select_id_from_href = $_that.data('id');
+            var select_input = $('input#' + select_id_from_href + '');
+            var data_img = $(this).data('id');
+            select_input.val(data_img);
+            $('.imageloadedContainers img').removeClass('border');
+            $(this).addClass('border');
+        })
+    </script>
+}

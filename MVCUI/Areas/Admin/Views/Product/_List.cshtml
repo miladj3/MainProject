@@ -1,0 +1,175 @@
+﻿@using DomainClasses.Enums
+@using PagedList
+@using PagedList.Mvc
+@using ViewModel.ViewModel.Admin.Product
+@model ProductListViewModel
+
+<style>
+    .danger{
+        background-color:#fb6565 !important;
+    }
+</style>
+
+@Html.AntiForgeryToken()
+<table class="table table-striped table-hover" id="productTable">
+    <thead>
+        <tr>
+            <th>نام</th>
+            <th>اطلاعات آماری</th>
+            <th>درصد تخفیف</th>
+            <th>ضریب خرید</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.ProductList)
+        {
+            <tr class="@(product.Notification? "danger":"")">
+
+                <td>@product.Name</td>
+                <td>
+                    <strong class="text-info">قیمت:@Html.DisplayFor(a => product.Price)</strong>
+                    <strong class="text-success">تعداد موجود:@Html.DisplayFor(a => product.Stock)</strong>
+                    <br />
+                    <strong class="text-primary">تعداد رزرو:@Html.DisplayFor(a => product.ReserveCount)</strong>
+                    <strong class="text-warning">تعداد بازدید:@product.ViewCount</strong>
+                </td>
+
+                <td class="text-center">@product.DiscountPercent</td>
+                <td class="text-center">@Html.DisplayFor(a => product.Ratio)</td>
+
+                <td class="text-left">
+                    @Html.ActionLink(linkText: " ",
+                   actionName: MVC.Admin.Product.ActionNames.Edit,
+                   controllerName: MVC.Admin.Product.Name,
+                   routeValues: new { id = product.Id },
+                   htmlAttributes: new
+                   {
+                       @class = "glyphicon glyphicon-pencil btn btn-sm btn-success",
+                       @data_toggle = "tooltip",
+                       @data_placement = "top",
+                       @title = "ویرایش",
+                       @style = "padding: 8px;"
+                   })
+                    <span data-toggle="tooltip" data-placement="top" title="حذف" id="row-@product.Id" data-name="@product.Name" data-id="@product.Id" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash-o"></i>
+                    </span>
+                    @if (product.AddedImages)
+                    {
+                        @Html.ActionLink(linkText: " ",
+                                    actionName: MVC.Admin.Product.ActionNames.EditPictures,
+                                    controllerName: MVC.Admin.Product.Name,
+                                    routeValues: new { productId = product.Id },
+                                    htmlAttributes: new
+                                    {
+                                        @class = "fa fa-edit btn btn-sm btn-info",
+                                        @data_toggle = "tooltip",
+                                        @data_placement = "top",
+                                        @title = "تصاویر",
+                                        @style = "padding: 8px;"
+                                    })
+                    }
+                    else
+                    {
+                        @Html.ActionLink(linkText: " ",
+                                    actionName: MVC.Admin.Product.ActionNames.AddPictures,
+                                    controllerName: MVC.Admin.Product.Name,
+                                    routeValues: new { productId = product.Id },
+                                    htmlAttributes: new
+                                    {
+                                        @class = "fa fa-edit btn btn-sm btn-info",
+                                        @data_toggle = "tooltip",
+                                        @data_placement = "top",
+                                        @title = "تصاویر",
+                                        @style = "padding: 8px;"
+                                    })
+                    }
+
+                    @Ajax.ActionLink(
+                   linkText: " ",
+                   actionName: MVC.Admin.Product.ActionNames.FillAttributes,
+                   controllerName: MVC.Admin.Product.Name,
+                   routeValues: new
+                   {
+                       productId = product.Id
+                   },
+                   ajaxOptions: new AjaxOptions
+                   {
+                       HttpMethod = FormMethod.Get.ToString(),
+                       AllowCache = false,
+                       InsertionMode = InsertionMode.Replace,
+                       OnSuccess = "LightBox.onSuccess",
+                       UpdateTargetId = "lightBox"
+                   },
+                   htmlAttributes: new
+                   {
+                       @class = "fa fa-list btn btn-sm btn-primary",
+                       @rel = "nofollow",
+                       @role = "button",
+                       @data_toggle = "modal",
+                       title = "مشحصات",
+                       @data_placement = "top",
+                       @style = "padding: 8px;"
+                   })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@using (Ajax.BeginForm(
+    MVC.Admin.Product.ActionNames.List,
+    MVC.Admin.Product.Name,
+    null,
+    new AjaxOptions {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "productsList"
+    },
+    new {
+        @class = "form-horizontal",
+        id = "productFilterForm"
+    }))
+{
+    <div class="row">
+        <div class="col-md-7">
+            @Html.HiddenFor(x=>x.Term, Model.Term)
+            @Html.HiddenFor(x=>x.FreeSend, Model.FreeSend)
+            @Html.HiddenFor(x=>x.Deleted, Model.Deleted)
+            @Html.HiddenFor(x=>x.CategoryId, Model.CategoryId)
+            <div class="col-md-4">
+                @Html.DropDownListFor(x=>x.ProductOrderBy, ViewBag.ProductOrderByList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x=>x.Order, ViewBag.OrderList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">
+                @Html.DropDownListFor(x=>x.PageCount, ViewBag.CountList as IEnumerable<SelectListItem>, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-3"><input type="submit" value="مرتب سازی" class="btn btn-md btn-default" /></div>
+        </div>
+    </div>
+}
+@Html.PagedListPager(new StaticPagedList<ProductViewModel>(Model.ProductList, Model.PageNumber, Model.PageCount, Model.TotalProducts), pageNumber => Url.Action(MVC.Admin.Product.ActionNames.List, MVC.Admin.Product.Name, new
+{
+    term = Model.Term,
+    page = pageNumber,
+    count = Model.PageCount,
+    order = Model.Order,
+    productOrderBy = Model.ProductOrderBy,
+    productType = Model.ProductType,
+    categoryId = Model.CategoryId,
+    deleted = Model.Deleted,
+    freeSend = Model.FreeSend
+}), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(PagedListRenderOptions.ClassicPlusFirstAndLast,
+new AjaxOptions
+{
+    AllowCache = false,
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "productsList"
+}))

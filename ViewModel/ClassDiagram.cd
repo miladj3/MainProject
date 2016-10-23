@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ViewModel.ViewModel.Admin.Attribute.AddAttributeViewModel" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Attribute\AddAttributeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Attribute.DeleteAttributeViewModel" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAQAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Attribute\DeleteAttributeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Attribute.EditAttributeViewModel" Collapsed="true">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Attribute\EditAttributeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Category.AddCategoryViewModel" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCQAAAAAAgAAAAAAAAAAQAAAAAAAABAgAAIAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Category\AddCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Category.DeleteCategoryViewModel" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Category\DeleteCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Category.EditCategoryViewModel" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCQAAAAAAgAAAAAAAAAAQAAAAAAAABAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Category\EditCategoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Category.FooterViewModel" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Category\FooterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Category.ShowCatetoryViewModel" Collapsed="true">
+    <Position X="1.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Category\ShowCatetoryViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Feed.FeedItemViewModel" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAACAAAAAAAAAAAAAQACAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Feed\FeedItemViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Folder.AddFolderViewModel" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Folder\AddFolderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Folder.EditFolderViewModel" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Folder\EditFolderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Order.OrderShowViewModel" Collapsed="true">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Order\OrderShowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Page.AddPageViewModel" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAQCAAAgAgAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Page\AddPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Page.EditPageViewModel" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCQCAAAgAgAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Page\EditPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Page.PageViewModel" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAEAAAAAAAAAEAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Page\PageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.AddProductAttributesViewModel" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\AddProductAttributesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.AddProductPicturesViewModel" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\AddProductPicturesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.AddProductViewModel" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAgAgAFAAAAEIQAgABAACAAAQAAIABAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\AddProductViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.AppendAttributeViewModel" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\AppendAttributeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.AttributeValueViewModel" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\AttributeValueViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.EditProductPicturesViewModel" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\EditProductPicturesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.EditProductViewModel" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAgAgAFAAAAEYQAgABAACAAAQAAIABAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\EditProductViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.FillProductAttributesViewModel" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\FillProductAttributesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductCompareViewModel" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAQAgAAAAAAAAAYAQAAAAAAAAAgAAACAIAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductCompareViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductDetailsViewModel" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEDAAAAAQAgBgAAAAACAAQIAAAAADAAAAgAACQAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductListViewModel" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAQAAAAAgAAAEAAEQAAAAEABAAAEAAAAQAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductLuceneViewModel" Collapsed="true">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductLuceneViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductSearchResultViewModel" Collapsed="true">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductSearchResultViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductSectionViewModel" Collapsed="true">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEDAAAAAQAABAABAAAAAAQIAAAAACAAAAAAACQAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductSectionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.ProductViewModel" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAADAAAAAQAABAAhAAAAEIQAgCBAQiAAAAAAMAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Product\ProductViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Product.SearchViewModel" Collapsed="true">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAQAgAAAAAAAAQAABAAQAgAEAQABAAAAAQ=</HashCode>
+      <FileName>ViewModel\Admin\Product\SearchViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Setting.AddSlideShowViewModel" Collapsed="true">
+    <Position X="1.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAgAAAAAIAQAACAAAAAAAgAQAIAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Setting\AddSlideShowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Setting.EditSettingViewModel" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYAEAAAAAAQAABAAAQAAAAAAAAAACAAAAAAAQAAA=</HashCode>
+      <FileName>ViewModel\Admin\Setting\EditSettingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Setting.EditSlideShowViewModel" Collapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAEAgAAAAAIAQAACAAAAAAAgAQAIAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Setting\EditSlideShowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.Setting.SettingViewModel" Collapsed="true">
+    <Position X="11.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\Setting\SettingViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.AddUserViewModel" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAAAAAAAAAAQAAAAAAAAAACAQAAAAAAIAg=</HashCode>
+      <FileName>ViewModel\Admin\User\AddUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.DetailsUserViewModel" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAAAAAAAAAACQAAAIAAAAAAAAQAAEAAAAAk=</HashCode>
+      <FileName>ViewModel\Admin\User\DetailsUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.EditUserViewModel" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEIAAAAAAACAAAAAQAAAAAAAAAACAQAAAAAAIAg=</HashCode>
+      <FileName>ViewModel\Admin\User\EditUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.ForgetPasswordViewModel" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\ForgetPasswordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.LoginViewModel" Collapsed="true">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.ProfileViewModel" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\ProfileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.RegisterViewModel" Collapsed="true">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.UsersListViewModel" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAGAAAAAAAAAAAAAAEAAAAIAAAAAAAACEAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\UsersListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.Admin.User.UserViewModel" Collapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAEAIIAAAAAUAAQAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\Admin\User\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ViewModel.ViewModel.UserPanel.EditUserInfoViewModel" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgAAAIAAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>ViewModel\UserPanel\EditUserInfoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

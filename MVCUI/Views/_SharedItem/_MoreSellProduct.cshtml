@@ -1,0 +1,12 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSectionViewModel>
+
+<li class="m-list-product" id="m-list-more-selll-product">
+    <ul>
+        @foreach (ProductSectionViewModel item in Model)
+        {
+            { Html.RenderPartial(MVC._SharedItem.Views._ShowProduct, item); }
+        }
+    </ul>
+</li>
+

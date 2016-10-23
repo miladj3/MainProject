@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuraion\AddressConfig.cs" />
     <Compile Include="Configuraion\AttributeConfig.cs" />
     <Compile Include="Configuraion\CategoryConfig.cs" />
     <Compile Include="Configuraion\CommentConfig.cs" />
@@ -63,10 +64,11 @@
     <Compile Include="Configuraion\ShoppingCartConfig.cs" />
     <Compile Include="Configuraion\SiteOptionConfig.cs" />
     <Compile Include="Configuraion\SlideShowConfig.cs" />
+    <Compile Include="Configuraion\SubscribesConfig.cs" />
     <Compile Include="Configuraion\UserConfig.cs" />
     <Compile Include="Configuraion\ValueConfig.cs" />
+    <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Attribute.cs" />
-    <Compile Include="Entities\AttributeType.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Contact.cs" />
@@ -80,8 +82,10 @@
     <Compile Include="Entities\Rate.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\ShoppingCart.cs" />
+    <Compile Include="Entities\SiteMapEntity.cs" />
     <Compile Include="Entities\SiteOption.cs" />
     <Compile Include="Entities\SlideShow.cs" />
+    <Compile Include="Entities\Subscribes.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Value.cs" />
     <Compile Include="Enums\Enums.cs" />
@@ -89,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

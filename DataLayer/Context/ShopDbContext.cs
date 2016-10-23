@@ -23,7 +23,7 @@ namespace DataLayer.Context
             this.Configuration.ValidateOnSaveEnabled = true;
         }
         #endregion
-        
+
         #region DbSet
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Folder> Folders { get; set; }
@@ -42,6 +42,8 @@ namespace DataLayer.Context
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<DomainClasses.Entities.Attribute> Attributes { get; set; }
         public DbSet<SlideShow> SlideShows { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Subscribes> SubscribesCtx { get; set; }
         #endregion
 
         #region OnModelCreating
@@ -63,6 +65,8 @@ namespace DataLayer.Context
             modelBuilder.Configurations.Add(new ContactConfig());
             modelBuilder.Configurations.Add(new PageConfig());
             modelBuilder.Configurations.Add(new SiteOptionConfig());
+            modelBuilder.Configurations.Add(new AddressConfig());
+            modelBuilder.Configurations.Add(new SubscribesConfig());
             modelBuilder.Properties().Where(x => x.Name == "Id").Configure(x => x.IsKey().HasColumnName(x.ClrPropertyInfo.DeclaringType.Name + "Id"));
 
             base.OnModelCreating(modelBuilder);
@@ -70,43 +74,37 @@ namespace DataLayer.Context
         #endregion
 
         #region UnitOfWork
-        public void MarkAsDeleted<TEntity>(TEntity entity) where TEntity : class
-        {
+        public void MarkAsDeleted<TEntity>(TEntity entity)  where TEntity : class =>
             Entry(entity).State = EntityState.Deleted;
-        }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class =>
             base.Set<TEntity>();
 
-        public void MarkAsChanged<TEntity>(TEntity entity) where TEntity : class
-        {
+        public void MarkAsChanged<TEntity>(TEntity entity) where TEntity : class =>
             Entry(entity).State = EntityState.Modified;
-        }
 
-        public IList<T> GetRows<T>(string sql, params object[] parameters) where T : class =>
+        public IList<T> GetRows<T>(string sql, params object[] parameters)  where T : class =>
             Database.SqlQuery<T>(sql, parameters).ToList();
 
 
-        public void ForceDatabaseInitialize()
-        {
+        public void ForceDatabaseInitialize() =>
             Database.Initialize(true);
-        }
 
-        public override int SaveChanges() => SaveAllChanges();
+        public override Int32 SaveChanges() =>
+            SaveAllChanges();
 
 
-        public int SaveAllChanges(bool invalidateCacheDependencies = true)
+        public Int32 SaveAllChanges(Boolean invalidateCacheDependencies = true)
         {
             var changedEntityNames = GetChangedEntityNames();
             var result = base.SaveChanges();
             if (invalidateCacheDependencies)
-            {
                 new EFCacheServiceProvider().InvalidateCacheDependencies(changedEntityNames);
-            }
+
             return result;
         }
 
-        private string[] GetChangedEntityNames() =>
+        private String[] GetChangedEntityNames() =>
             ChangeTracker.Entries()
                 .Where(x => x.State == EntityState.Added ||
                             x.State == EntityState.Modified ||
@@ -116,23 +114,19 @@ namespace DataLayer.Context
                 .ToArray();
         public override Task<int> SaveChangesAsync() =>
             SaveAllChangesAsync();
-
-
-        public Task<int> SaveAllChangesAsync(bool invalidateCacheDependencies = true)
+        
+        public async Task<Int32> SaveAllChangesAsync(Boolean invalidateCacheDependencies = true)
         {
-            var changedEntityNames = GetChangedEntityNames();
-            var result = base.SaveChangesAsync();
+            String[] changedEntityNames = GetChangedEntityNames();
+            Int32 result = await base.SaveChangesAsync();
             if (invalidateCacheDependencies)
-            {
                 new EFCacheServiceProvider().InvalidateCacheDependencies(changedEntityNames);
-            }
+
             return result;
         }
 
-        public void AutoDetectChangesEnabled(bool flag = true)
-        {
+        public void AutoDetectChangesEnabled(Boolean flag = true) =>
             Configuration.AutoDetectChangesEnabled = flag;
-        }
         #endregion
     }
 }

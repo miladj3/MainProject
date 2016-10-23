@@ -1,0 +1,18 @@
+﻿@using ViewModel.ViewModel.Admin.Product
+@model IEnumerable<ProductSectionViewModel>
+
+<aside id="__side_left_for_product_selecte_GP">
+    <strong>محصولات هم گروه</strong>
+    @foreach (ProductSectionViewModel item in Model)
+    {
+        { Html.RenderPartial(MVC.Product.Views._ShowProductSelectInGP, item); }
+    }
+    @Html.ActionLink(linkText: "برای دیدن ادامه محصولات کلیک کنید",
+                                actionName: MVC.Search.ActionNames.Index,
+                                controllerName: MVC.Search.Name,
+                                routeValues: new { categoryId = Model.FirstOrDefault().categoryId },
+                                htmlAttributes: new
+                                {
+                                    @class= "____m3432"
+                                })
+</aside>

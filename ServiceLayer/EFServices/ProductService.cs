@@ -11,6 +11,8 @@ using DataLayer.Context;
 using System.Data.Entity;
 using EntityFramework.Extensions;
 using EFSecondLevelCache;
+using EntityFramework.Future;
+using ViewModel.ViewModel.Admin.SiteMap;
 
 namespace ServiceLayer.EFServices
 {
@@ -31,26 +33,22 @@ namespace ServiceLayer.EFServices
         }
         #endregion
 
-        public void ChangeProductsCategoryById(long lastId, long newId)
+        public async Task ChangeProductsCategoryById(Int64 lastId, Int64 newId)
         {
             var product = GetById(newId);
             if (product != null)
-                _products.Where(a => a.CategoryId == lastId).Update(b => new Product { CategoryId = newId });
+                await _products.Where(a => a.CategoryId == lastId).UpdateAsync(b => new Product { CategoryId = newId });
         }
 
-        public Product GetById(long id)
-        {
-            return _products.Find(id);
-        }
+        public async Task<Product> GetById(Int64 id) =>
+            await _products.SingleOrDefaultAsync(x => x.Id == id);
 
-        public void Insert(Product product)
-        {
+        public void Insert(Product product)=>
             _products.Add(product);
-        }
 
-        public void Update(EditProductViewModel viewModel)
+        public async Task Update(EditProductViewModel viewModel)
         {
-            var product = GetById(viewModel.Id);
+            Product product = await GetById(viewModel.Id);
             product.Name = viewModel.Name;
             product.ApplyCategoryDiscount = viewModel.ApplyCategoryDiscount;
             product.CategoryId = viewModel.CategoryId;
@@ -66,41 +64,44 @@ namespace ServiceLayer.EFServices
             product.Ratio = viewModel.Ratio;
             product.Stock = viewModel.Stock;
             product.Type = viewModel.Type;
+            product.PriceAfterDiscount = viewModel.PriceAfterDiscount;
+            product.ComingSoon = viewModel.ComingSoon;
+            product.HomePage = viewModel.HomePage;
+            product.SpecialSell = viewModel.SpecialSell;
         }
 
-        public EditProductViewModel GetForEdit(long id)
-        {
-            return _products.Where(a => a.Id.Equals(id)).Select(a => new EditProductViewModel
-            {
-                ApplyCategoryDiscount = a.ApplyCategoryDiscount,
-                CategoryId = a.CategoryId,
-                Deleted = a.Deleted,
-                Description = a.Description,
-                DiscountPercent = a.DiscountPercent,
-                Id = a.Id,
-                IsFreeShipping = a.IsFreeShipping,
-                Name = a.Name,
-                Ratio = a.Ratio,
-                MetaKeyWords = a.MetaKeywords,
-                NotificationStockMinimum = a.NotificationStockMinimum,
-                Price = a.Price,
-                PrincipleImagePath = a.PrincipleImagePath,
-                Stock = a.Stock,
-                MetaDescription = a.MetaDescription,
-                Type = a.Type,
-                OldCategoryId = a.CategoryId
+        public async Task<EditProductViewModel> GetForEdit(Int64 id) =>
+             await _products.Where(a => a.Id.Equals(id)).Select(a => new EditProductViewModel
+             {
+                 ApplyCategoryDiscount = a.ApplyCategoryDiscount,
+                 CategoryId = a.CategoryId,
+                 Deleted = a.Deleted,
+                 Description = a.Description,
+                 DiscountPercent = a.DiscountPercent,
+                 Id = a.Id,
+                 IsFreeShipping = a.IsFreeShipping,
+                 Name = a.Name,
+                 Ratio = a.Ratio,
+                 MetaKeyWords = a.MetaKeywords,
+                 NotificationStockMinimum = a.NotificationStockMinimum,
+                 Price = a.Price,
+                 PrincipleImagePath = a.PrincipleImagePath,
+                 Stock = a.Stock,
+                 MetaDescription = a.MetaDescription,
+                 Type = a.Type,
+                 OldCategoryId = a.CategoryId,
+                 PriceAfterDiscount = a.PriceAfterDiscount,
+                 ComingSoon = a.ComingSoon,
+                 HomePage = a.HomePage,
+                 SpecialSell = a.SpecialSell
+             }).FirstOrDefaultAsync();
 
-            }).FirstOrDefault();
-        }
+        public async Task Delete(Int64 id) =>
+            await _products.Where(a => a.Id.Equals(id)).DeleteAsync();
 
-        public void Delete(long id)
+        public IEnumerable<ProductViewModel> DataList(out Int32 total, String term, Boolean deleted, Boolean freeSend, Int32 page, Int32 count, Int64 categoryId, ProductOrderBy productOrderBy, DomainClasses.Enums.Order order, ProductType productType)
         {
-            _products.Where(a => a.Id.Equals(id)).Delete();
-        }
-
-        public IEnumerable<ProductViewModel> DataList(out int total, string term, bool deleted, bool freeSend, int page, int count, long categoryId, ProductOrderBy productOrderBy, DomainClasses.Enums.Order order, ProductType productType)
-        {
-            var selectedProducts =
+            IQueryable<Product> selectedProducts =
                 _products.AsNoTracking()
                     .Include(a => a.Category)
                     .Include(a => a.Values)
@@ -180,8 +181,8 @@ namespace ServiceLayer.EFServices
                         break;
                 }
             }
-            var totalQuery = selectedProducts.FutureCount();
-            var selectQuery = selectedProducts.Skip((page - 1) * count).Take(count)
+            FutureCount totalQuery = selectedProducts.FutureCount();
+            FutureQuery<ProductViewModel> selectQuery = selectedProducts.Skip((page - 1) * count).Take(count)
                 .Select(a => new ProductViewModel
                 {
                     ApplyCategoryDiscount = a.ApplyCategoryDiscount,
@@ -202,10 +203,11 @@ namespace ServiceLayer.EFServices
                     ViewCount = a.ViewCount,
                     AddedImages = a.Images.Any(),
                     CompletedAttributes = a.Values.Any(),
-                    Notification = a.Stock - a.Reserve <= a.NotificationStockMinimum
+                    Notification = a.Stock - a.Reserve <= a.NotificationStockMinimum,
+                    PriceAfterDiscount = a.PriceAfterDiscount
                 }).Future();
             total = totalQuery.Value;
-            var products = selectQuery.ToList();
+            List<ProductViewModel> products = selectQuery.ToList();
             return products;
         }
 
@@ -214,15 +216,125 @@ namespace ServiceLayer.EFServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductSectionViewModel> GetBelovedProducts()
-        {
-
-            return _products.AsNoTracking().Where(a => !a.Deleted).Include(a => a.Category)
-
-                .OrderByDescending(a => a.Rate.TotalRaters).ThenByDescending(a => a.Rate.AverageRating).Skip(0).Take(3)
+        public IEnumerable<ProductSectionViewModel> GetBelovedProducts(Int32 _take) =>
+            _products.AsNoTracking().Where(a => !a.Deleted).Include(a => a.Category)
+                .OrderByDescending(a => a.Rate.TotalRaters)
+                .ThenByDescending(a => a.Rate.AverageRating)
+                .Skip(0)
+                .Take(_take)
                 .Select(a => new ProductSectionViewModel
                 {
-                    TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
+                    TotalDiscount = a.ApplyCategoryDiscount ?
+                                             a.DiscountPercent + a.Category.DiscountPercent :
+                                             a.DiscountPercent,
+                    Id = a.Id,
+                    IsFreeShipping = a.IsFreeShipping,
+                    Name = a.Name,
+                    Price = a.Price,
+                    PrincipleImagePath = a.PrincipleImagePath,
+                    AvrageRate = a.Rate.AverageRating,
+                    Ratio = a.Ratio,
+                    TotalRaters = a.Rate.TotalRaters ?? 0,
+                    SellCount = a.SellCount,
+                    IsInStock = (a.Stock - a.Reserve) >= a.Ratio,
+                    ViewCount = a.ViewCount,
+                    PriceAfterDiscount = a.PriceAfterDiscount,
+                    ComingSoon = a.ComingSoon
+                }).Cacheable().ToList();
+
+        public IEnumerable<ProductSectionViewModel> GetNewProducts(Int32 _take) =>
+               _products.AsNoTracking()
+                    .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
+                    .Include(a => a.Category)
+                    .OrderByDescending(x => x.AddedDate)
+                    .Skip(0)
+                    .Take(_take)
+                    .Select(a => new ProductSectionViewModel
+                    {
+                        TotalDiscount = a.ApplyCategoryDiscount ? 
+                                                 a.DiscountPercent + a.Category.DiscountPercent :
+                                                 a.DiscountPercent,
+                        Id = a.Id,
+                        IsFreeShipping = a.IsFreeShipping,
+                        Name = a.Name,
+                        Price = a.Price,
+                        PrincipleImagePath = a.PrincipleImagePath,
+                        AvrageRate = a.Rate.AverageRating,
+                        Ratio = a.Ratio,
+                        TotalRaters = a.Rate.TotalRaters ?? 0,
+                        SellCount = a.SellCount,
+                        IsInStock = a.Stock - a.Reserve >= a.Ratio,
+                        ViewCount = a.ViewCount,
+                        PriceAfterDiscount = a.PriceAfterDiscount,
+                        ComingSoon = a.ComingSoon
+                    }).Cacheable().ToList();
+
+        public IEnumerable<ProductSectionViewModel> GetMoreSellProducts(Int32 _take) =>
+            _products.AsNoTracking()
+                .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
+                .Include(a => a.Category)
+             .OrderByDescending(a => a.SellCount)
+            .Skip(0)
+            .Take(_take)
+                .Select(a => new ProductSectionViewModel
+                {
+                    TotalDiscount = a.ApplyCategoryDiscount ? 
+                                             a.DiscountPercent + a.Category.DiscountPercent : 
+                                             a.DiscountPercent,
+                    Id = a.Id,
+                    IsFreeShipping = a.IsFreeShipping,
+                    Name = a.Name,
+                    Price = a.Price,
+                    PrincipleImagePath = a.PrincipleImagePath,
+                    AvrageRate = a.Rate.AverageRating,
+                    TotalRaters = a.Rate.TotalRaters ?? 0,
+                    Ratio = a.Ratio,
+                    SellCount = a.SellCount,
+                    ViewCount = a.ViewCount,
+                    PriceAfterDiscount = a.PriceAfterDiscount,
+                    ComingSoon = a.ComingSoon,
+                    IsInStock = true
+                }).Cacheable().ToList();
+
+        public IEnumerable<ProductSectionViewModel> GetMoreViewedProducts(Int32 _take) =>
+              _products.AsNoTracking()
+                    .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
+                    .Include(a => a.Category)
+                    .OrderByDescending(a => a.ViewCount)
+                    .Skip(0)
+                    .Take(_take)
+                    .Select(a => new ProductSectionViewModel
+                    {
+                        TotalDiscount = a.ApplyCategoryDiscount ? 
+                                                 a.DiscountPercent + a.Category.DiscountPercent :
+                                                 a.DiscountPercent,
+                        Id = a.Id,
+                        IsFreeShipping = a.IsFreeShipping,
+                        Name = a.Name,
+                        Price = a.Price,
+                        PrincipleImagePath = a.PrincipleImagePath,
+                        AvrageRate = a.Rate.AverageRating,
+                        Ratio = a.Ratio,
+                        TotalRaters = a.Rate.TotalRaters ?? 0,
+                        SellCount = a.SellCount,
+                        IsInStock = a.Stock - a.Reserve >= a.Ratio,
+                        ViewCount = a.ViewCount,
+                        PriceAfterDiscount = a.PriceAfterDiscount,
+                        ComingSoon = a.ComingSoon
+                    }).Cacheable().ToList();
+
+        public IEnumerable<ProductSectionViewModel> GetProductSelected(Int32 _take) =>
+             _products.AsNoTracking().
+                Where(x => x.HomePage == true).
+                Include(x => x.Category).
+                OrderByDescending(x => x.ViewCount).
+                Skip(0).
+                Take(_take).
+                Select(a => new ProductSectionViewModel
+                {
+                    TotalDiscount = a.ApplyCategoryDiscount ?
+                                             a.DiscountPercent + a.Category.DiscountPercent :
+                                             a.DiscountPercent,
                     Id = a.Id,
                     IsFreeShipping = a.IsFreeShipping,
                     Name = a.Name,
@@ -233,83 +345,13 @@ namespace ServiceLayer.EFServices
                     TotalRaters = a.Rate.TotalRaters ?? 0,
                     SellCount = a.SellCount,
                     IsInStock = a.Stock - a.Reserve >= a.Ratio,
-                    ViewCount = a.ViewCount
+                    ViewCount = a.ViewCount,
+                    PriceAfterDiscount = a.PriceAfterDiscount,
+                    ComingSoon = a.ComingSoon
                 }).Cacheable().ToList();
 
-        }
-
-        public IEnumerable<ProductSectionViewModel> GetNewProducts()
-        {
-            return
-                _products.AsNoTracking()
-                    .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
-                    .Include(a => a.Category)
-                    .OrderByDescending(a => a.Rate.TotalRaters).ThenByDescending(a => a.Rate.AverageRating).Skip(0).Take(3)
-                    .Select(a => new ProductSectionViewModel
-                    {
-                        TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
-                        Id = a.Id,
-                        IsFreeShipping = a.IsFreeShipping,
-                        Name = a.Name,
-                        Price = a.Price,
-                        PrincipleImagePath = a.PrincipleImagePath,
-                        AvrageRate = a.Rate.AverageRating,
-                        Ratio = a.Ratio,
-                        TotalRaters = a.Rate.TotalRaters ?? 0,
-                        SellCount = a.SellCount,
-                        IsInStock = a.Stock - a.Reserve >= a.Ratio,
-                        ViewCount = a.ViewCount
-                    }).Cacheable().ToList();
-        }
-
-        public IEnumerable<ProductSectionViewModel> GetMoreSellProducts()
-        {
-            return _products.AsNoTracking()
-                .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
-                .Include(a => a.Category)
-                .OrderByDescending(a => a.Rate.TotalRaters).ThenByDescending(a => a.Rate.AverageRating).Skip(0).Take(12)
-                .Select(a => new ProductSectionViewModel
-                {
-                    TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
-                    Id = a.Id,
-                    IsFreeShipping = a.IsFreeShipping,
-                    Name = a.Name,
-                    Price = a.Price,
-                    PrincipleImagePath = a.PrincipleImagePath,
-                    AvrageRate = a.Rate.AverageRating,
-                    TotalRaters = a.Rate.TotalRaters ?? 0,
-                    Ratio = a.Ratio,
-                    SellCount = a.SellCount,
-                    ViewCount = a.ViewCount
-                }).Cacheable().ToList();
-        }
-        public IEnumerable<ProductSectionViewModel> GetMoreViewedProducts()
-        {
-            return
-                _products.AsNoTracking()
-                    .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio)
-                    .Include(a => a.Category)
-                    .OrderByDescending(a => a.Rate.TotalRaters).ThenByDescending(a => a.Rate.AverageRating).Skip(0).Take(3)
-                    .Select(a => new ProductSectionViewModel
-                    {
-                        TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
-                        Id = a.Id,
-                        IsFreeShipping = a.IsFreeShipping,
-                        Name = a.Name,
-                        Price = a.Price,
-                        PrincipleImagePath = a.PrincipleImagePath,
-                        AvrageRate = a.Rate.AverageRating,
-                        Ratio = a.Ratio,
-                        TotalRaters = a.Rate.TotalRaters ?? 0,
-                        SellCount = a.SellCount,
-                        IsInStock = a.Stock - a.Reserve >= a.Ratio,
-                        ViewCount = a.ViewCount
-                    }).Cacheable().ToList();
-        }
-
-
-        public IEnumerable<ProductSectionViewModel> DataListSearch(out int total, string term, int page,
-            int count, PSFilter filtr, long categoryId)
+        public IEnumerable<ProductSectionViewModel> DataListSearch(out Int32 total, String term, Int32 page,
+            Int32 count, PSFilter filtr, Int64 categoryId)
         {
             var selectedProducts =
                 _products.AsNoTracking().Where(a => !a.Deleted)
@@ -372,13 +414,14 @@ namespace ServiceLayer.EFServices
                     PrincipleImagePath = a.PrincipleImagePath,
                     SellCount = a.SellCount,
                     TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
-                    ViewCount = a.ViewCount
+                    ViewCount = a.ViewCount,
+                    PriceAfterDiscount = a.PriceAfterDiscount,
+                    ComingSoon = a.ComingSoon
                 }).Future();
             total = totalQuery.Value;
             var products = selectQuery.ToList();
             return products;
         }
-
 
         public IEnumerable<ProductLuceneViewModel> GetAllForAddLucene()
         {
@@ -391,9 +434,17 @@ namespace ServiceLayer.EFServices
             }).ToList();
         }
 
-        public void SaveRating(long id, double value)
+        public async Task<IEnumerable<SiteMapShowViewModel>> GetAllForSiteMap() =>
+            await _products.AsNoTracking().Select(x => new SiteMapShowViewModel
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).Distinct().ToListAsync();
+
+
+        public async Task SaveRating(Int64 id, Double value)
         {
-            var product = GetById(id);
+            Product product = await GetById(id);
             if (product == null) return;
 
             if (!product.Rate.TotalRaters.HasValue) product.Rate.TotalRaters = 0;
@@ -403,80 +454,84 @@ namespace ServiceLayer.EFServices
             product.Rate.TotalRaters++;
             product.Rate.TotalRating += value;
             product.Rate.AverageRating = product.Rate.TotalRating / product.Rate.TotalRaters;
-
         }
 
-
-        public bool CanAddToShoppingCart(long id, decimal value)
+        public async Task<Boolean> CanAddToShoppingCart(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return false;
+            Product product = await GetById(id);
+            if (product == null)
+                return false;
             return product.Stock - product.Reserve >= product.Ratio * value;
         }
 
-
-        public void IncreaseSell(long id, decimal value)
+        public async Task IncreaseSell(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return;
+            Product product = await GetById(id);
+            if (product == null)
+                return;
             product.SellCount += value;
         }
 
-        public void DecreaseSell(long id, decimal value)
+        public async Task DecreaseSell(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return;
+            Product product = await GetById(id);
+            if (product == null)
+                return;
             product.SellCount -= value;
         }
 
-        public void IncreaseReserve(long id, decimal value)
+        public async Task IncreaseReserve(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return;
+            Product product = await GetById(id);
+            if (product == null)
+                return;
             product.Reserve += value;
         }
 
-        public void DecreaseReserve(long id, decimal value)
+        public async Task DecreaseReserve(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return;
+            Product product = await GetById(id);
+            if (product == null)
+                return;
             product.Reserve -= value;
         }
 
-        public void IncreaseStock(long id, decimal value)
+        public async Task IncreaseStock(Int64 id, Decimal value)
         {
-            var product = GetById(id);
-            if (product == null) return;
+            Product product = await GetById(id);
+
+            if (product == null)
+                return;
             product.Stock += value;
         }
 
-
-        public bool CanUserRate(long productId, string userName)
+        public async Task<Boolean> CanUserRate(Int64 productId, String userName)
         {
-            return GetById(productId).LikedUser.All(a => a.UserName != userName);
+            Product product = await GetById(productId);
+            return product.LikedUser.All(a => a.UserName != userName);
         }
 
-
-        public void AddUserToLikedUsers(long id, User user)
+        public async Task AddUserToLikedUsers(Int64 id, User user)
         {
-            var product = GetById(id);
+            Product product = await GetById(id);
             product.LikedUser.Add(user);
         }
 
-
-        public bool CanUserAddToWishList(long id, string userName)
+        public async Task<Boolean> CanUserAddToWishList(Int64 id, String userName)
         {
-            return GetById(id).UsersFavorite.All(a => a.UserName != userName);
+            Product product = await GetById(id);
+            return product.UsersFavorite.All(a => a.UserName != userName);
         }
 
-        public void AddUserToWishList(long id, User user)
+        public async Task AddUserToWishList(Int64 id, User user)
         {
-            GetById(id).UsersFavorite.Add(user);
+            Product product = await GetById(id);
+            product.UsersFavorite.Add(user);
         }
-        public ProductCompareViewModel GetForAddToCompare(long id)
+        public async Task<ProductCompareViewModel> GetForAddToCompare(Int64 id)
         {
-            var product = _products.Where(a => a.Id == id).Include(a => a.Category).FirstOrDefault();
-            var attributes = _valueService.GetAttValueOfProduct(id);
+            Product product = await _products.Where(a => a.Id == id).Include(a => a.Category).FirstOrDefaultAsync();
+            String[] attributes = await _valueService.GetAttValueOfProduct(id);
             return new ProductCompareViewModel
             {
                 Attributes = attributes,
@@ -488,15 +543,21 @@ namespace ServiceLayer.EFServices
                 TotalRaters = product.Rate.TotalRaters ?? 0,
                 Price = product.Price,
                 FreeSend = product.IsFreeShipping,
-                Discount = product.ApplyCategoryDiscount ? product.DiscountPercent + product.Category.DiscountPercent : product.DiscountPercent,
+                Discount = product.ApplyCategoryDiscount ?
+                                product.DiscountPercent + product.Category.DiscountPercent :
+                                product.DiscountPercent,
+                PriceAfterDiscount = product.PriceAfterDiscount
             };
         }
 
-        public ProductDetailsViewModel GetForShowDetails(long id)
+        public async Task<ProductDetailsViewModel> GetForShowDetails(Int64 id)
         {
-            var product = _products
+            Product product = await _products
                 .Where(a => a.Id == id)
-                .Include(a => a.Images).Include(a => a.Category).Include(a => a.Comments).FirstOrDefault();
+                .Include(a => a.Images)
+                .Include(a => a.Category)
+                .Include(a => a.Comments)
+                .FirstOrDefaultAsync();
             product.ViewCount++;
             return new ProductDetailsViewModel
             {
@@ -518,7 +579,11 @@ namespace ServiceLayer.EFServices
                 SellCount = product.SellCount,
                 IsInStock = product.Stock - product.Reserve >= product.Ratio,
                 ViewCount = product.ViewCount,
-                Description = product.Description
+                Description = product.Description,
+                ComingSoon = product.ComingSoon,
+                PriceAfterDiscount = product.PriceAfterDiscount,
+                MetaDescription = product.MetaDescription,
+                MetaKeywords = product.MetaKeywords
             };
         }
 
@@ -535,25 +600,23 @@ namespace ServiceLayer.EFServices
             }
         }
 
-
-
-
-        public void RemoveFromWishList(long id, User user)
+        public async Task RemoveFromWishList(Int64 id, User user)
         {
-            GetById(id).UsersFavorite.Remove(user);
+            Product product = await GetById(id);
+            product.UsersFavorite.Remove(user);
         }
 
-
-        public IEnumerable<ProductSectionViewModel> GetSelecionProductOfCategory(long categoryId)
-        {
-            return
-                _products.AsNoTracking()
+        public IEnumerable<ProductSectionViewModel> GetSelecionProductOfCategory(Int64 categoryId, Int32 take) => _products.AsNoTracking()
                     .Where(a => !a.Deleted && a.Stock - a.Reserve >= a.Ratio && a.CategoryId == categoryId)
                     .Include(a => a.Category)
-                    .OrderBy(a => a.SellCount).Skip(0).Take(4)
+                    .OrderBy(a => a.SellCount)
+                    .Skip(0)
+                    .Take(take)
                     .Select(a => new ProductSectionViewModel
                     {
-                        TotalDiscount = a.ApplyCategoryDiscount ? a.DiscountPercent + a.Category.DiscountPercent : a.DiscountPercent,
+                        TotalDiscount = a.ApplyCategoryDiscount ?
+                                                 a.DiscountPercent + a.Category.DiscountPercent :
+                                                 a.DiscountPercent,
                         Id = a.Id,
                         IsFreeShipping = a.IsFreeShipping,
                         Name = a.Name,
@@ -564,8 +627,10 @@ namespace ServiceLayer.EFServices
                         Ratio = a.Ratio,
                         SellCount = a.SellCount,
                         IsInStock = a.Stock - a.Reserve >= a.Ratio,
-                        ViewCount = a.ViewCount
+                        ViewCount = a.ViewCount,
+                        PriceAfterDiscount = a.PriceAfterDiscount,
+                        ComingSoon = a.ComingSoon,
+                        categoryId = a.CategoryId
                     }).Cacheable().ToList();
-        }
     }
 }

@@ -62,6 +62,27 @@ namespace MVCUI.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Login);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> RemovePopulate()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.RemovePopulate);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> CheckPhoneNumberIsExist()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.CheckPhoneNumberIsExist);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> CheckUserNameIsExist()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.CheckUserNameIsExist);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public UserController Actions { get { return MVC.User; } }
@@ -80,6 +101,16 @@ namespace MVCUI.Controllers
         {
             public readonly string Login = "Login";
             public readonly string Register = "Register";
+            public readonly string ForgetPassword = "ForgetPassword";
+            public readonly string logOut = "logOut";
+            public readonly string WhishesList = "WhishesList";
+            public readonly string RemovePopulate = "RemovePopulate";
+            public readonly string Order = "Order";
+            public readonly string Comment = "Comment";
+            public readonly string Profile = "Profile";
+            public readonly string EditUserOrder = "EditUserOrder";
+            public readonly string CheckPhoneNumberIsExist = "CheckPhoneNumberIsExist";
+            public readonly string CheckUserNameIsExist = "CheckUserNameIsExist";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -87,6 +118,16 @@ namespace MVCUI.Controllers
         {
             public const string Login = "Login";
             public const string Register = "Register";
+            public const string ForgetPassword = "ForgetPassword";
+            public const string logOut = "logOut";
+            public const string WhishesList = "WhishesList";
+            public const string RemovePopulate = "RemovePopulate";
+            public const string Order = "Order";
+            public const string Comment = "Comment";
+            public const string Profile = "Profile";
+            public const string EditUserOrder = "EditUserOrder";
+            public const string CheckPhoneNumberIsExist = "CheckPhoneNumberIsExist";
+            public const string CheckUserNameIsExist = "CheckUserNameIsExist";
         }
 
 
@@ -97,6 +138,64 @@ namespace MVCUI.Controllers
         public class ActionParamsClass_Login
         {
             public readonly string returnUrl = "returnUrl";
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_Register s_params_Register = new ActionParamsClass_Register();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Register RegisterParams { get { return s_params_Register; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Register
+        {
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_ForgetPassword s_params_ForgetPassword = new ActionParamsClass_ForgetPassword();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ForgetPassword ForgetPasswordParams { get { return s_params_ForgetPassword; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ForgetPassword
+        {
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_WhishesList s_params_WhishesList = new ActionParamsClass_WhishesList();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_WhishesList WhishesListParams { get { return s_params_WhishesList; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_WhishesList
+        {
+            public readonly string page = "page";
+        }
+        static readonly ActionParamsClass_RemovePopulate s_params_RemovePopulate = new ActionParamsClass_RemovePopulate();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_RemovePopulate RemovePopulateParams { get { return s_params_RemovePopulate; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_RemovePopulate
+        {
+            public readonly string productId = "productId";
+        }
+        static readonly ActionParamsClass_EditUserOrder s_params_EditUserOrder = new ActionParamsClass_EditUserOrder();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_EditUserOrder EditUserOrderParams { get { return s_params_EditUserOrder; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_EditUserOrder
+        {
+            public readonly string viewModel = "viewModel";
+        }
+        static readonly ActionParamsClass_CheckPhoneNumberIsExist s_params_CheckPhoneNumberIsExist = new ActionParamsClass_CheckPhoneNumberIsExist();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_CheckPhoneNumberIsExist CheckPhoneNumberIsExistParams { get { return s_params_CheckPhoneNumberIsExist; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_CheckPhoneNumberIsExist
+        {
+            public readonly string PhoneNumber = "Register.PhoneNumber, Register.OldPhoneNumber";
+            public readonly string OldPhoneNumber = "OldPhoneNumber";
+        }
+        static readonly ActionParamsClass_CheckUserNameIsExist s_params_CheckUserNameIsExist = new ActionParamsClass_CheckUserNameIsExist();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_CheckUserNameIsExist CheckUserNameIsExistParams { get { return s_params_CheckUserNameIsExist; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_CheckUserNameIsExist
+        {
+            public readonly string UserName = "Register.UserName";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -108,11 +207,19 @@ namespace MVCUI.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _EditUserOrder = "_EditUserOrder";
+                public readonly string ForgetPassword = "ForgetPassword";
                 public readonly string Login = "Login";
+                public readonly string Profile = "Profile";
                 public readonly string Register = "Register";
+                public readonly string WhishesList = "WhishesList";
             }
+            public readonly string _EditUserOrder = "~/Views/User/_EditUserOrder.cshtml";
+            public readonly string ForgetPassword = "~/Views/User/ForgetPassword.cshtml";
             public readonly string Login = "~/Views/User/Login.cshtml";
+            public readonly string Profile = "~/Views/User/Profile.cshtml";
             public readonly string Register = "~/Views/User/Register.cshtml";
+            public readonly string WhishesList = "~/Views/User/WhishesList.cshtml";
         }
     }
 
@@ -134,14 +241,177 @@ namespace MVCUI.Controllers
         }
 
         [NonAction]
+        partial void LoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ViewModel.ViewModel.Admin.User.LoginViewModel model);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Login(ViewModel.ViewModel.Admin.User.LoginViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Login);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            LoginOverride(callInfo, model);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.ActionResult);
+        }
+
+        [NonAction]
         partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Register()
+        public override System.Web.Mvc.ActionResult Register()
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
             RegisterOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ViewModel.ViewModel.Admin.User.UserWithAddressViewModel model);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Register(ViewModel.ViewModel.Admin.User.UserWithAddressViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            RegisterOverride(callInfo, model);
             return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.ActionResult);
+        }
+
+        [NonAction]
+        partial void ForgetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ForgetPassword()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ForgetPassword);
+            ForgetPasswordOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ForgetPasswordOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ViewModel.ViewModel.Admin.User.ForgetPasswordViewModel model);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> ForgetPassword(ViewModel.ViewModel.Admin.User.ForgetPasswordViewModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ForgetPassword);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            ForgetPasswordOverride(callInfo, model);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.ActionResult);
+        }
+
+        [NonAction]
+        partial void logOutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult logOut()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.logOut);
+            logOutOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void WhishesListOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int page);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult WhishesList(int page)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.WhishesList);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "page", page);
+            WhishesListOverride(callInfo, page);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void RemovePopulateOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, long? productId);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> RemovePopulate(long? productId)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.RemovePopulate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "productId", productId);
+            RemovePopulateOverride(callInfo, productId);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
+
+        [NonAction]
+        partial void OrderOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Order()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Order);
+            OrderOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CommentOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Comment()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Comment);
+            CommentOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ProfileOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Profile()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Profile);
+            ProfileOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void EditUserOrderOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.PartialViewResult> EditUserOrder()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.EditUserOrder);
+            EditUserOrderOverride(callInfo);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.PartialViewResult);
+        }
+
+        [NonAction]
+        partial void EditUserOrderOverride(T4MVC_System_Web_Mvc_PartialViewResult callInfo, ViewModel.ViewModel.Admin.User.UserWithAddressViewModel viewModel);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.PartialViewResult> EditUserOrder(ViewModel.ViewModel.Admin.User.UserWithAddressViewModel viewModel)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_PartialViewResult(Area, Name, ActionNames.EditUserOrder);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "viewModel", viewModel);
+            EditUserOrderOverride(callInfo, viewModel);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.PartialViewResult);
+        }
+
+        [NonAction]
+        partial void CheckPhoneNumberIsExistOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, string PhoneNumber, string OldPhoneNumber);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> CheckPhoneNumberIsExist(string PhoneNumber, string OldPhoneNumber)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.CheckPhoneNumberIsExist);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Register.PhoneNumber, Register.OldPhoneNumber", PhoneNumber);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "OldPhoneNumber", OldPhoneNumber);
+            CheckPhoneNumberIsExistOverride(callInfo, PhoneNumber, OldPhoneNumber);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
+        }
+
+        [NonAction]
+        partial void CheckUserNameIsExistOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, string UserName);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.JsonResult> CheckUserNameIsExist(string UserName)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.CheckUserNameIsExist);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Register.UserName", UserName);
+            CheckUserNameIsExistOverride(callInfo, UserName);
+            return System.Threading.Tasks.Task.FromResult(callInfo as System.Web.Mvc.JsonResult);
         }
 
     }

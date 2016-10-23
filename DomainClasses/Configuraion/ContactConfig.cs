@@ -14,11 +14,7 @@ namespace DomainClasses.Configuraion
             this.Property(x => x.Title)
                 .HasMaxLength(100)
                 .IsRequired();
-
-            this.HasRequired(x => x.User)
-                .WithMany(x => x.Contacts)
-                .WillCascadeOnDelete(true);
-
+            
             this.Property(x => x.RowVersion)
                 .IsRowVersion();
         }
